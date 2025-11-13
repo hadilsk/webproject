@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SmileCare – Book Appointment</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1 class="logo">SmileCare</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="gallary.html">Gallery</a></li>
+        <li><a href="review.html">Patient Reviews</a></li>
+        <li><a href="bookAppointment.html">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="background: url('../images/book-banner.jpg') center/cover no-repeat; color: var(--color-white);">
+  <div class="container">
+    <h2>Book your appointment</h2>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h3>Book Your Appointment</h3>
+    <form class="contact-form" action="#" method="post">
+      <label for="patient-name">Full Name *</label>
+      <input type="text" id="patient-name" name="patient-name" required>
+
+      <label for="patient-email">Email Address *</label>
+      <input type="email" id="patient-email" name="patient-email" required>
+
+      <label for="patient-phone">Phone Number *</label>
+      <input type="tel" id="patient-phone" name="patient-phone" required>
+
+      <label for="service-select">Choose a Service *</label>
+      <select id="service-select" name="service-select" required>
+        <option value="">-- Please choose --</option>
+        <option value="cleaning">Dental Exams & Cleanings</option>
+        <option value="fillings">Dental Fillings</option>
+        <option value="whitening">Teeth Whitening</option>
+        <option value="braces">Braces & Orthodontics</option>
+      </select>
+
+      <label for="dentist-select">Select a Doctor *</label>
+      <select id="dentist-select" name="dentist-select" required>
+        <option value="">-- Please choose --</option>
+        <option value="elena">Dr. Elena Vance</option>
+        <option value="ben">Dr. Ben Carter</option>
+        <option value="sophia">Dr. Sophia Rossi</option>
+      </select>
+
+      <label for="date">Preferred Date *</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Preferred Time *</label>
+      <input type="time" id="time" name="time" required>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 SmileCare. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
