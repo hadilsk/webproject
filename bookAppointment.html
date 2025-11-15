@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Book Appointment</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1 class="logo">SmileCare</h1>
+  <!-- NAVBAR -->
+  <header>
+    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -23,19 +23,26 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section class="hero" style="background: url('../images/book-banner.jpg') center/cover no-repeat; color: var(--color-white);">
-  <div class="container">
-    <h2>Book your appointment</h2>
+<!-- ===== HERO BANNER ===== -->
+<section class="hero" style="background: url('home.jpeg') center/cover no-repeat;"> <!-- 🩷🩷🩷 Toothbrush with paste -->
+  <div class="content">
+    <h1>Book your appointment</h1>
+    <h2>We're here to help you smile brighter</h2>
   </div>
 </section>
 
+<!-- ===== FORM SECTION ===== -->
 <section>
-  <div class="container">
-    <h3>Book Your Appointment</h3>
-    <form class="contact-form" action="#" method="post">
+  <div class="welcome">
+    <h2>Book Your Appointment</h2>
+    <p>Please fill in the form below. Our team will contact you shortly to confirm your booking.</p>
+  </div>
+
+  <div class="container" style="max-width: 700px; margin: auto; padding: 20px;">
+    <form class="contact-form" action="#" method="post" style="display: flex; flex-direction: column; gap: 20px; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+
       <label for="patient-name">Full Name *</label>
       <input type="text" id="patient-name" name="patient-name" required>
 
@@ -68,16 +75,36 @@
       <label for="time">Preferred Time *</label>
       <input type="time" id="time" name="time" required>
 
-      <button type="submit">Confirm Booking</button>
+      <button type="submit" style="background-color: #003A52; color: white; padding: 12px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Confirm Booking</button>
     </form>
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <p>© 2025 SmileCare. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- FOOTER (Mission + Visit Us) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <img src="2.jpg" alt="Mission Image" />
+        <div>
+          <h3>Our Mission</h3>
+          <p>To make every patient feel confident and comfortable with their smile.</p>
+          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+        </div>
+      </div>
+      <div class="footer-box">
+        <img src="office.jpg" alt="Visit Us Image" />
+        <div>
+          <h3>Visit Us</h3>
+          <p>Shati Al Qurum - 3024 way</p>
+          <p>📞 +92828289</p>
+          <p>📞 +24696622</p>
+          <p>📞 +93233100</p>
+          <p>📧 smilecare@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
