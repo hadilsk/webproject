@@ -50,7 +50,7 @@ header {
 }
 
 header img.logo {
-  height: 60px;
+  height: 40px;
 }
 
 nav ul {
@@ -62,15 +62,15 @@ nav ul {
 nav a {
   text-decoration: none;
   color: #001F3F;
-  font-weight: 510; 
+  font-weight: 560; 
   font-size: 1rem;
   letter-spacing: 0.5px; 
-  font-family: 'Montserrat', sans-serif;
+  font-family:sans-serif
 }
 
 nav a:hover {
   color: #FF5C7A;
-  letter-spacing: 0.8px; /* Subtle animation on hover */
+  letter-spacing: 0.8px;
 }
 
 
@@ -119,6 +119,15 @@ nav a:hover {
   margin-bottom: 20px;
   letter-spacing: 0.5px;
 }
+
+.hero h1,
+.hero h2 {
+  color: white !important;
+  background: none !important;
+  font-family:sans-serif
+}
+
+
 
 /* =======================
    Sections
