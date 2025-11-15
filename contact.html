@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Contact</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1 class="logo">SmileCare</h1>
+  <!-- NAVBAR -->
+  <header>
+    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
-       <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="doctors.html">Doctors</a></li>
@@ -23,44 +23,96 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>  <!-- NAVBAR -->
+  <header>
+    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="doctors.html">Doctors</a></li>
+        <li><a href="gallary.html">Gallery</a></li>
+        <li><a href="review.html">Patient Reviews</a></li>
+        <li><a href="bookAppointment.html">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section>
-  <div class="container">
-    <h3>Contact Information</h3>
-    <p><strong>Address:</strong> Shati Al Qurum – 3024 Way, Muscat, Oman</p>
-    <p><strong>Phone:</strong> +968 92828289 / +968 24696622 / +968 93233100</p>
-    <p><strong>Email:</strong> <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" style="background: url('home.jpeg') center/cover no-repeat;">
+  <div class="content">
+    <h1>Contact Us</h1>
+    <h2>We’d love to hear from you!</h2>
   </div>
 </section>
 
+<!-- ===== CONTACT INFO SECTION ===== -->
 <section>
-  <div class="container">
-    <h3>Send Us a Message</h3>
-    <form class="contact-form" action="#" method="post">
-      <label for="name">Your Name</label>
+  <div class="welcome">
+    <h2>Get in Touch</h2>
+    <p>Reach out for questions, appointments or general inquiries. We're here to help!</p>
+  </div>
+
+  <div class="container" style="max-width: 800px; margin: auto; padding: 20px;">
+    <div style="background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <h3 style="margin-bottom: 20px;">Clinic Details</h3>
+      <p><strong>Address:</strong> Shati Al Qurum – 3024 Way, Muscat, Oman</p>
+      <p><strong>Phone:</strong> +968 92828289 / +968 24696622 / +968 93233100</p>
+      <p><strong>Email:</strong> <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM SECTION ===== -->
+<section>
+  <div class="container" style="max-width: 800px; margin: auto; padding: 20px;">
+    <form class="contact-form" action="#" method="post" style="display: flex; flex-direction: column; gap: 20px; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+      <h3>Send Us a Message</h3>
+
+      <label for="name">Your Name *</label>
       <input type="text" id="name" name="name" required>
 
-      <label for="email">Your Email</label>
+      <label for="email">Your Email *</label>
       <input type="email" id="email" name="email" required>
 
       <label for="phone">Phone Number</label>
       <input type="tel" id="phone" name="phone">
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+      <label for="message">Your Message *</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Submit</button>
+      <button type="submit" style="background-color: #003A52; color: white; padding: 12px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Submit</button>
     </form>
   </div>
 </section>
 
-<footer>
-  <div class="container">
-    <p>© 2025 SmileCare. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- FOOTER (Mission + Visit Us) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <img src="2.jpg" alt="Mission Image" />
+        <div>
+          <h3>Our Mission</h3>
+          <p>To make every patient feel confident and comfortable with their smile.</p>
+          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+        </div>
+      </div>
+      <div class="footer-box">
+        <img src="office.jpg" alt="Visit Us Image" />
+        <div>
+          <h3>Visit Us</h3>
+          <p>Shati Al Qurum - 3024 way</p>
+          <p>📞 +92828289</p>
+          <p>📞 +24696622</p>
+          <p>📞 +93233100</p>
+          <p>📧 smilecare@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
