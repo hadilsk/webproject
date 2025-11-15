@@ -6,24 +6,153 @@
   <title>SmileCare – Patient Reviews</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    body{
+      background-color: white;
+    }
     p.name{
       text-align: center;
     }
     .trim-frame {
     width: 300px;
     height: 200px; 
-    /* The image will be trimmed to this exact size */
-    overflow: hidden; /* Recommended to ensure clipping */
+    
+    overflow: hidden; 
 }
 
-/* 2. Apply object-fit to the image itself */
+
 .trim-frame img {
     width: 100%;
     height: 100%;
-    /* Key property: Scales the image uniformly to cover the container */
+    
     object-fit: cover; 
-    /* Ensures the image fills the 300x200 area, cutting off the sides/top/bottom */
+    
 }
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.testimonial {
+  background-color: #eef9ff;
+  padding: 20px;
+  border-radius: 6px;
+}
+.testimonial p {
+  margin-bottom: 10px;
+}
+.testimonial .name {
+  font-weight: bold;
+  text-align: right;
+}
+div h3{
+background-color: #efefef;
+
+}
+div p{
+background-color: #efefef;
+}
+body{
+      background-color: white;
+    }
+    p.name{
+      text-align: center;
+    }
+    .trim-frame {
+      width: 300px;
+      height: 200px; 
+      overflow: hidden; 
+    }
+    .trim-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .testimonial {
+      background-color: #eef9ff;
+      padding: 20px;
+      border-radius: 6px;
+    }
+    .testimonial p {
+      margin-bottom: 10px;
+    }
+    .testimonial .name {
+      font-weight: bold;
+      text-align: right;
+    }
+    div h3{
+      background-color: #efefef;
+    }
+    div p{
+      background-color: #efefef;
+    }
+
+    /* === FORM STYLES ADDED HERE === */
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%; /* Adjusted for better integration */
+      max-width: 500px; 
+      margin: 40px auto; /* Center the form and add vertical spacing */
+    }
+
+    .form-container h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box; 
+      font-size: 1em;
+    }
+
+    textarea {
+      resize: vertical; 
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #007bff; /* Primary blue color */
+      color: white;
+      padding: 14px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
   </style>
 </head>
 <body >
@@ -44,10 +173,10 @@
     </nav>
   </header>
 
-<section class="hero" style="background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat; opacity: 0.5; ">
+<section class="hero" style="background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat; opacity: 0.7; ">
   <div class="container">
-    <h2 style="color: black;">Don’t Just Take Our Word For It</h2>
-    <p class="tagline" style="color: black;">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand. These reviews reflect our commitment to your comfort, health, and a beautiful smile.
+    <h2 style="color:rgb(0, 0, 0,1)">Don’t Just Take Our Word For It</h2>
+    <p class="tagline" style="color: rgb(0, 0, 0,1); background-color:rgb(255,255,255,0.0);">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand. These reviews reflect our commitment to your comfort, health, and a beautiful smile.
 
 </p>
   </div>
@@ -85,12 +214,61 @@
     <p style="text-align:center; margin-top:40px;">To submit your own review, please contact us.</p>
   </div>
 </section>
+<div class="form-container">
+        <h1>Share Your Experience</h1>
+        <form action="/submit-review" method="POST">
+            
+            <div class="form-group">
+                <label for="name">Your Name (Optional):</label>
+                <input type="text" id="name" name="patient_name">
+            </div>
 
-<footer>
-  <div class="container">
-    <p>© 2025 SmileCare. All rights reserved.</p>
-  </div>
-</footer>
+            <div class="form-group">
+                <label for="rating">Overall Rating:</label>
+                <select id="rating" name="overall_rating" required>
+                    <option value="" disabled selected>Select a rating</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Average</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="1">1 - Very Poor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Your Comments:</label>
+                <textarea id="comments" name="review_comments" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Review</button>
+
+        </form>
+</div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <img src="2.jpg" alt="Mission Image" />
+        <div>
+          <h3 style="background-color:#ffd6da ;">Our Mission</h3>
+          <p>To make every patient feel confident and comfortable with their smile.</p>
+          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+        </div>
+      </div>
+      <div class="footer-box">
+        <img src="office.jpg" alt="Visit Us Image" />
+        <div>
+          <h3 style="background-color:#ffd6da ;">Visit Us</h3>
+          <p>Shati Al Qurum - 3024 way</p>
+          <p>📞 +92828289</p>
+          <p>📞 +24696622</p>
+          <p>📞 +93233100</p>
+          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
