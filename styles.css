@@ -62,14 +62,17 @@ nav ul {
 nav a {
   text-decoration: none;
   color: #001F3F;
-  font-weight: 600;
+  font-weight: 510; 
   font-size: 1rem;
-  transition: color 0.3s;
+  letter-spacing: 0.5px; 
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav a:hover {
   color: #FF5C7A;
+  letter-spacing: 0.8px; /* Subtle animation on hover */
 }
+
 
 /* =======================
    Hero Section
