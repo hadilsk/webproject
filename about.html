@@ -1,19 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SmileCare – About Us</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - SmileCare Dental Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- External navbar CSS -->
+  <style>
+    /* ABOUT HERO SECTION */
+    .about-hero {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f0f0f0;
+      padding: 100px 40px 40px 40px; /* leave space for fixed navbar */
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #003A52;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #003A52;
+    }
+
+    .about-img {
+      flex: 1;
+      min-width: 300px;
+      text-align: right;
+    }
+
+    .about-img img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    /* TEAM SECTION */
+    .team-section {
+      background-color: #FFD6D9; /* pinkish background */
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .team-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #003A52;
+    }
+
+    .team-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .team-card {
+      background: white;
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .team-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .team-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #003A52;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      color: #003A52;
+      line-height: 1.5;
+    }
+
+    /* CALL-TO-ACTION SECTION */
+    .cta-section {
+      padding: 60px 40px;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .cta-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #003A52;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #003A52;
+    }
+
+    .cta-section button {
+      padding: 14px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      background: #003A52;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .cta-section button:hover {
+      background: #00AEEF;
+      transform: scale(1.05);
+    }
+    
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1 class="logo">SmileCare</h1>
+  <!-- NAVBAR -->
+  <header>
+    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
-       <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="doctors.html">Doctors</a></li>
@@ -23,60 +152,75 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section>
-  <div class="container">
-    <h3>About Us – SmileCare Dental</h3>
-    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center;">
-      <div style="flex:1; min-width:300px;">
-        <img src="images/about-team.jpg" alt="Dental team photo">
+  <!-- HERO SECTION -->
+  <section class="about-hero">
+    <div class="about-text">
+      <h1>About Us - SmileCare Dental</h1>
+      <p><strong>Your Trusted Partner for a Healthy, Beautiful Smile</strong></p>
+      <p>Welcome to Smile Care Dental, where our passion is creating healthy, confident smiles for you and your family. For over a decade, we have been the trusted dental practice for the Omani community, founded on the belief that everyone deserves compassionate, high-quality care in a comfortable and welcoming environment.</p>
+      <p>We understand that a visit to the dentist can be daunting for some. That's why our entire team is dedicated to making your experience as relaxed and positive as possible. From the moment you walk in, you'll feel the difference that genuine care and modern dentistry can make.</p>
+    </div>
+    <div class="about-img">
+      <img src="team.jpg" alt="About SmileCare">
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section">
+    <h2>Meet Our Caring Team</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <img src="dr1.jpg" alt="Dr. Evelyn Reed">
+        <h3>Dr. Evelyn Reed, DDS - Lead Dentist</h3>
+        <p>With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry. Her gentle approach ensures that even the most anxious patients feel at ease.</p>
       </div>
-      <div style="flex:1; min-width:300px;">
-        <p>Welcome to SmileCare Dental, where our passion is creating healthy, confident smiles for you and your family. For over a decade, we have been the trusted dental practice for the Omani community, founded on the belief that everyone deserves compassionate, high‑quality care in a comfortable and welcoming environment.</p>
-        <p>We understand that a visit to the dentist can be daunting for some. That’s why our entire team is dedicated to making your experience as relaxed and positive as possible. From the moment you walk in, you’ll feel the difference that genuine care and modern dentistry can make.</p>
+      <div class="team-card">
+        <img src="dr2.jpg" alt="Dr. Marcus Chen">
+        <h3>Dr. Marcus Chen, DDS - Associate Dentist</h3>
+        <p>Dr. Chen specializes in family and restorative dentistry and is a certified provider of Invisalign and advanced implant procedures. He builds long-term relationships with patients to maintain oral health for a lifetime.</p>
+      </div>
+      <div class="team-card">
+        <img src="DR3.jpg" alt="Sarah Jones">
+        <h3>Sarah Jones - Office Manager</h3>
+        <p>Sarah is the friendly voice you hear on the phone and the warm smile that greets you at the front desk. She ensures the smooth operation of our practice and handles scheduling and insurance seamlessly.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section style="background-color: var(--color-secondary); color:#fff;">
-  <div class="container">
-    <h3>Meet Our Caring Team</h3>
-    <div class="card-grid">
-      <div class="card">
-        <img src="images/doctor1.jpg" alt="Dr. Evelyn Reed">
-        <div class="card-content">
-          <h4>Dr. Evelyn Reed, DDS – Lead Dentist</h4>
-          <p>With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry. She earned her Doctor of Dental Surgery degree from the University of Pacific Coast and is committed to staying at the forefront of dental advancements.</p>
+  <!-- CALL TO ACTION -->
+  <section class="cta-section">
+    <h2>Your Journey to a Better Smile Starts Here</h2>
+    <p>We are not just a dental practice; we are your partners in health. Ready to experience compassionate, modern dental care?</p>
+    <button onclick="window.location.href='bookAppointment.html'">Book Your Appointment Today</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <img src="2.jpg" alt="Mission Image" />
+        <div>
+          <h3>Our Mission</h3>
+          <p>To make every patient feel confident and comfortable with their smile.</p>
+          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
-      <div class="card">
-        <img src="images/doctor2.jpg" alt="Dr. Marcus Chen">
-        <div class="card-content">
-          <h4>Dr. Marcus Chen, DDS – Associate Dentist</h4>
-          <p>Dr. Chen specializes in family and restorative dentistry and is beloved by his patients of all ages for his patience and meticulous work. He is a certified provider of Invisalign® and advanced implant procedures.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/doctor3.jpg" alt="Sarah Jones – Office Manager">
-        <div class="card-content">
-          <h4>Sarah Jones – Office Manager</h4>
-          <p>Sarah is the friendly voice you hear on the phone and the warm smile that greets you at the front desk. She ensures the smooth operation of our practice for over 5 years and is an expert at handling scheduling, insurance, and making your visit seamless.</p>
+      <div class="footer-box">
+        <img src="office.jpg" alt="Visit Us Image" />
+        <div>
+          <h3>Visit Us</h3>
+          <p>Shati Al Qurum - 3024 way</p>
+          <p>📞 +92828289</p>
+          <p>📞 +24696622</p>
+          <p>📞 +93233100</p>
+          <p>📧 smilecare@gmail.com</p>
         </div>
       </div>
     </div>
-    <p style="margin-top:30px; font-style:italic; text-align:center;">Your journey to a better smile starts here. We are not just a dental practice; we are your partners in health.</p>
-    <p style="text-align:center;"><a href="book.html" class="cta-button">Book Your Appointment Today</a></p>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>© 2025 SmileCare. All rights reserved.</p>
-  </div>
-</footer>
+    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
