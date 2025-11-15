@@ -5,8 +5,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SmileCare – Patient Reviews</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    p.name{
+      text-align: center;
+    }
+    .trim-frame {
+    width: 300px;
+    height: 200px; 
+    /* The image will be trimmed to this exact size */
+    overflow: hidden; /* Recommended to ensure clipping */
+}
+
+/* 2. Apply object-fit to the image itself */
+.trim-frame img {
+    width: 100%;
+    height: 100%;
+    /* Key property: Scales the image uniformly to cover the container */
+    object-fit: cover; 
+    /* Ensures the image fills the 300x200 area, cutting off the sides/top/bottom */
+}
+  </style>
 </head>
-<body>
+<body >
 
 <header>
   <div class="container">
@@ -26,31 +46,41 @@
   </div>
 </header>
 
-<section class="hero" style="background: url('../images/reviews-banner.jpg') center/cover no-repeat; color: var(--color-white);">
+<section class="hero" style="background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat; opacity: 0.5; ">
   <div class="container">
-    <h2>Don’t Just Take Our Word For It</h2>
-    <p class="tagline">Read genuine reviews from patients who have experienced our care.</p>
+    <h2 style="color: black;">Don’t Just Take Our Word For It</h2>
+    <p class="tagline" style="color: black;">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand. These reviews reflect our commitment to your comfort, health, and a beautiful smile.
+
+</p>
   </div>
 </section>
 
-<section>
-  <div class="container">
+<section style="background-color: #efefef;">
+  <div class="container" style="background-color: #efefef;">
     <h3>Patient Reviews</h3>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>"The dentist knew what he was doing and made me feel at ease. I would highly recommend SmileCare!"</p>
+    <div class="testimonials" style="background-color: #efefef;">
+      <div class="testimonial" style="background-color: #efefef;">
+        <div class="trim-frame">
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/31H4fUBky1L.jpg" alt="Patient Review "></div>
+        <p>★★★☆☆<br>"The dentist knew what he was doing and made me feel at ease. I would highly recommend SmileCare!"</p>
         <p class="name">‑ Robert T.</p>
       </div>
-      <div class="testimonial">
-        <p>"Dr. Carter is excellent! My teeth feel amazing and the process was quick."</p>
+      <div class="testimonial" style="background-color: #efefef;">
+        <div class="trim-frame">
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/pIrD3JzW_400x400.jpg" alt="Patient Review "></div>
+        <p>★★★★★<br>"Dr. Carter is excellent! My teeth feel amazing and the process was quick."</p>
         <p class="name">‑ Susan D.</p>
       </div>
-      <div class="testimonial">
-        <p>"Friendly staff, modern clinic and outstanding service."</p>
+      <div class="testimonial" style="background-color: #efefef;">
+        <div class="trim-frame">
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/James-Gorman-396x396.jpg" alt="Patient Review "></div>
+        <p>★★★★☆<br>"Friendly staff, modern clinic and outstanding service."</p>
         <p class="name">‑ James P.</p>
       </div>
-      <div class="testimonial">
-        <p>"The entire family sees Dr. Jones and we couldn’t be happier. He makes visits simple and painless."</p>
+      <div class="testimonial" style="background-color: #efefef;">
+        <div class="trim-frame">
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Mark_T._Sullivan_.jpg" alt="Patient Review "></div>
+        <p>★★★★★<br>"The entire family sees Dr. Jones and we couldn’t be happier. He makes visits simple and painless."</p>
         <p class="name">‑ Albert T.</p>
       </div>
     </div>
