@@ -5,9 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Book Appointment</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ======================= Hero Section ======================= */
+.hero {
+  margin-top: 100px;
+  height: 60vh;
+  background: url('team.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.hero h1, .hero h2 {
+  color: #fff;
+  background: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* ======================= Content Sections ======================= */
+section {
+  padding: 60px 20px;
+}
+
+.welcome {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.welcome h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.welcome p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ======================= Contact Info Box ======================= */
+.container > div {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* ======================= Contact Form ======================= */
+form.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form.contact-form label {
+  font-weight: bold;
+  text-align: left;
+  color: #003A52;
+}
+
+form.contact-form input,
+form.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fdfdfd;
+}
+
+form.contact-form button {
+  background-color: #003A52;
+  color: white;
+  padding: 12px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form.contact-form button:hover {
+  background-color: #007ba7;
+}
+  </style>
 </head>
 <body>
- 
 
   <!-- NAVBAR -->
   <header>
@@ -27,7 +138,7 @@
   </header>
 
 <!-- ===== HERO BANNER ===== -->
-<section class="hero" style="background: url('home.jpeg') center/cover no-repeat;"> <!-- 🩷🩷🩷 Toothbrush with paste -->
+<section class="hero" style="background: url('team.jpg') center/cover no-repeat;"> <!-- 🩷🩷🩷 Toothbrush with paste -->
   <div class="content">
     <h1>Book your appointment</h1>
     <h2>We're here to help you smile brighter</h2>

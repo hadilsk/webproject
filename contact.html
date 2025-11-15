@@ -5,25 +5,213 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Contact</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* === Contact Page Styling === */
+
+    .contact-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 120px auto 40px;
+      padding: 20px 30px;
+      background-color: #edf1f3;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-intro h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #003A52;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .contact-intro p {
+      font-size: 1.05rem;
+      color: #003A52;
+      line-height: 1.7;
+    }
+
+    .contact-info-map-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .contact-table-wrapper {
+      flex: 1 1 400px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-table-wrapper h3 {
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      color: #003A52;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .contact-info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+
+    .contact-info-table th,
+    .contact-info-table td {
+      padding: 12px 10px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid #eee;
+    }
+
+    .contact-info-table th {
+      width: 120px;
+      font-weight: bold;
+      color: #003A52;
+    }
+
+    .contact-info-table td {
+      color: #003A52;
+    }
+
+    .contact-info-table a {
+      color: #003A52;
+      text-decoration: none;
+    }
+
+    .contact-info-table a:hover {
+      text-decoration: underline;
+    }
+
+    .map-container {
+      flex: 1 1 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: 0;
+    }
+
+    form.contact-form {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form.contact-form label {
+      font-weight: bold;
+      color: #003A52;
+      text-align: left;
+    }
+
+    form.contact-form input,
+    form.contact-form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      background: #fdfdfd;
+    }
+
+    form.contact-form button {
+      background-color: #003A52;
+      color: #ffffff;
+      padding: 12px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form.contact-form button:hover {
+      background-color: #007ba7;
+    }
+
+    footer {
+      background: #f4f4f4;
+      padding: 60px 20px 30px;
+      font-family: 'Roboto', sans-serif;
+      color: #003A52;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: flex-start;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .footer-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-box div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-box p,
+    .footer-box a {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: left;
+      background: none;
+      color: #003A52;
+      text-decoration: none;
+    }
+
+    .footer-box a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="doctors.html">Doctors</a></li>
-        <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>  <!-- NAVBAR -->
   <header>
     <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
@@ -40,35 +228,46 @@
     </nav>
   </header>
 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero" style="background: url('home.jpeg') center/cover no-repeat;">
-  <div class="content">
-    <h1>Contact Us</h1>
-    <h2>We’d love to hear from you!</h2>
-  </div>
-</section>
-
-<!-- ===== CONTACT INFO SECTION ===== -->
-<section>
-  <div class="welcome">
-    <h2>Get in Touch</h2>
-    <p>Reach out for questions, appointments or general inquiries. We're here to help!</p>
-  </div>
-
-  <div class="container" style="max-width: 800px; margin: auto; padding: 20px;">
-    <div style="background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-      <h3 style="margin-bottom: 20px;">Clinic Details</h3>
-      <p><strong>Address:</strong> Shati Al Qurum – 3024 Way, Muscat, Oman</p>
-      <p><strong>Phone:</strong> +968 92828289 / +968 24696622 / +968 93233100</p>
-      <p><strong>Email:</strong> <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+  <section>
+    <div class="contact-intro">
+      <h2>Get in Touch</h2>
+      <p>Have questions, need an appointment, or just want to reach out?<br>We’re here to help you every step of the way!</p>
     </div>
-  </div>
-</section>
 
-<!-- ===== FORM SECTION ===== -->
-<section>
-  <div class="container" style="max-width: 800px; margin: auto; padding: 20px;">
-    <form class="contact-form" action="#" method="post" style="display: flex; flex-direction: column; gap: 20px; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <div class="contact-info-map-wrapper">
+      <div class="contact-table-wrapper">
+        <h3>Clinic Details</h3>
+        <table class="contact-info-table">
+          <tbody>
+            <tr>
+              <th>Address</th>
+              <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
+            </tr>
+            <tr>
+              <th>Phone</th>
+              <td>+968 92828289 / +968 24696622 / +968 93233100</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <form class="contact-form" action="#" method="post">
       <h3>Send Us a Message</h3>
 
       <label for="name">Your Name *</label>
@@ -83,12 +282,10 @@
       <label for="message">Your Message *</label>
       <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit" style="background-color: #003A52; color: white; padding: 12px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Submit</button>
+      <button type="submit">Submit</button>
     </form>
-  </div>
-</section>
+  </section>
 
-  <!-- FOOTER (Mission + Visit Us) -->
   <footer>
     <div class="footer-content">
       <div class="footer-box">
