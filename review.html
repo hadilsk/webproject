@@ -91,16 +91,16 @@ body{
       background-color: #efefef;
     }
 
-    /* === FORM STYLES ADDED HERE === */
+    
 
     .form-container {
       background-color: #ffffff;
       padding: 30px 40px;
       border-radius: 8px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 90%; /* Adjusted for better integration */
+      width: 90%; 
       max-width: 500px; 
-      margin: 40px auto; /* Center the form and add vertical spacing */
+      margin: 40px auto; 
     }
 
     .form-container h1 {
@@ -138,7 +138,7 @@ body{
 
     .submit-btn {
       width: 100%;
-      background-color: #007bff; /* Primary blue color */
+      background-color: #007bff; 
       color: white;
       padding: 14px 20px;
       margin-top: 10px;
@@ -150,9 +150,52 @@ body{
     }
 
     .submit-btn:hover {
-      background-color: #0056b3; /* Darker blue on hover */
+      background-color: #0056b3; 
     }
-
+.rating-summary {
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto 40px auto; 
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .rating-summary h4 {
+        text-align: center;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    .rating-table {
+        width: 100%;
+        border-collapse: collapse; 
+    }
+    .rating-table th, .rating-table td {
+        padding: 10px 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+    .rating-table th {
+        background-color: #f0f0f0;
+        color: #333;
+        font-weight: bold;
+    }
+    .rating-table td:last-child {
+        text-align: right; 
+        font-weight: bold;
+        color: #007bff;
+    }
+    .rating-table tr:last-child td {
+        border-bottom: none;
+    }
+    .overall-rating {
+        font-size: 1.2em;
+        text-align: center !important;
+        font-weight: bold;
+        background-color: #eef9ff;
+    }
   </style>
 </head>
 <body >
@@ -244,12 +287,55 @@ body{
 
         </form>
 </div>
+<div class="rating-summary">
+        <h4>Patient Rating Summary (Based on 150 Reviews)</h4>
+        <table class="rating-table">
+            <thead>
+                <tr>
+                    <th>Rating</th>
+                    <th>Count</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>★★★★★ (Excellent)</td>
+                    <td>105</td>
+                    <td>70%</td>
+                </tr>
+                <tr>
+                    <td>★★★★☆ (Very Good)</td>
+                    <td>30</td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>★★★☆☆ (Average)</td>
+                    <td>10</td>
+                    <td>7%</td>
+                </tr>
+                <tr>
+                    <td>★★☆☆☆ (Poor)</td>
+                    <td>4</td>
+                    <td>2%</td>
+                </tr>
+                <tr>
+                    <td>★☆☆☆☆ (Very Poor)</td>
+                    <td>1</td>
+                    <td>1%</td>
+                </tr>
+                <tr class="overall-rating">
+                    <td colspan="2">Overall Average Rating</td>
+                    <td>4.5 / 5.0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
   <footer>
     <div class="footer-content">
       <div class="footer-box">
         <img src="2.jpg" alt="Mission Image" />
         <div>
-          <h3 style="background-color:#ffd6da ;">Our Mission</h3>
+          <h3 >Our Mission</h3>
           <p>To make every patient feel confident and comfortable with their smile.</p>
           <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
         </div>
@@ -257,7 +343,7 @@ body{
       <div class="footer-box">
         <img src="office.jpg" alt="Visit Us Image" />
         <div>
-          <h3 style="background-color:#ffd6da ;">Visit Us</h3>
+          <h3 >Visit Us</h3>
           <p>Shati Al Qurum - 3024 way</p>
           <p>📞 +92828289</p>
           <p>📞 +24696622</p>
