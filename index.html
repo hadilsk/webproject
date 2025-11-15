@@ -6,6 +6,94 @@
   <title>SmileCare Dental Appointment & Review System</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hero section */
+.hero {
+  margin-top: 120px;
+  width: 100%;
+  height: 80vh;
+  background: url('home.jpeg') center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+    .hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Welcome Section */
+.welcome {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  color: #003A52;
+}
+
+.welcome h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+.welcome p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+.welcome button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #003A52;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.welcome button:hover {
+  background: #00AEEF;
+  transform: scale(1.05);
+}
+
+
+  </style>
 </head>
 <body>
 

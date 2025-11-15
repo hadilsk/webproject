@@ -1,17 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SmileCare – Services</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Dental Services - SmileCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- External navbar CSS -->
+  <style>
+    /* SERVICES HERO */
+    .services-hero {
+      background: url('kid2.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+
+    .services-hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+    }
+
+    .services-hero .content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .services-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .services-hero p {
+      font-size: 1.3rem;
+    }
+
+    /* SERVICES GRID */
+    .services-section {
+      background-color: #FFD6D9; /* pinkish background */
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .services-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #003A52;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      width: 300px;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .service-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #003A52;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #003A52;
+      margin-bottom: 8px;
+    }
+
+    .service-card .price {
+      font-weight: 700;
+      color: #001F3F;
+    }
+
+    @media(max-width: 1000px){
+      .services-grid {
+        justify-content: center;
+      }
+    }
+
+    @media(max-width: 650px){
+      .service-card {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  
-  <div class="container">
-    <h1 class="logo">SmileCare</h1>
+  <!-- NAVBAR -->
+  <header>
+    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -24,66 +131,162 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section class="hero" style="background: url('../images/services-banner.jpg') center/cover no-repeat; color: var(--color-white);">
-  <div class="container">
-    <h2>Our Dental Services</h2>
-    <p class="tagline">Comprehensive, compassionate care for every smile.</p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="card-grid">
-      <!-- Repeat service cards -->
-      <div class="card">
-        <img src="images/service-cleaning.jpg" alt="Dental Exams & Cleanings">
-        <div class="card-content">
-          <h4>Dental Exams & Cleanings</h4>
-          <p>Regular exams and professional cleanings to maintain oral health.</p>
-          <p>Estimated time: 30 min</p>
-          <p class="price">From OMR 30</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/service-fillings.jpg" alt="Dental Fillings">
-        <div class="card-content">
-          <h4>Dental Fillings</h4>
-          <p>Durable restorations for cavities and damaged teeth.</p>
-          <p>Estimated time: 45‑60 min</p>
-          <p class="price">From OMR 45</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/service-whitening.jpg" alt="Teeth Whitening">
-        <div class="card-content">
-          <h4>Teeth Whitening</h4>
-          <p>Safe, effective whitening for a brighter smile.</p>
-          <p>Estimated time: 60‑90 min</p>
-          <p class="price">OMR 120‑200</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/service-braces.jpg" alt="Braces & Orthodontics">
-        <div class="card-content">
-          <h4>Braces & Orthodontics</h4>
-          <p>Specialist orthodontic treatment for children and adults.</p>
-          <p>Estimated time: 6‑24 months</p>
-          <p class="price">From OMR 600</p>
-        </div>
-      </div>
-      <!-- Add more cards as needed -->
+  <!-- HERO SECTION -->
+  <section class="services-hero">
+    <div class="content">
+      <h1>Our Dental Services</h1>
+      <p>Comprehensive, compassionate care for every smile. Explore our full range of general, cosmetic, and specialty treatments below.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="container">
-    <p>© 2025 SmileCare. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- SERVICES GRID SECTION -->
+  <section class="services-section">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+
+      <!-- Service Cards 1-16 -->
+      <div class="service-card">
+        <img src="images.jpeg" alt="Dental Exams & Cleanings">
+        <h3>1. Dental Exams & Cleanings</h3>
+        <p>Routine check-ups are the cornerstone of good oral health. Our thorough exams include oral cancer screening, gum disease assessment, and digital X-rays. Professional cleanings remove plaque and tartar that regular brushing can't, preventing cavities and gum disease.</p>
+        <p class="price">Price: 15 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="GettyImages-1602825165.jpg" alt="Dental Fillings">
+        <h3>2. Dental Fillings</h3>
+        <p>We use tooth-colored, composite fillings to restore teeth damaged by decay back to their normal shape and function. This quick treatment stops decay in its tracks and blends seamlessly with your natural tooth color.</p>
+        <p class="price">Price: 20 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="Root-Canal-Treatment.jpeg" alt="Root Canal Therapy">
+        <h3>3. Root Canal Therapy</h3>
+        <p>When the inner pulp of a tooth becomes infected or inflamed, a root canal can save it. This procedure relieves pain, eliminates infection, and allows you to keep your natural tooth instead of having it extracted.</p>
+        <p class="price">Price: 100 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="Tooth-Extraction.jpg" alt="Tooth Extractions">
+        <h3>4. Tooth Extractions</h3>
+        <p>We perform safe and gentle tooth removals when a tooth is too damaged to be saved, or to relieve crowding. We focus on your comfort throughout the process.</p>
+        <p class="price">Price: 50 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="mouthguards_2.jpg" alt="Night Guards & Mouthguards">
+        <h3>5. Night Guards & Mouthguards</h3>
+        <p>Custom-fitted night guards protect your teeth from grinding and clenching. We also create protective mouthguards for athletes.</p>
+        <p class="price">Price: 25 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="what-options-are-available-for-dental-bleaching-teeth-whitening.jpg" alt="Teeth Whitening">
+        <h3>6. Teeth Whitening</h3>
+        <p>Professional in-office or take-home whitening safely lifts years of stains from coffee, tea, wine, and tobacco, revealing a brighter smile.</p>
+        <p class="price">Price: 60 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="shutterstock_1784932625-scaled.jpg" alt="Dental Veneers">
+        <h3>7. Dental Veneers</h3>
+        <p>Veneers are thin shells of porcelain bonded to the front of teeth. They correct discolored, chipped, misaligned, or gapped teeth for a flawless appearance.</p>
+        <p class="price">Price: 150 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="dental-bonding-for-gaps-toms-river-nj.jpg" alt="Dental Bonding">
+        <h3>8. Dental Bonding</h3>
+        <p>Using tooth-colored composite resin, we repair chipped, cracked, or discolored teeth in a single visit, improving aesthetics cost-effectively.</p>
+        <p class="price">Price: 70 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="Dental-crown-care-tips.jpg" alt="Dental Crowns">
+        <h3>9. Dental Crowns</h3>
+        <p>A crown is a custom-made cap that fully covers a damaged tooth, restoring its shape, size, strength, and appearance.</p>
+        <p class="price">Price: 120 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="dental bridge.jpg" alt="Dental Bridges">
+        <h3>10. Dental Bridges</h3>
+        <p>A bridge replaces missing teeth by anchoring artificial teeth to healthy adjacent teeth, restoring chewing, speech, and facial shape.</p>
+        <p class="price">Price: 200 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="images (1).jpeg" alt="Dental Implants">
+        <h3>11. Dental Implants</h3>
+        <p>A dental implant is a permanent solution for tooth loss. A titanium post is placed in the jawbone, topped with a crown that looks and functions like a natural tooth.</p>
+        <p class="price">Price: 400 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="iStock-115793179111.jpg" alt="Dentures">
+        <h3>12. Dentures</h3>
+        <p>We offer full and partial dentures to replace multiple missing teeth. Custom-crafted for comfort and natural appearance.</p>
+        <p class="price">Price: 250 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="68ef6741db1fdfd6257fd850_Invisalign-Vs-braces-1024x683-1.jpg" alt="Orthodontics">
+        <h3>13. Orthodontics (Braces & Invisalign®)</h3>
+        <p>We straighten teeth using braces or Invisalign. Proper alignment leads to an attractive smile, easier cleaning, and long-term oral health.</p>
+        <p class="price">Price: 1200 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="pediatric-dentistry-clinic.jpg" alt="Pediatric Dentistry">
+        <h3>14. Pediatric Dentistry</h3>
+        <p>Gentle care for children, including first dental visits, preventive cleanings, fluoride treatments, and sealants. Positive experiences for lifelong healthy habits.</p>
+        <p class="price">Price: 30 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="Treatment-for-gingivitis-.jpg" alt="Periodontal Therapy">
+        <h3>15. Periodontal (Gum) Therapy</h3>
+        <p>We diagnose and treat gum disease, from early gingivitis to advanced periodontitis. Includes deep cleanings and infection removal for gum health.</p>
+        <p class="price">Price: 80 OMR</p>
+      </div>
+
+      <div class="service-card">
+        <img src="tmj-tmd-treatment.jpg" alt="TMJ/TMD Therapy">
+        <h3>16. TMJ/TMD Therapy</h3>
+        <p>We diagnose and manage jaw joint disorders. Treatments include custom night guards, stress management, and therapies to relieve jaw pain and headaches.</p>
+        <p class="price">Price: 100 OMR</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <img src="2.jpg" alt="Mission Image" />
+        <div>
+          <h3>Our Mission</h3>
+          <p>To make every patient feel confident and comfortable with their smile.</p>
+          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+        </div>
+      </div>
+      <div class="footer-box">
+        <img src="office.jpg" alt="Visit Us Image" />
+        <div>
+          <h3>Visit Us</h3>
+          <p>Shati Al Qurum - 3024 way</p>
+          <p>📞 +92828289</p>
+          <p>📞 +24696622</p>
+          <p>📞 +93233100</p>
+          <p>📧 smilecare@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
