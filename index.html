@@ -1,99 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SmileCare – Home</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmileCare Dental Appointment & Review System</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="navbar">
-    <div class="container nav-container">
-      <div class="logo">
-        <!-- 🩷🩷🩷 Small logo: tooth icon with pink heart this -->
-        <img src="logoo.pgn" alt="SmileCare Logo" />
-        <span>SmileCare</span>
-      </div>
-      <nav>
-        <ul>
-         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="doctors.html">Doctors</a></li>
-        <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ================= HERO BANNER ================= -->
-  <section class="hero">
-    <!-- 🩷🩷🩷 Background image: young girl smiling in dental chair, blurred dentist in white coat -->
-    <div class="hero-content">
-      <h1>SmileCare Dental Appointment & Review System</h1>
-      <p>Your smile, Our priority</p>
-    </div>
-  </section>
-
-  <!-- ================= CALL TO ACTION ================= -->
-  <section class="welcome-section">
-    <div class="container welcome-content">
-      <a href="book.html" class="btn-appointment">Make Appointment</a>
-      <div class="welcome-text">
-        <h2>Welcome to smileCare DentaDental Clinic</h2>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= INFORMATION SECTION ================= -->
-  <section class="info-section">
-    <div class="container info-grid">
-
-      <div class="info-box">
-        <!-- 🩷🩷🩷 Image: happy child sitting in dental chair, blue walls in background -->
-        <img src="images/info-child.jpg" alt="Child smiling in dental chair">
-        <h3>Our Mission</h3>
-        <p>To make every patient feel confident and comfortable with their smile.</p>
-        <p>At <strong>SmileCare</strong>, we focus on gentle care, advanced technology, and trusted results.</p>
-      </div>
-
-      <div class="info-box">
-        <!-- 🩷🩷🩷 Image: bright modern dental treatment room with chair and lamp -->
-        <img src="images/info-room.jpg" alt="Dental treatment room">
-      </div>
-
-      <div class="info-box">
-        <h3>Visit Us</h3>
-        <p>Shati Al Qurum - 3024 way</p>
-        <p><a href="tel:+92828289">+92828289</a></p>
-        <p>+24696622</p>
-        <p>+93233100</p>
-        <p><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
-      </div>
-
-    </div>
-  </section>
-
-</body>
-</html>
-
-<header>
-  <div class="container">
-    <h1 class="logo">SmileCare</h1>
+  <!-- NAVBAR -->
+  <header>
+    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -106,70 +24,49 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="container">
-    <h2>SmileCare Dental Appointment & Review System</h2>
-    <p class="tagline">Your smile, our priority</p>
-    <a href="bookAppointment.html" class="cta-button">Make Appointment</a>
-  </div>
-</section>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="content">
+      <h1>SmileCare Dental Appointment & Review System</h1>
+      <h2>Your smile, Our priority</h2>
+    </div>
+  </section>
 
-<section>
-  <div class="container">
-    <h3>Our Main Services</h3>
-    <div class="card-grid">
-      <div class="card">
-        <img src="images/service-cleaning.jpg" alt="Teeth Cleaning">
-        <div class="card-content">
-          <h4>Teeth Cleaning</h4>
-          <p>Professional cleaning to keep your smile bright and healthy.</p>
-          <p class="price">From OMR 30</p>
+  <!-- WELCOME SECTION -->
+  <section class="welcome">
+    <h2>Welcome to SmileCare Dental Clinic</h2>
+    <p>Where every smile matters.</p>
+    <p>We provide modern dental treatments in a calm and friendly environment, helping you feel confident, healthy, and happy!</p>
+    <button onclick="window.location.href='bookAppointment.html'">Book Now</button>
+  </section>
+
+  <!-- FOOTER (Mission + Visit Us) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <img src="2.jpg" alt="Mission Image" />
+        <div>
+          <h3>Our Mission</h3>
+          <p>To make every patient feel confident and comfortable with their smile.</p>
+          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
-      <div class="card">
-        <img src="images/service-whitening.jpg" alt="Teeth Whitening">
-        <div class="card-content">
-          <h4>Whitening</h4>
-          <p>Safe and effective whitening treatment.</p>
-          <p class="price">OMR 120‑200</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/service-fillings.jpg" alt="Dental Fillings">
-        <div class="card-content">
-          <h4>Fillings</h4>
-          <p>Quick and durable fillings to restore your teeth.</p>
-          <p class="price">From OMR 45</p>
+      <div class="footer-box">
+        <img src="office.jpg" alt="Visit Us Image" />
+        <div>
+          <h3>Visit Us</h3>
+          <p>Shati Al Qurum - 3024 way</p>
+          <p>📞 +92828289</p>
+          <p>📞 +24696622</p>
+          <p>📞 +93233100</p>
+          <p>📧 smilecare@gmail.com</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h3>What Our Patients Say</h3>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>"The staff at SmileCare made me feel safe and comfortable."</p>
-        <p class="name">‑ Sarah A.</p>
-      </div>
-      <div class="testimonial">
-        <p>"I’m thrilled with my whitening results!"</p>
-        <p class="name">‑ Ahmed B.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>© 2025 SmileCare. All rights reserved.</p>
-  </div>
-</footer>
+    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+  </footer>
 
 </body>
 </html>
