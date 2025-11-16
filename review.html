@@ -50,7 +50,7 @@
 
     /* ======================= HERO SECTION ======================= */
     .hero {
-      margin-top: 120px;
+      margin-top: 0;    /* <<< FIXED — removed the empty space */
       width: 100%;
       height: 60vh;
       background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat;
@@ -306,6 +306,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -322,13 +323,13 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-  </header>
+</header>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
     <h2>Don’t Just Take Our Word For It</h2>
-    <p class="tagline">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand. These reviews reflect our commitment to your comfort, health, and a beautiful smile.</p>
+    <p class="tagline">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand.</p>
   </div>
 </section>
 
@@ -337,27 +338,34 @@
   <div class="testimonials">
       <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/31H4fUBky1L.jpg" alt="Patient Review"></div>
-        <p>★★★☆☆<br>"The dentist knew what he was doing and made me feel at ease. I would highly recommend SmileCare!"</p>
-        <p class="name">‑ Robert T.</p>
+          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/31H4fUBky1L.jpg" alt="Patient Review">
+        </div>
+        <p>★★★☆☆<br>"The dentist knew what he was doing and made me feel at ease."</p>
+        <p class="name">- Robert T.</p>
       </div>
+
       <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/pIrD3JzW_400x400.jpg" alt="Patient Review"></div>
-        <p>★★★★★<br>"Dr. Carter is excellent! My teeth feel amazing and the process was quick."</p>
-        <p class="name">‑ Susan D.</p>
+          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/pIrD3JzW_400x400.jpg" alt="Patient Review">
+        </div>
+        <p>★★★★★<br>"Dr. Carter is excellent! Quick and painless."</p>
+        <p class="name">- Susan D.</p>
       </div>
+
       <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/James-Gorman-396x396.jpg" alt="Patient Review"></div>
-        <p>★★★★☆<br>"Friendly staff, modern clinic and outstanding service."</p>
-        <p class="name">‑ James P.</p>
+          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/James-Gorman-396x396.jpg" alt="Patient Review">
+        </div>
+        <p>★★★★☆<br>"Modern clinic and great service."</p>
+        <p class="name">- James P.</p>
       </div>
+
       <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Mark_T._Sullivan_.jpg" alt="Patient Review"></div>
-        <p>★★★★★<br>"The entire family sees Dr. Jones and we couldn’t be happier. He makes visits simple and painless."</p>
-        <p class="name">‑ Albert T.</p>
+          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Mark_T._Sullivan_.jpg" alt="Patient Review">
+        </div>
+        <p>★★★★★<br>"Best dentist we’ve ever had."</p>
+        <p class="name">- Albert T.</p>
       </div>
   </div>
 </section>
@@ -366,6 +374,7 @@
 <div class="form-container">
   <h1>Share Your Experience</h1>
   <form action="/submit-review" method="POST">
+
       <div class="form-group">
           <label for="name">Your Name (Optional):</label>
           <input type="text" id="name" name="patient_name">
@@ -395,6 +404,7 @@
 <!-- RATING SUMMARY -->
 <div class="rating-summary">
   <h4>Patient Rating Summary (Based on 150 Reviews)</h4>
+
   <table class="rating-table">
       <thead>
           <tr>
@@ -403,35 +413,17 @@
               <th>Percentage</th>
           </tr>
       </thead>
+
       <tbody>
-          <tr>
-              <td>★★★★★ (Excellent)</td>
-              <td>105</td>
-              <td>70%</td>
-          </tr>
-          <tr>
-              <td>★★★★☆ (Very Good)</td>
-              <td>30</td>
-              <td>20%</td>
-          </tr>
-          <tr>
-              <td>★★★☆☆ (Average)</td>
-              <td>10</td>
-              <td>7%</td>
-          </tr>
-          <tr>
-              <td>★★☆☆☆ (Poor)</td>
-              <td>4</td>
-              <td>2%</td>
-          </tr>
-          <tr>
-              <td>★☆☆☆☆ (Very Poor)</td>
-              <td>1</td>
-              <td>1%</td>
-          </tr>
+          <tr><td>★★★★★ (Excellent)</td><td>105</td><td>70%</td></tr>
+          <tr><td>★★★★☆ (Very Good)</td><td>30</td><td>20%</td></tr>
+          <tr><td>★★★☆☆ (Average)</td><td>10</td><td>7%</td></tr>
+          <tr><td>★★☆☆☆ (Poor)</td><td>4</td><td>2%</td></tr>
+          <tr><td>★☆☆☆☆ (Very Poor)</td><td>1</td><td>1%</td></tr>
+
           <tr class="overall-rating">
-              <td colspan="2">Overall Average Rating</td>
-              <td>4.5 / 5.0</td>
+            <td colspan="2">Overall Average Rating</td>
+            <td>4.5 / 5.0</td>
           </tr>
       </tbody>
   </table>
@@ -440,6 +432,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-content">
+
     <div class="footer-box">
       <img src="2.jpg" alt="Mission Image" />
       <div>
@@ -448,6 +441,7 @@
         <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
       </div>
     </div>
+
     <div class="footer-box">
       <img src="office.jpg" alt="Visit Us Image" />
       <div>
@@ -459,8 +453,12 @@
         <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
       </div>
     </div>
+
   </div>
-  <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+
+  <p class="copyright">
+    © 2025 SmileCare Dental Clinic. All Rights Reserved.
+  </p>
 </footer>
 
 </body>

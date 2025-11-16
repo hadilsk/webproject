@@ -6,10 +6,11 @@
   <title>SmileCare Dental Appointment & Review System</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
   <style>
     /* Hero section */
 .hero {
-  margin-top: 120px;
+  margin-top: 0;  /* FIX — remove space between navbar & image */
   width: 100%;
   height: 80vh;
   background: url('home.jpeg') center/cover no-repeat;
@@ -155,6 +156,7 @@ footer a:hover {
 }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
@@ -174,7 +176,7 @@ footer a:hover {
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <div class="content">
       <h1>SmileCare Dental Appointment & Review System</h1>
@@ -182,7 +184,7 @@ footer a:hover {
     </div>
   </section>
 
-  <!-- WELCOME SECTION -->
+  <!-- WELCOME -->
   <section class="welcome">
     <h2>Welcome to SmileCare Dental Clinic</h2>
     <p>Where every smile matters.</p>
@@ -195,45 +197,26 @@ footer a:hover {
     <div style="background-color: #003A52; color: #fff; padding: 16px; text-align: center;">
       <h3 style="margin: 0; font-weight: 700; font-size: 1.6rem;">Working Hours</h3>
     </div>
+
     <table style="width: 100%; border-collapse: collapse; background: #fff;">
       <tr style="border-bottom: 1px solid #ddd;">
         <th style="padding: 12px; text-align: left; color: #003A52; font-weight: 600;">Day</th>
         <th style="padding: 12px; text-align: left; color: #003A52; font-weight: 600;">Hours</th>
       </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px;">Monday</td>
-        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px;">Tuesday</td>
-        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px;">Wednesday</td>
-        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px;">Thursday</td>
-        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px;">Friday</td>
-        <td style="padding: 12px;">Closed</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px;">Saturday</td>
-        <td style="padding: 12px;">9:00 AM – 2:00 PM</td>
-      </tr>
-      <tr>
-        <td style="padding: 12px;">Sunday</td>
-        <td style="padding: 12px;">Closed</td>
-      </tr>
+      <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">Monday</td><td style="padding: 12px;">9:00 AM – 6:00 PM</td></tr>
+      <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">Tuesday</td><td style="padding: 12px;">9:00 AM – 6:00 PM</td></tr>
+      <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">Wednesday</td><td style="padding: 12px;">9:00 AM – 6:00 PM</td></tr>
+      <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">Thursday</td><td style="padding: 12px;">9:00 AM – 6:00 PM</td></tr>
+      <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">Friday</td><td style="padding: 12px;">Closed</td></tr>
+      <tr style="border-bottom: 1px solid #eee;"><td style="padding: 12px;">Saturday</td><td style="padding: 12px;">9:00 AM – 2:00 PM</td></tr>
+      <tr><td style="padding: 12px;">Sunday</td><td style="padding: 12px;">Closed</td></tr>
     </table>
   </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
+
       <div class="footer-box">
         <img src="2.jpg" alt="Mission Image" />
         <div>
@@ -242,6 +225,7 @@ footer a:hover {
           <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
+
       <div class="footer-box">
         <img src="office.jpg" alt="Visit Us Image" />
         <div>
@@ -253,8 +237,12 @@ footer a:hover {
           <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
         </div>
       </div>
+
     </div>
-    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+
+    <p class="copyright">
+      © 2025 SmileCare Dental Clinic. All Rights Reserved.
+    </p>
   </footer>
 
 </body>

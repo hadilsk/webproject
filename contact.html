@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - SmileCare</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- External navbar CSS -->
+  <link rel="stylesheet" href="styles.css"> 
+
   <style>
     /* ================== FIXED NAVBAR ================== */
     header {
@@ -39,14 +40,14 @@
       color: #001F3F;
       font-weight: 600;
       font-size: 1rem;
-      transition: color 0.3s;
+      transition: 0.3s;
     }
 
     nav a:hover {
       color: #FF5C7A;
     }
 
-    /* ================== HERO SECTION ================== */
+    /* ================== HERO ================== */
     .contact-hero {
       background: url('team.jpg') center/cover no-repeat;
       height: 60vh;
@@ -56,16 +57,14 @@
       text-align: center;
       color: white;
       position: relative;
-      margin-top: 80px; /* space for navbar */
+      margin-top: 80px;
     }
 
     .contact-hero::after {
       content: "";
       position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
+      top:0; left:0;
+      width:100%; height:100%;
       background: rgba(0,0,0,0.45);
     }
 
@@ -73,17 +72,11 @@
       position: relative;
       z-index: 2;
       max-width: 800px;
-      padding: 0 20px;
     }
 
     .contact-hero h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .contact-hero p {
-      font-size: 1.3rem;
     }
 
     /* ================== CONTACT INFO + MAP ================== */
@@ -99,19 +92,18 @@
 
     .contact-table-wrapper {
       flex: 1 1 450px;
-      background: #fff;
+      background: white;
       border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
       border: 1px solid #ddd;
     }
 
     .contact-table-wrapper h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #fff;
-      background-color: #003A52;
+      background: #003A52; 
+      color: white;
       padding: 16px 24px;
+      font-size: 1.5rem;
       margin: 0;
       border-radius: 12px 12px 0 0;
     }
@@ -119,20 +111,20 @@
     .contact-info-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 1rem;
     }
 
     .contact-info-table th,
     .contact-info-table td {
-      text-align: left;
       padding: 14px 24px;
       border-bottom: 1px solid #e2e2e2;
+      font-size: 1rem;
       color: #003A52;
+      text-align: left;
     }
 
     .contact-info-table th {
-      font-weight: 600;
       width: 120px;
+      font-weight: 600;
     }
 
     .contact-info-table tr:last-child td {
@@ -159,16 +151,15 @@
     .map-container iframe {
       width: 100%;
       height: 100%;
-      border: 0;
-      min-height: 320px;
+      border: none;
     }
 
-    /* ================== CONTACT FORM ================== */
+    /* ================== FORM ================== */
     .contact-form-wrapper {
       max-width: 800px;
       margin: 40px auto;
-      background: #fff;
       padding: 30px;
+      background: white;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -189,26 +180,23 @@
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      width: 100%;
-      background: #fdfdfd;
       font-size: 1rem;
-      box-sizing: border-box;
     }
 
     form.contact-form button {
-      background-color: #003A52;
-      color: #fff;
+      background: #003A52;
+      color: white;
       padding: 12px 20px;
-      font-weight: bold;
-      border: none;
       border-radius: 6px;
+      border: none;
       cursor: pointer;
-      transition: background 0.3s;
       font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     form.contact-form button:hover {
-      background-color: #007ba7;
+      background: #007BA7;
     }
 
     /* ================== FOOTER ================== */
@@ -229,41 +217,31 @@
       flex: 1 1 300px;
       display: flex;
       gap: 20px;
-      align-items: flex-start;
     }
 
     .footer-box img {
       width: 120px;
-      height: auto;
       border-radius: 8px;
-    }
-
-    .footer-box div {
-      display: flex;
-      flex-direction: column;
     }
 
     .footer-box h3 {
       font-size: 1.6rem;
-      margin-bottom: 10px;
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
+      color: #003A52;
     }
 
     .footer-box p {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      line-height: 1.5;
+      color: #003A52;
     }
 
     .copyright {
       text-align: center;
       margin-top: 30px;
-      font-size: 0.9rem;
       color: #666;
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
@@ -278,7 +256,7 @@
         <li><a href="gallary.html">Gallery</a></li>
         <li><a href="review.html">Patient Reviews</a></li>
         <li><a href="bookAppointment.html">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -287,7 +265,7 @@
   <section class="contact-hero">
     <div class="content">
       <h1>Contact Us</h1>
-      <p>Have questions or want to book an appointment? Reach out to us and we'll get back to you promptly.</p>
+      <p>Have questions or want to book an appointment? We are here for you.</p>
     </div>
   </section>
 
@@ -295,50 +273,53 @@
   <section class="contact-section">
     <div class="contact-table-wrapper">
       <h3>Clinic Details</h3>
+
       <table class="contact-info-table">
-        <tbody>
-          <tr>
-            <th>Address</th>
-            <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
-          </tr>
-          <tr>
-            <th>Phone</th>
-            <td>+968 92828289 / +968 24696622 / +968 93233100</td>
-          </tr>
-          <tr>
-            <th>Email</th>
-            <td><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></td>
-          </tr>
-        </tbody>
+        <tr>
+          <th>Address</th>
+          <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
+        </tr>
+
+        <tr>
+          <th>Phone</th>
+          <td>
+            +968 92828289 <br>
+            +968 24696622 <br>
+            +968 93233100
+          </td>
+        </tr>
+
+        <tr>
+          <th>Email</th>
+          <td>
+            <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a>
+          </td>
+        </tr>
       </table>
     </div>
 
     <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed" loading="lazy"></iframe>
     </div>
   </section>
+
 
   <!-- CONTACT FORM -->
   <section class="contact-form-wrapper">
     <form class="contact-form" action="#" method="post">
       <h3>Send Us a Message</h3>
 
-      <label for="name">Your Name *</label>
-      <input type="text" id="name" name="name" required>
+      <label>Your Name *</label>
+      <input type="text" required>
 
-      <label for="email">Your Email *</label>
-      <input type="email" id="email" name="email" required>
+      <label>Your Email *</label>
+      <input type="email" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone">
+      <label>Phone Number</label>
+      <input type="tel">
 
-      <label for="message">Your Message *</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <label>Your Message *</label>
+      <textarea rows="5" required></textarea>
 
       <button type="submit">Submit</button>
     </form>
@@ -347,14 +328,16 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
+
       <div class="footer-box">
         <img src="2.jpg" alt="Mission Image" />
         <div>
           <h3>Our Mission</h3>
-          <p>To make every patient feel confident and comfortable with their smile.</p>
-          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+          <p>To make every patient feel confident and comfortable.</p>
+          <p>We focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
+
       <div class="footer-box">
         <img src="office.jpg" alt="Visit Us Image" />
         <div>
@@ -366,7 +349,9 @@
           <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
         </div>
       </div>
+
     </div>
+
     <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
   </footer>
 
