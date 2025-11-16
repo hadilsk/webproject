@@ -92,7 +92,7 @@ footer {
   font-size: 1.6rem;
   margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .footer-box p {
@@ -107,4 +107,8 @@ footer {
   font-size: 0.9rem;
   color: #666;
 }
+footer {
+  font-family:'Montserrat', sans-serif;
+}
+
 
