@@ -56,7 +56,10 @@ footer {
   margin-top: 60px;
   background: #f4f4f4;
   padding: 40px 20px;
-  font-family: 'Roboto', sans-serif;
+  
+  font-family:'Montserrat', sans-serif
+  
+  /*font-family: 'Roboto', sans-serif;*/
 }
 
 .footer-content {
