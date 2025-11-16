@@ -2,152 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SmileCare – Contact</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - SmileCare</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- External navbar CSS -->
   <style>
-   /* === Contact Page Styling === */
-/* Full-width banner for the intro */
-.contact-banner {
-  background-color: #f0f0f0; /* Light gray background */
-  padding: 10px 10px;
-  width: 100%;
-}
+    /* ================== FIXED NAVBAR ================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ADD8E6; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-.contact-intro {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
+    header img.logo {
+      height: 40px;
+    }
 
-.contact-intro h2 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #003A52;
-  margin-bottom: 12px;
-  font-family: 'Montserrat', sans-serif;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.contact-intro p {
-  font-size: 1.1rem;
-  color: #003A52;
-  line-height: 1.7;
-}
+    nav a {
+      text-decoration: none;
+      color: #001F3F;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
 
-.contact-intro {
-  text-align: center;
-  max-width: 800px;
-  margin: 120px auto 40px;
-  padding: 0 20px;
-}
+    nav a:hover {
+      color: #FF5C7A;
+    }
 
-.contact-intro h2 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #003A52;
-  margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
-}
+    /* ================== HERO SECTION ================== */
+    .contact-hero {
+      background: url('team.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      margin-top: 80px; /* space for navbar */
+    }
 
-.contact-intro p {
-  font-size: 1.1rem;
-  color: #003A52;
-  line-height: 1.6;
-}
+    .contact-hero::after {
+      content: "";
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.45);
+    }
 
-/* Layout: table + map side by side */
-.contact-info-map-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
-  justify-content: space-between;
-}
+    .contact-hero .content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
 
-/* === Clinic Details Table === */
+    .contact-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-.contact-table-wrapper {
-  flex: 1 1 450px;
-  background: #ffffff;
-  padding: 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid #ddd;
-  overflow: hidden;
-}
+    .contact-hero p {
+      font-size: 1.3rem;
+    }
 
-.contact-table-wrapper h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #003A52;
-  padding: 16px 24px;
-  margin: 0;
-  border-radius: 12px 12px 0 0;
-}
+    /* ================== CONTACT INFO + MAP ================== */
+    .contact-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+    }
 
-/* Table Styling */
-.contact-info-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 1rem;
-}
+    .contact-table-wrapper {
+      flex: 1 1 450px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border: 1px solid #ddd;
+    }
 
-.contact-info-table th,
-.contact-info-table td {
-  text-align: left;
-  padding: 14px 24px;
-  border-bottom: 1px solid #e2e2e2;
-  color: #003A52;
-  vertical-align: top;
-}
+    .contact-table-wrapper h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      background-color: #003A52;
+      padding: 16px 24px;
+      margin: 0;
+      border-radius: 12px 12px 0 0;
+    }
 
-.contact-info-table th {
-  font-weight: 600;
-  width: 110px;
-}
+    .contact-info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
 
-.contact-info-table tr:last-child td,
-.contact-info-table tr:last-child th {
-  border-bottom: none;
-}
+    .contact-info-table th,
+    .contact-info-table td {
+      text-align: left;
+      padding: 14px 24px;
+      border-bottom: 1px solid #e2e2e2;
+      color: #003A52;
+    }
 
-.contact-info-table a {
-  color: #003A52;
-  text-decoration: underline;
-}
+    .contact-info-table th {
+      font-weight: 600;
+      width: 120px;
+    }
 
-.contact-info-table a:hover {
-  color: #FF5C7A;
-}
+    .contact-info-table tr:last-child td {
+      border-bottom: none;
+    }
 
-/* === Map Section === */
+    .contact-info-table a {
+      color: #003A52;
+      text-decoration: underline;
+    }
 
-.map-container {
-  flex: 1 1 400px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  min-height: 320px;
-}
+    .contact-info-table a:hover {
+      color: #FF5C7A;
+    }
 
-.map-container iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  min-height: 320px;
-}
+    .map-container {
+      flex: 1 1 400px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      min-height: 320px;
+    }
 
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      min-height: 320px;
+    }
 
-    form.contact-form {
+    /* ================== CONTACT FORM ================== */
+    .contact-form-wrapper {
       max-width: 800px;
       margin: 40px auto;
-      background: #ffffff;
+      background: #fff;
       padding: 30px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form.contact-form {
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -156,7 +182,6 @@
     form.contact-form label {
       font-weight: bold;
       color: #003A52;
-      text-align: left;
     }
 
     form.contact-form input,
@@ -166,27 +191,82 @@
       border-radius: 6px;
       width: 100%;
       background: #fdfdfd;
+      font-size: 1rem;
+      box-sizing: border-box;
     }
 
     form.contact-form button {
       background-color: #003A52;
-      color: #ffffff;
+      color: #fff;
       padding: 12px 20px;
       font-weight: bold;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       transition: background 0.3s;
+      font-size: 1rem;
     }
 
     form.contact-form button:hover {
       background-color: #007ba7;
     }
 
+    /* ================== FOOTER ================== */
+    footer {
+      background: #f4f4f4;
+      padding: 40px 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .footer-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-box div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-box p {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <header>
     <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
@@ -203,49 +283,48 @@
     </nav>
   </header>
 
-  <section>
-    <!-- ===== CONTACT INTRO SECTION ===== -->
-<div class="contact-banner">
-  <div class="contact-intro">
-    <h2>Get in Touch</h2>
-    <p>Have questions, need an appointment, or just want to reach out?<br>
-    We’re here to help you every step of the way!</p>
-  </div>
-</div>
-
-    <div class="contact-info-map-wrapper">
-      <div class="contact-table-wrapper">
-        <h3>Clinic Details</h3>
-        <table class="contact-info-table">
-          <tbody>
-            <tr>
-              <th>Address</th>
-              <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
-            </tr>
-            <tr>
-              <th>Phone</th>
-              <td>+968 92828289 / +968 24696622 / +968 93233100</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed"
-          allowfullscreen
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="content">
+      <h1>Contact Us</h1>
+      <p>Have questions or want to book an appointment? Reach out to us and we'll get back to you promptly.</p>
     </div>
   </section>
 
-  <section>
+  <!-- CONTACT INFO + MAP -->
+  <section class="contact-section">
+    <div class="contact-table-wrapper">
+      <h3>Clinic Details</h3>
+      <table class="contact-info-table">
+        <tbody>
+          <tr>
+            <th>Address</th>
+            <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td>+968 92828289 / +968 24696622 / +968 93233100</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="contact-form-wrapper">
     <form class="contact-form" action="#" method="post">
       <h3>Send Us a Message</h3>
 
@@ -265,6 +344,7 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-box">

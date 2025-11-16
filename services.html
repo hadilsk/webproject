@@ -19,7 +19,6 @@
       position: relative;
     }
     
-
     .services-hero::after {
       content: "";
       position: absolute;
@@ -112,6 +111,99 @@
         width: 100%;
       }
     }
+
+    /* FIXED NAVBAR */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ADD8E6; /* Light blue navbar */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    header img.logo {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #001F3F;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FF5C7A;
+    }
+
+    /* FOOTER FIX */
+    footer {
+      margin-top: 60px;
+      background: #f4f4f4;
+      padding: 40px 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .footer-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-box div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-box p {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -146,7 +238,7 @@
     <h2>Our Services</h2>
     <div class="services-grid">
 
-      <!-- Service Cards 1-16 -->
+      <!-- Service Card 1 -->
       <div class="service-card">
         <img src="images.jpeg" alt="Dental Exams & Cleanings">
         <h3>1. Dental Exams & Cleanings</h3>
@@ -154,6 +246,7 @@
         <p class="price">Price: 15 OMR</p>
       </div>
 
+      <!-- Service Card 2 -->
       <div class="service-card">
         <img src="GettyImages-1602825165.jpg" alt="Dental Fillings">
         <h3>2. Dental Fillings</h3>
@@ -161,6 +254,7 @@
         <p class="price">Price: 20 OMR</p>
       </div>
 
+      <!-- Service Card 3 -->
       <div class="service-card">
         <img src="Root-Canal-Treatment.jpeg" alt="Root Canal Therapy">
         <h3>3. Root Canal Therapy</h3>
@@ -168,6 +262,7 @@
         <p class="price">Price: 100 OMR</p>
       </div>
 
+      <!-- Service Card 4 -->
       <div class="service-card">
         <img src="Tooth-Extraction.jpg" alt="Tooth Extractions">
         <h3>4. Tooth Extractions</h3>
@@ -175,6 +270,7 @@
         <p class="price">Price: 50 OMR</p>
       </div>
 
+      <!-- Service Card 5 -->
       <div class="service-card">
         <img src="mouthguards_2.jpg" alt="Night Guards & Mouthguards">
         <h3>5. Night Guards & Mouthguards</h3>
@@ -182,6 +278,7 @@
         <p class="price">Price: 25 OMR</p>
       </div>
 
+      <!-- Service Card 6 -->
       <div class="service-card">
         <img src="what-options-are-available-for-dental-bleaching-teeth-whitening.jpg" alt="Teeth Whitening">
         <h3>6. Teeth Whitening</h3>
@@ -189,6 +286,7 @@
         <p class="price">Price: 60 OMR</p>
       </div>
 
+      <!-- Service Card 7 -->
       <div class="service-card">
         <img src="shutterstock_1784932625-scaled.jpg" alt="Dental Veneers">
         <h3>7. Dental Veneers</h3>
@@ -196,6 +294,7 @@
         <p class="price">Price: 150 OMR</p>
       </div>
 
+      <!-- Service Card 8 -->
       <div class="service-card">
         <img src="dental-bonding-for-gaps-toms-river-nj.jpg" alt="Dental Bonding">
         <h3>8. Dental Bonding</h3>
@@ -203,6 +302,7 @@
         <p class="price">Price: 70 OMR</p>
       </div>
 
+      <!-- Service Card 9 -->
       <div class="service-card">
         <img src="Dental-crown-care-tips.jpg" alt="Dental Crowns">
         <h3>9. Dental Crowns</h3>
@@ -210,6 +310,7 @@
         <p class="price">Price: 120 OMR</p>
       </div>
 
+      <!-- Service Card 10 -->
       <div class="service-card">
         <img src="dental bridge.jpg" alt="Dental Bridges">
         <h3>10. Dental Bridges</h3>
@@ -217,6 +318,7 @@
         <p class="price">Price: 200 OMR</p>
       </div>
 
+      <!-- Service Card 11 -->
       <div class="service-card">
         <img src="images (1).jpeg" alt="Dental Implants">
         <h3>11. Dental Implants</h3>
@@ -224,6 +326,7 @@
         <p class="price">Price: 400 OMR</p>
       </div>
 
+      <!-- Service Card 12 -->
       <div class="service-card">
         <img src="iStock-115793179111.jpg" alt="Dentures">
         <h3>12. Dentures</h3>
@@ -231,6 +334,7 @@
         <p class="price">Price: 250 OMR</p>
       </div>
 
+      <!-- Service Card 13 -->
       <div class="service-card">
         <img src="68ef6741db1fdfd6257fd850_Invisalign-Vs-braces-1024x683-1.jpg" alt="Orthodontics">
         <h3>13. Orthodontics (Braces & Invisalign®)</h3>
@@ -238,6 +342,7 @@
         <p class="price">Price: 1200 OMR</p>
       </div>
 
+      <!-- Service Card 14 -->
       <div class="service-card">
         <img src="pediatric-dentistry-clinic.jpg" alt="Pediatric Dentistry">
         <h3>14. Pediatric Dentistry</h3>
@@ -245,6 +350,7 @@
         <p class="price">Price: 30 OMR</p>
       </div>
 
+      <!-- Service Card 15 -->
       <div class="service-card">
         <img src="Treatment-for-gingivitis-.jpg" alt="Periodontal Therapy">
         <h3>15. Periodontal (Gum) Therapy</h3>
@@ -252,6 +358,7 @@
         <p class="price">Price: 80 OMR</p>
       </div>
 
+      <!-- Service Card 16 -->
       <div class="service-card">
         <img src="tmj-tmd-treatment.jpg" alt="TMJ/TMD Therapy">
         <h3>16. TMJ/TMD Therapy</h3>
@@ -281,8 +388,7 @@
           <p>📞 +92828289</p>
           <p>📞 +24696622</p>
           <p>📞 +93233100</p>
-         <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
-
+          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
         </div>
       </div>
     </div>

@@ -6,9 +6,7 @@
   <title>SmileCare Dental Appointment & Review System</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  
   <style>
-   
     /* Hero section */
 .hero {
   margin-top: 120px;
@@ -24,7 +22,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-    .hero::after {
+.hero::after {
   content: "";
   position: absolute;
   top: 0;
@@ -94,17 +92,77 @@
   transform: scale(1.05);
 }
 
+/* Footer */
+footer {
+  background: #f4f4f4;
+  padding: 40px 20px;
+  font-family: 'Roboto', sans-serif;
+}
 
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.footer-box {
+  flex: 1 1 300px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.footer-box img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.footer-box div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-box h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.footer-box p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+footer a {
+  text-decoration: none;
+  color: #003A52;
+}
+
+footer a:hover {
+  color: #00AEEF;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #666;
+}
   </style>
 </head>
 <body>
-<!--comment-->
+
   <!-- NAVBAR -->
   <header>
     <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="doctors.html">Doctors</a></li>
@@ -131,65 +189,49 @@
     <p>We provide modern dental treatments in a calm and friendly environment, helping you feel confident, healthy, and happy!</p>
     <button onclick="window.location.href='bookAppointment.html'">Book Now</button>
   </section>
+
   <!-- WORKING HOURS TABLE -->
-<section style="padding:60px 20px; background-color:#FFD6D9; text-align:center; margin-top:40px;">
-  <h2 style="font-size:2.2rem; font-weight:700; color:#003A52; margin-bottom:25px; letter-spacing:1px;">
-    Clinic Working Hours
-  </h2>
+  <div style="max-width: 600px; margin: 40px auto; font-family: 'Montserrat', sans-serif; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <div style="background-color: #003A52; color: #fff; padding: 16px; text-align: center;">
+      <h3 style="margin: 0; font-weight: 700; font-size: 1.6rem;">Working Hours</h3>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; background: #fff;">
+      <tr style="border-bottom: 1px solid #ddd;">
+        <th style="padding: 12px; text-align: left; color: #003A52; font-weight: 600;">Day</th>
+        <th style="padding: 12px; text-align: left; color: #003A52; font-weight: 600;">Hours</th>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 12px;">Monday</td>
+        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 12px;">Tuesday</td>
+        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 12px;">Wednesday</td>
+        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 12px;">Thursday</td>
+        <td style="padding: 12px;">9:00 AM – 6:00 PM</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 12px;">Friday</td>
+        <td style="padding: 12px;">Closed</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+        <td style="padding: 12px;">Saturday</td>
+        <td style="padding: 12px;">9:00 AM – 2:00 PM</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px;">Sunday</td>
+        <td style="padding: 12px;">Closed</td>
+      </tr>
+    </table>
+  </div>
 
-  <table style="
-    margin:0 auto;
-    width:75%;
-    border-collapse:collapse;
-    background:#ffffff;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 4px 12px rgba(0,0,0,0.12);
-  ">
-    <tr style="background:#003A52; color:white;">
-      <th style="padding:16px; font-size:1.1rem; letter-spacing:0.5px;">Day</th>
-      <th style="padding:16px; font-size:1.1rem; letter-spacing:0.5px;">Working Hours</th>
-    </tr>
-
-    <tr style="background:#ffffff;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Sunday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">8:00 AM – 9:00 PM</td>
-    </tr>
-
-    <tr style="background:#f7f7f7;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Monday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">8:00 AM – 9:00 PM</td>
-    </tr>
-
-    <tr style="background:#ffffff;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Tuesday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">8:00 AM – 9:00 PM</td>
-    </tr>
-
-    <tr style="background:#f7f7f7;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Wednesday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">8:00 AM – 9:00 PM</td>
-    </tr>
-
-    <tr style="background:#ffffff;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Thursday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">8:00 AM – 9:00 PM</td>
-    </tr>
-
-    <tr style="background:#f7f7f7;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Friday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Closed</td>
-    </tr>
-
-    <tr style="background:#ffffff;">
-      <td style="padding:14px; font-size:1rem; color:#003A52;">Saturday</td>
-      <td style="padding:14px; font-size:1rem; color:#003A52;">10:00 AM – 5:00 PM</td>
-    </tr>
-  </table>
-</section>
-
-
-  <!-- FOOTER (Mission + Visit Us) -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-box">
@@ -209,7 +251,6 @@
           <p>📞 +24696622</p>
           <p>📞 +93233100</p>
           <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
-
         </div>
       </div>
     </div>

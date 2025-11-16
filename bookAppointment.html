@@ -2,114 +2,196 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmileCare – Book Appointment</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* ======================= Hero Section ======================= */
-.hero {
-  margin-top: 100px;
-  height: 60vh;
-  background: url('team.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-}
+    /* ================== FIXED NAVBAR ================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ADD8E6; 
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0,0,0,0.45);
-  z-index: 1;
-}
+    header img.logo {
+      height: 40px;
+    }
 
-.hero .content {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-.hero h1, .hero h2 {
-  color: #fff;
-  background: none;
-  font-family: 'Montserrat', sans-serif;
-}
+    nav a {
+      text-decoration: none;
+      color: #001F3F;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
 
-.hero h1 {
-  font-size: 3rem;
-}
+    nav a:hover,
+    nav a.active {
+      color: #FF5C7A;
+    }
 
-.hero h2 {
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin-top: 10px;
-}
+    /* ================== HERO SECTION ================== */
+    .appointment-hero {
+      background: url('team.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      margin-top: 80px; /* space for navbar */
+    }
 
-/* ======================= Content Sections ======================= */
-section {
-  padding: 60px 20px;
-}
+    .appointment-hero::after {
+      content: "";
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.45);
+    }
 
-.welcome {
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-}
+    .appointment-hero .content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
 
-.welcome h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
-}
+    .appointment-hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-.welcome p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
+    .appointment-hero p {
+      font-size: 1.3rem;
+    }
 
+    /* ================== APPOINTMENT FORM ================== */
+    .contact-form-wrapper {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
+    form.contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-/* ======================= Contact Form ======================= */
-form.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+    form.contact-form label {
+      font-weight: bold;
+      color: #003A52;
+    }
 
-form.contact-form label {
-  font-weight: bold;
-  text-align: left;
-  color: #003A52;
-}
+    form.contact-form input,
+    form.contact-form select,
+    form.contact-form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
 
-form.contact-form input,
-form.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fdfdfd;
-}
+    form.contact-form button {
+      background-color: #003A52;
+      color: #fff;
+      padding: 12px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
 
-form.contact-form button {
-  background-color: #003A52;
-  color: white;
-  padding: 12px 20px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    form.contact-form button:hover {
+      background-color: #007ba7;
+    }
 
-form.contact-form button:hover {
-  background-color: #007ba7;
-}
+    /* ================== FOOTER ================== */
+    footer {
+      background: #f4f4f4;
+      padding: 40px 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .footer-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-box div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-box p {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media(max-width:768px){
+      nav ul { flex-direction: column; gap: 10px; }
+      .appointment-hero h1 { font-size: 2.2rem; }
+      .appointment-hero p { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -125,30 +207,23 @@ form.contact-form button:hover {
         <li><a href="doctors.html">Doctors</a></li>
         <li><a href="gallary.html">Gallery</a></li>
         <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html">Book Appointment</a></li>
+        <li><a href="bookAppointment.html" class="active">Book Appointment</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-<!-- ===== HERO BANNER ===== -->
-<section class="hero" style="background: url('team.jpg') center/cover no-repeat;"> <!-- 🩷🩷🩷 Toothbrush with paste -->
-  <div class="content">
-    <h1>Book your appointment</h1>
-    <h2>We're here to help you smile brighter</h2>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="appointment-hero">
+    <div class="content">
+      <h1>Book Your Appointment</h1>
+      <p>We're here to help you smile brighter</p>
+    </div>
+  </section>
 
-<!-- ===== FORM SECTION ===== -->
-<section>
-  <div class="welcome">
-    <h2>Book Your Appointment</h2>
-    <p>Please fill in the form below. Our team will contact you shortly to confirm your booking.</p>
-  </div>
-
-  <div class="container" style="max-width: 700px; margin: auto; padding: 20px;">
-    <form class="contact-form" action="#" method="post" style="display: flex; flex-direction: column; gap: 20px; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-
+  <!-- APPOINTMENT FORM -->
+  <section class="contact-form-wrapper">
+    <form class="contact-form" action="#" method="post">
       <label for="patient-name">Full Name *</label>
       <input type="text" id="patient-name" name="patient-name" required>
 
@@ -163,21 +238,20 @@ form.contact-form button:hover {
         <option value="">-- Please choose --</option>
         <option value="cleaning">Dental Exams & Cleanings</option>
         <option value="fillings">Dental Fillings</option>
-        <option value="therapy">Root canal therapy</option>
-        <option value="Extractions">Tooth Extractions</option>
-        <option value="Guards">Night Guards & Mouthguards</option>
-        <option value="Whitening">Teeth Whitening</option>
-        <option value="Veneers">Dental Veneers</option>
-        <option value="Bonding">Dental Bonding</option>
-        <option value="Crowns">Dental Crowns</option>
-        <option value="Bridges">Dental Bridges</option>
-        <option value="Implants">Dental Implants</option>
-        <option value="Dentures">Dentures</option>
+        <option value="therapy">Root Canal Therapy</option>
+        <option value="extractions">Tooth Extractions</option>
+        <option value="guards">Night Guards & Mouthguards</option>
+        <option value="whitening">Teeth Whitening</option>
+        <option value="veneers">Dental Veneers</option>
+        <option value="bonding">Dental Bonding</option>
+        <option value="crowns">Dental Crowns</option>
+        <option value="bridges">Dental Bridges</option>
+        <option value="implants">Dental Implants</option>
+        <option value="dentures">Dentures</option>
         <option value="braces">Orthodontics (Braces & Invisalign®)</option>
-       <option value="Pediatric">Pediatric Dentistry</option>
-       <option value="Periodontal">Periodontal (Gum) Therapy</option>
-       <option value="TMJ/TMD">TMJ/TMD Therapy</option>
-       
+        <option value="pediatric">Pediatric Dentistry</option>
+        <option value="periodontal">Periodontal (Gum) Therapy</option>
+        <option value="tmj">TMJ/TMD Therapy</option>
       </select>
 
       <label for="dentist-select">Select a Doctor *</label>
@@ -186,10 +260,9 @@ form.contact-form button:hover {
         <option value="elena">Dr. Elena Vance</option>
         <option value="ben">Dr. Ben Carter</option>
         <option value="sophia">Dr. Sophia Rossi</option>
-        <option value="Marcus">Dr. Marcus Thorne</option>
-        <option value="Alisha">Dr. Alisha Kumar</option>
-        <option value="Samuel">Dr. Samuel Jones</option>
-
+        <option value="marcus">Dr. Marcus Thorne</option>
+        <option value="alisha">Dr. Alisha Kumar</option>
+        <option value="samuel">Dr. Samuel Jones</option>
       </select>
 
       <label for="date">Preferred Date *</label>
@@ -198,12 +271,11 @@ form.contact-form button:hover {
       <label for="time">Preferred Time *</label>
       <input type="time" id="time" name="time" required>
 
-      <button type="submit" style="background-color: #003A52; color: white; padding: 12px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Confirm Booking</button>
+      <button type="submit">Confirm Booking</button>
     </form>
-  </div>
-</section>
+  </section>
 
-  <!-- FOOTER (Mission + Visit Us) -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <div class="footer-box">

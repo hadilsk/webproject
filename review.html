@@ -4,209 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SmileCare – Patient Reviews</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .welcome {
-  padding: 60px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-  color: #003A52;
-}
-
-.welcome h2 {
-  font-size: 2.4rem;
-  margin-bottom: 15px;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
-
-.welcome p {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  line-height: 1.8;
-}
-
-.welcome button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #003A52;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.welcome button:hover {
-  background: #00AEEF;
-  transform: scale(1.05);
-}
-    section {
-  background-color: #ffffff;
-  padding: 60px 20px;
-  margin-bottom: 20px;
-}
-
-section h3, section h4 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-}
-
-    body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  background-color: #c2e1f0;
-}
-
-img, picture, video, svg {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-    /* ======================= Hero Section ======================= */
-.hero {
-  margin-top: 120px;
-  width: 100%;
-  height: 80vh;
-  background: url('home.jpeg') center/cover no-repeat;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.45);
-}
-
-.hero .content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero h1,
-.hero h2 {
-  color: #ffffff !important;
-  background: none !important;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-}
-
-.hero h2 {
-  font-size: 1.8rem;
-  font-weight: 400;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
-}
-    body{
-      background-color: white;
+    /* ======================= NAVBAR ======================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ADD8E6; /* light blue */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
-    p.name{
+
+    header img.logo {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #001F3F;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #FF5C7A;
+    }
+
+    /* ======================= HERO SECTION ======================= */
+    .hero {
+      margin-top: 120px;
+      width: 100%;
+      height: 60vh;
+      background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      color: #ffffff;
     }
-    .trim-frame {
-    width: 300px;
-    height: 200px; 
-    
-    overflow: hidden; 
-}
 
-
-.trim-frame img {
-    width: 100%;
-    height: 100%;
-    
-    object-fit: cover; 
-    
-}
-.testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.testimonial {
-  background-color: #eef9ff;
-  padding: 20px;
-  border-radius: 6px;
-}
-.testimonial p {
-  margin-bottom: 10px;
-}
-.testimonial .name {
-  font-weight: bold;
-  text-align: right;
-}
-div h3{
-background-color: #efefef;
-
-}
-div p{
-background-color: #efefef;
-}
-body{
-      background-color: white;
-    }
-    p.name{
-      text-align: center;
-    }
-    .trim-frame {
-      width: 300px;
-      height: 200px; 
-      overflow: hidden; 
-    }
-    .trim-frame img {
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      background: rgba(0,0,0,0.45);
     }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* ======================= TESTIMONIALS ======================= */
+    section {
+      padding: 60px 20px;
+    }
+
     .testimonials {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     .testimonial {
       background-color: #eef9ff;
       padding: 20px;
       border-radius: 6px;
+      text-align: center;
     }
+
+    .testimonial .trim-frame {
+      width: 300px;
+      height: 200px;
+      margin: 0 auto 15px;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .testimonial .trim-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .testimonial p {
       margin-bottom: 10px;
     }
+
     .testimonial .name {
       font-weight: bold;
-      text-align: right;
-    }
-    div h3{
-      background-color: #efefef;
-    }
-    div p{
-      background-color: #efefef;
+      color: #003A52;
     }
 
-    
-
+    /* ======================= FORM ======================= */
     .form-container {
       background-color: #ffffff;
       padding: 30px 40px;
@@ -218,7 +147,7 @@ body{
     }
 
     .form-container h1 {
-      color: #333;
+      color: #003A52;
       text-align: center;
       margin-bottom: 25px;
       font-size: 1.8em;
@@ -242,17 +171,17 @@ body{
       padding: 12px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      box-sizing: border-box; 
       font-size: 1em;
+      box-sizing: border-box;
     }
 
     textarea {
-      resize: vertical; 
+      resize: vertical;
     }
 
     .submit-btn {
       width: 100%;
-      background-color: #007bff; 
+      background-color: #003A52; 
       color: white;
       padding: 14px 20px;
       margin-top: 10px;
@@ -260,64 +189,124 @@ body{
       border-radius: 4px;
       cursor: pointer;
       font-size: 1.1em;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s;
     }
 
     .submit-btn:hover {
-      background-color: #0056b3; 
+      background-color: #00AEEF; 
+      transform: scale(1.05);
     }
-.rating-summary {
-        width: 100%;
-        max-width: 800px;
-        margin: 20px auto 40px auto; 
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+    /* ======================= RATING SUMMARY ======================= */
+    .rating-summary {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto 40px auto; 
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
+
     .rating-summary h4 {
-        text-align: center;
-        color: #333;
-        margin-top: 0;
-        margin-bottom: 15px;
+      text-align: center;
+      color: #003A52;
+      margin-top: 0;
+      margin-bottom: 15px;
     }
+
     .rating-table {
-        width: 100%;
-        border-collapse: collapse; 
+      width: 100%;
+      border-collapse: collapse; 
     }
+
     .rating-table th, .rating-table td {
-        padding: 10px 15px;
-        text-align: left;
-        border-bottom: 1px solid #eee;
+      padding: 10px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
     }
+
     .rating-table th {
-        background-color: #f0f0f0;
-        color: #333;
-        font-weight: bold;
+      background-color: #f0f0f0;
+      color: #003A52;
+      font-weight: bold;
     }
+
     .rating-table td:last-child {
-        text-align: right; 
-        font-weight: bold;
-        color: #007bff;
+      text-align: right; 
+      font-weight: bold;
+      color: #007bff;
     }
+
     .rating-table tr:last-child td {
-        border-bottom: none;
+      border-bottom: none;
     }
+
     .overall-rating {
-        font-size: 1.2em;
-        text-align: center !important;
-        font-weight: bold;
-        background-color: #eef9ff;
+      font-size: 1.2em;
+      text-align: center !important;
+      font-weight: bold;
+      background-color: #eef9ff;
     }
-    footer h3, footer p {
-  background-color: transparent !important;
-  color: #003A52 !important;
-  text-align: left !important;
-}
+
+    /* ======================= FOOTER ======================= */
+    footer {
+      background: #f4f4f4;
+      padding: 40px 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .footer-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-box div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #003A52;
+    }
+
+    .footer-box p {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+      color: #003A52;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #666;
+    }
   </style>
 </head>
-<body >
+<body>
 
 <header>
     <img src="logoo.png" class="logo" alt="SmileCare Logo" />
@@ -328,152 +317,151 @@ body{
         <li><a href="services.html">Services</a></li>
         <li><a href="doctors.html">Doctors</a></li>
         <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
+        <li><a href="review.html" class="active">Patient Reviews</a></li>
         <li><a href="bookAppointment.html">Book Appointment</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-<section class="hero" style="background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat;  ">
+<!-- HERO -->
+<section class="hero">
   <div class="container">
-    <h2 style="color:white">Don’t Just Take Our Word For It</h2>
-    <p class="tagline" style="color:white; background-color:rgb(255,255,255,0.0);">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand. These reviews reflect our commitment to your comfort, health, and a beautiful smile.
-
-</p>
+    <h2>Don’t Just Take Our Word For It</h2>
+    <p class="tagline">At SmileCare, our greatest reward is the satisfaction and trust of our patients. Read genuine stories from people who have experienced our care firsthand. These reviews reflect our commitment to your comfort, health, and a beautiful smile.</p>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
 <section style="background-color: #efefef;">
-  <div class="container" style="background-color: #efefef;">
-    <h3>Patient Reviews</h3>
-    <div class="testimonials" style="background-color: #efefef;">
-      <div class="testimonial" style="background-color: #efefef;">
+  <div class="testimonials">
+      <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/31H4fUBky1L.jpg" alt="Patient Review "></div>
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/31H4fUBky1L.jpg" alt="Patient Review"></div>
         <p>★★★☆☆<br>"The dentist knew what he was doing and made me feel at ease. I would highly recommend SmileCare!"</p>
         <p class="name">‑ Robert T.</p>
       </div>
-      <div class="testimonial" style="background-color: #efefef;">
+      <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/pIrD3JzW_400x400.jpg" alt="Patient Review "></div>
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/pIrD3JzW_400x400.jpg" alt="Patient Review"></div>
         <p>★★★★★<br>"Dr. Carter is excellent! My teeth feel amazing and the process was quick."</p>
         <p class="name">‑ Susan D.</p>
       </div>
-      <div class="testimonial" style="background-color: #efefef;">
+      <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/James-Gorman-396x396.jpg" alt="Patient Review "></div>
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/James-Gorman-396x396.jpg" alt="Patient Review"></div>
         <p>★★★★☆<br>"Friendly staff, modern clinic and outstanding service."</p>
         <p class="name">‑ James P.</p>
       </div>
-      <div class="testimonial" style="background-color: #efefef;">
+      <div class="testimonial">
         <div class="trim-frame">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Mark_T._Sullivan_.jpg" alt="Patient Review "></div>
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Mark_T._Sullivan_.jpg" alt="Patient Review"></div>
         <p>★★★★★<br>"The entire family sees Dr. Jones and we couldn’t be happier. He makes visits simple and painless."</p>
         <p class="name">‑ Albert T.</p>
       </div>
-    </div>
-    
   </div>
 </section>
+
+<!-- FORM -->
 <div class="form-container">
-        <h1>Share Your Experience</h1>
-        <form action="/submit-review" method="POST">
-            
-            <div class="form-group">
-                <label for="name">Your Name (Optional):</label>
-                <input type="text" id="name" name="patient_name">
-            </div>
+  <h1>Share Your Experience</h1>
+  <form action="/submit-review" method="POST">
+      <div class="form-group">
+          <label for="name">Your Name (Optional):</label>
+          <input type="text" id="name" name="patient_name">
+      </div>
 
-            <div class="form-group">
-                <label for="rating">Overall Rating:</label>
-                <select id="rating" name="overall_rating" required>
-                    <option value="" disabled selected>Select a rating</option>
-                    <option value="5">5 - Excellent</option>
-                    <option value="4">4 - Very Good</option>
-                    <option value="3">3 - Average</option>
-                    <option value="2">2 - Poor</option>
-                    <option value="1">1 - Very Poor</option>
-                </select>
-            </div>
+      <div class="form-group">
+          <label for="rating">Overall Rating:</label>
+          <select id="rating" name="overall_rating" required>
+              <option value="" disabled selected>Select a rating</option>
+              <option value="5">5 - Excellent</option>
+              <option value="4">4 - Very Good</option>
+              <option value="3">3 - Average</option>
+              <option value="2">2 - Poor</option>
+              <option value="1">1 - Very Poor</option>
+          </select>
+      </div>
 
-            <div class="form-group">
-                <label for="comments">Your Comments:</label>
-                <textarea id="comments" name="review_comments" rows="6" required></textarea>
-            </div>
+      <div class="form-group">
+          <label for="comments">Your Comments:</label>
+          <textarea id="comments" name="review_comments" rows="6" required></textarea>
+      </div>
 
-            <button type="submit" class="submit-btn">Submit Review</button>
-
-        </form>
+      <button type="submit" class="submit-btn">Submit Review</button>
+  </form>
 </div>
-<div class="rating-summary">
-        <h4>Patient Rating Summary (Based on 150 Reviews)</h4>
-        <table class="rating-table">
-            <thead>
-                <tr>
-                    <th>Rating</th>
-                    <th>Count</th>
-                    <th>Percentage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>★★★★★ (Excellent)</td>
-                    <td>105</td>
-                    <td>70%</td>
-                </tr>
-                <tr>
-                    <td>★★★★☆ (Very Good)</td>
-                    <td>30</td>
-                    <td>20%</td>
-                </tr>
-                <tr>
-                    <td>★★★☆☆ (Average)</td>
-                    <td>10</td>
-                    <td>7%</td>
-                </tr>
-                <tr>
-                    <td>★★☆☆☆ (Poor)</td>
-                    <td>4</td>
-                    <td>2%</td>
-                </tr>
-                <tr>
-                    <td>★☆☆☆☆ (Very Poor)</td>
-                    <td>1</td>
-                    <td>1%</td>
-                </tr>
-                <tr class="overall-rating">
-                    <td colspan="2">Overall Average Rating</td>
-                    <td>4.5 / 5.0</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-  <footer>
-    <div class="footer-content">
-      <div class="footer-box">
-        <img src="2.jpg" alt="Mission Image" />
-        <div>
-          <h3 >Our Mission</h3>
-          <p>To make every patient feel confident and comfortable with their smile.</p>
-          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
-        </div>
-      </div>
-      <div class="footer-box">
-        <img src="office.jpg" alt="Visit Us Image" />
-        <div>
-          <h3 >Visit Us</h3>
-          <p>Shati Al Qurum - 3024 way</p>
-          <p>📞 +92828289</p>
-          <p>📞 +24696622</p>
-          <p>📞 +93233100</p>
-          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
 
-        </div>
+<!-- RATING SUMMARY -->
+<div class="rating-summary">
+  <h4>Patient Rating Summary (Based on 150 Reviews)</h4>
+  <table class="rating-table">
+      <thead>
+          <tr>
+              <th>Rating</th>
+              <th>Count</th>
+              <th>Percentage</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>★★★★★ (Excellent)</td>
+              <td>105</td>
+              <td>70%</td>
+          </tr>
+          <tr>
+              <td>★★★★☆ (Very Good)</td>
+              <td>30</td>
+              <td>20%</td>
+          </tr>
+          <tr>
+              <td>★★★☆☆ (Average)</td>
+              <td>10</td>
+              <td>7%</td>
+          </tr>
+          <tr>
+              <td>★★☆☆☆ (Poor)</td>
+              <td>4</td>
+              <td>2%</td>
+          </tr>
+          <tr>
+              <td>★☆☆☆☆ (Very Poor)</td>
+              <td>1</td>
+              <td>1%</td>
+          </tr>
+          <tr class="overall-rating">
+              <td colspan="2">Overall Average Rating</td>
+              <td>4.5 / 5.0</td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-box">
+      <img src="2.jpg" alt="Mission Image" />
+      <div>
+        <h3>Our Mission</h3>
+        <p>To make every patient feel confident and comfortable with their smile.</p>
+        <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
       </div>
     </div>
-    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
-  </footer>
+    <div class="footer-box">
+      <img src="office.jpg" alt="Visit Us Image" />
+      <div>
+        <h3>Visit Us</h3>
+        <p>Shati Al Qurum - 3024 way</p>
+        <p>📞 +92828289</p>
+        <p>📞 +24696622</p>
+        <p>📞 +93233100</p>
+        <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+  <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>

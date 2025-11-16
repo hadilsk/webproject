@@ -4,122 +4,168 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SmileCare – Our Doctors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
+    /* ======================= NAVBAR ======================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ADD8E6; /* light blue */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    header img.logo {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #001F3F;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #FF5C7A;
+    }
+
+    /* ======================= Doctors Hero / Intro ======================= */
+    .hero-section {
+      padding: 140px 20px 60px; /* push below fixed navbar */
+      text-align: center;
+      background-color: #f8e6e6;
+      color: #dc7d69;
+    }
+
+    .hero-section h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .hero-section h4 {
+      font-size: 1.6rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
     /* ======================= Cards Grid ======================= */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-}
-
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.card img {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.card-content {
-  padding: 20px;
-}
-
-.card-content h4 {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-}
-
-.card-content p {
-  margin-bottom: 10px;
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-.card-content .price {
-  font-weight: bold;
-  color: #003A52;
-}
-
-/* ======================= Welcome / CTA Section ======================= */
-.welcome {
-  padding: 60px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: auto;
-  color: #003A52;
-}
-
-.welcome h2 {
-  font-size: 2.4rem;
-  margin-bottom: 15px;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 1px;
-}
-
-.welcome p {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  line-height: 1.8;
-}
-
-.welcome button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #003A52;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.welcome button:hover {
-  background: #00AEEF;
-  transform: scale(1.05);
-}
-
-    h4,p{
-      background-color: white;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 40px;
     }
-    div h4{
-color:#dc7d69; background-color:#f8e6e6;
+
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fff;
     }
-    div h3{
-color:#dc7d69; background-color:#f8e6e6;
+
+    .card img {
+      display: block;
+      width: 100%;
     }
-    h4.name{
-      color:black; background-color:white;
+
+    .card-content {
+      padding: 20px;
     }
-    p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-  text-align: center;
-  color: #003A52;
-  background-color:white;
-  line-height: 1.6;
-  }
-  footer h3, footer p {
-  background-color: transparent !important;
-  color: #003A52 !important;
-  text-align: left !important;
-  font-family:'Montserrat', sans-serif;
-}
-  
+
+    .card-content h4.name {
+      color: #003A52;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+
+    .card-content p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.5;
+      color: #003A52;
+    }
+
+    /* ======================= FOOTER ======================= */
+    footer {
+      background: #f4f4f4;
+      padding: 40px 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .footer-box {
+      flex: 1 1 300px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .footer-box img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-box div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-box p {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    body {
+      background-color: #efefef;
+      font-family: 'Roboto', sans-serif;
+    }
   </style>
 </head>
-<body style="background-color:#efefef;">
+<body>
 
-<header>
+  <!-- NAVBAR -->
+  <header>
     <img src="logoo.png" class="logo" alt="SmileCare Logo" />
     <nav>
       <ul>
@@ -134,52 +180,53 @@ color:#dc7d69; background-color:#f8e6e6;
       </ul>
     </nav>
   </header>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-<div class="container-fluid" style="color:#dc7d69; background-color:#f8e6e6;">
+
+  <!-- HERO / Intro Section -->
+  <section class="hero-section">
     <h3>The Faces Behind Your Smile</h3>
     <h4>Meet Our Expert Team</h4>
-    <br>
-    <br>
-    </div>
-<section style="background-color:#efefef;">
-  <div class="container" style="background-color: #efefef;" >
-    
-    
+  </section>
+
+  <!-- DOCTORS CARDS GRID -->
+  <section>
     <div class="card-grid">
+      <!-- Doctor 1 -->
       <div class="card">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dr4.jpg" alt="Dr. Elena Vance" >
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dr4.jpg" alt="Dr. Elena Vance">
         <div class="card-content">
-          <h4 class="name">Dr. Elena Vance (Female)</h4>
+          <h4 class="name">Dr. Elena Vance (Female)</h4>
           <p>Specialty: Orthodontics</p>
           <p>Education: DDS, University of Pacific Coast</p>
           <p>Avg. Patient Rating: ★★★★☆ (4.8/5)</p>
           <p>About: Dr. Vance is a certified orthodontist specializing in smile alignment for patients of all ages...</p>
         </div>
       </div>
+
+      <!-- Doctor 2 -->
       <div class="card">
         <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr5.jpg" alt="Dr. Ben Carter">
         <div class="card-content">
-          <h4 class="name">Dr. Ben Carter (Male)</h4>
+          <h4 class="name">Dr. Ben Carter (Male)</h4>
           <p>Specialty: Pediatric Dentistry</p>
           <p>Education: DDS, Children's Dental Institute</p>
           <p>Avg. Patient Rating: ★★★★★ (4.9/5)</p>
           <p>About: Dr. Carter is our dedicated pediatric dentist, trained to provide comprehensive care for infants, children...</p>
         </div>
       </div>
+
+      <!-- Doctor 3 -->
       <div class="card">
         <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dr6.jpg" alt="Dr. Sophia Rossi">
         <div class="card-content">
-          <h4 class="name">Dr. Sophia Rossi (Female)</h4>
+          <h4 class="name">Dr. Sophia Rossi (Female)</h4>
           <p>Specialty: Cosmetic Dentistry</p>
           <p>Education: DMD, Aesthetic Dentistry College</p>
           <p>Avg. Patient Rating: ★★★★★ (4.9/5)</p>
           <p>About: Dr. Rossi is an artist in the field of cosmetic dentistry, focusing on smile transformations...</p>
         </div>
       </div>
+
+      <!-- Doctor 4 -->
       <div class="card">
         <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr7.jpg" alt="Dr. Marcus Thorne">
         <div class="card-content">
@@ -190,16 +237,20 @@ color:#dc7d69; background-color:#f8e6e6;
           <p>About: Dr. Thorne is our dual-degree oral and maxillofacial surgeon, handling complex dental procedures. His expertise includes wisdom tooth extractions, dental implant placement, and bone grafting. He is trained in various forms of sedation to ensure patient comfort and safety during surgical interventions.</p>
         </div>
       </div>
+
+      <!-- Doctor 5 -->
       <div class="card">
-        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr8.jpg" alt="Dr. Alisha Kumar ">
+        <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr8.jpg" alt="Dr. Alisha Kumar">
         <div class="card-content">
-          <h4 class="name">Dr. Alisha Kumar  (Female)</h4>
+          <h4 class="name">Dr. Alisha Kumar (Female)</h4>
           <p>Specialty: Periodontics</p>
           <p>Education: DMD, University of Dental Medicine</p>
           <p>Avg. Patient Rating: ★★★★☆ (4.8/5)</p>
           <p>About: Dr. Kumar is our periodontist, specializing in the health of the supporting structures of the teeth. She provides advanced treatment for gum disease, performs gum graft surgeries, and places dental implants. Her focus is on preserving and restoring the foundation of a healthy smile.</p>
         </div>
       </div>
+
+      <!-- Doctor 6 -->
       <div class="card">
         <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr9.jpg" alt="Dr. Samuel Jones">
         <div class="card-content">
@@ -210,16 +261,17 @@ color:#dc7d69; background-color:#f8e6e6;
           <p>About: Dr. Jones is a skilled general dentist providing comprehensive care for the entire family. He focuses on preventive dentistry, routine restorations, root canal therapy, and crowns. His patient-centered approach ensures comfortable visits and long-term oral health for all his patients.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<footer style="font-family: 'Montserrat', sans-serif;">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-content">
       <div class="footer-box">
         <img src="2.jpg" alt="Mission Image" />
         <div>
-          <h3 style="font-family: 'Roboto', sans-serif;">Our Mission</h3>
+          <h3>Our Mission</h3>
           <p>To make every patient feel confident and comfortable with their smile.</p>
           <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
         </div>
@@ -227,13 +279,12 @@ color:#dc7d69; background-color:#f8e6e6;
       <div class="footer-box">
         <img src="office.jpg" alt="Visit Us Image" />
         <div>
-          <h3 style="font-family: 'Roboto', sans-serif;">Visit Us</h3>
+          <h3>Visit Us</h3>
           <p>Shati Al Qurum - 3024 way</p>
           <p>📞 +92828289</p>
           <p>📞 +24696622</p>
           <p>📞 +93233100</p>
           <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
-
         </div>
       </div>
     </div>
