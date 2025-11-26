@@ -218,8 +218,8 @@
       const day=days[now.getDay()];
       const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
       const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
-      marquee.textContent = 'Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.';
-    }
+     marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+  }
     refresh();
     setInterval(refresh,1000);
   })();

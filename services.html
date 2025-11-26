@@ -4,396 +4,418 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Dental Services - SmileCare</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- External navbar CSS -->
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    /* SERVICES HERO */
-    .services-hero {
-      background: url('kid2.jpg') center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    /* ================= BODY & HEADINGS ================= */
+    body {
+      font-family: 'Georgia', serif; /* main font */
+      color: #0d1b2a;
+      background-color: #f8f9fa;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Montserrat', sans-serif; /* headings font */
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
+    }
+    .navbar-nav .nav-link.active {
+      color: #ff8aa2 !important;
+      font-weight: bold;
+    }
+
+    /* ================= LOGO IMAGE ================= */
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero-section { 
+      background-image: url('kid2.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
       color: white;
+      text-align: center;
       position: relative;
     }
-    
-    .services-hero::after {
-      content: "";
+    .hero-overlay {
+      background-color: rgba(0,0,0,0.45);
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.45);
+      top:0; left:0;
+      width:100%; height:100%;
     }
-
-    .services-hero .content {
+    .hero-content {
       position: relative;
-      z-index: 2;
-      max-width: 800px;
+      z-index:1;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      height:100%;
     }
 
-    .services-hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .services-hero p {
-      font-size: 1.3rem;
-    }
-
-    /* SERVICES GRID */
-    .services-section {
-      background-color: #FFD6D9; /* pinkish background */
-      padding: 60px 40px;
-      text-align: center;
-    }
-
-    .services-section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-      color: #003A52;
-    }
-
-    .services-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .service-card {
-      background: white;
-      width: 300px;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: left;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .service-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .service-card h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #003A52;
-    }
-
-    .service-card p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #003A52;
-      margin-bottom: 8px;
-    }
-
-    .service-card .price {
+    /* ================= CARD STYLES ================= */
+    .card .price {
       font-weight: 700;
       color: #001F3F;
     }
-
-    @media(max-width: 1000px){
-      .services-grid {
-        justify-content: center;
-      }
+    .card img {
+      border-radius: 10px;
     }
 
-    @media(max-width: 650px){
-      .service-card {
-        width: 100%;
-      }
+    /* ================= CAROUSEL ARROWS ================= */
+    .carousel-control-prev, .carousel-control-next {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background-color:#4a6fa5;
+      border:none;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .carousel-control-prev span, .carousel-control-next span {
+      color:white; font-size:1.5rem;
     }
 
-    /* FIXED NAVBAR */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ADD8E6; /* Light blue navbar */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 1000;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    header img.logo {
-      height: 40px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #001F3F;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #FF5C7A;
-    }
-
-    /* FOOTER FIX */
+    /* ================= FOOTER ================= */
     footer {
-      margin-top: 60px;
-      background: #f4f4f4;
-      padding: 40px 20px;
-      font-family: 'Roboto', sans-serif;
+      font-family:'Georgia', serif;
+      background-color:#d9e2e8;
+    }
+    footer h6 {
+      font-family:'Montserrat', sans-serif;
     }
 
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .footer-box {
-      flex: 1 1 300px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .footer-box img {
-      width: 120px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .footer-box div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .footer-box h3 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .footer-box p {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
-    .copyright {
+    /* ================= MOVING BANNER ================= */
+    .marquee {
+      background-color: #4a6fa5;
+      color: white;
+      padding: 0.5rem 0;
       text-align: center;
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #666;
     }
+
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="doctors.html">Doctors</a></li>
-        <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logoo.png" class="logo-img" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
       </ul>
-    </nav>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section class="services-hero">
-    <div class="content">
-      <h1>Our Dental Services</h1>
-      <p>Comprehensive, compassionate care for every smile. Explore our full range of general, cosmetic, and specialty treatments below.</p>
     </div>
-  </section>
+  </div>
+</nav>
 
-  <!-- SERVICES GRID SECTION -->
-  <section class="services-section">
-    <h2>Our Services</h2>
-    <div class="services-grid">
+<!-- ================= HERO SECTION ================= -->
+<header class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="display-4 fw-bold">Our Dental Services</h1>
+    <p class="fs-5 mt-2">Comprehensive, compassionate care for every smile.</p>
+  </div>
+</header>
 
-      <!-- Service Card 1 -->
-      <div class="service-card">
-        <img src="images.jpeg" alt="Dental Exams & Cleanings">
-        <h3>1. Dental Exams & Cleanings</h3>
-        <p>Routine check-ups are the cornerstone of good oral health. Our thorough exams include oral cancer screening, gum disease assessment, and digital X-rays. Professional cleanings remove plaque and tartar that regular brushing can't, preventing cavities and gum disease.</p>
-        <p class="price">Price: 15 OMR</p>
-      </div>
+<!-- ================= SERVICES CAROUSEL ================= -->
+<section class="container my-5">
+  <h2 class="text-center fw-bold mb-4">Explore Our Services</h2>
+  <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
 
-      <!-- Service Card 2 -->
-      <div class="service-card">
-        <img src="GettyImages-1602825165.jpg" alt="Dental Fillings">
-        <h3>2. Dental Fillings</h3>
-        <p>We use tooth-colored, composite fillings to restore teeth damaged by decay back to their normal shape and function. This quick treatment stops decay in its tracks and blends seamlessly with your natural tooth color.</p>
-        <p class="price">Price: 20 OMR</p>
-      </div>
-
-      <!-- Service Card 3 -->
-      <div class="service-card">
-        <img src="Root-Canal-Treatment.jpeg" alt="Root Canal Therapy">
-        <h3>3. Root Canal Therapy</h3>
-        <p>When the inner pulp of a tooth becomes infected or inflamed, a root canal can save it. This procedure relieves pain, eliminates infection, and allows you to keep your natural tooth instead of having it extracted.</p>
-        <p class="price">Price: 100 OMR</p>
-      </div>
-
-      <!-- Service Card 4 -->
-      <div class="service-card">
-        <img src="Tooth-Extraction.jpg" alt="Tooth Extractions">
-        <h3>4. Tooth Extractions</h3>
-        <p>We perform safe and gentle tooth removals when a tooth is too damaged to be saved, or to relieve crowding. We focus on your comfort throughout the process.</p>
-        <p class="price">Price: 50 OMR</p>
-      </div>
-
-      <!-- Service Card 5 -->
-      <div class="service-card">
-        <img src="mouthguards_2.jpg" alt="Night Guards & Mouthguards">
-        <h3>5. Night Guards & Mouthguards</h3>
-        <p>Custom-fitted night guards protect your teeth from grinding and clenching. We also create protective mouthguards for athletes.</p>
-        <p class="price">Price: 25 OMR</p>
-      </div>
-
-      <!-- Service Card 6 -->
-      <div class="service-card">
-        <img src="what-options-are-available-for-dental-bleaching-teeth-whitening.jpg" alt="Teeth Whitening">
-        <h3>6. Teeth Whitening</h3>
-        <p>Professional in-office or take-home whitening safely lifts years of stains from coffee, tea, wine, and tobacco, revealing a brighter smile.</p>
-        <p class="price">Price: 60 OMR</p>
-      </div>
-
-      <!-- Service Card 7 -->
-      <div class="service-card">
-        <img src="shutterstock_1784932625-scaled.jpg" alt="Dental Veneers">
-        <h3>7. Dental Veneers</h3>
-        <p>Veneers are thin shells of porcelain bonded to the front of teeth. They correct discolored, chipped, misaligned, or gapped teeth for a flawless appearance.</p>
-        <p class="price">Price: 150 OMR</p>
-      </div>
-
-      <!-- Service Card 8 -->
-      <div class="service-card">
-        <img src="dental-bonding-for-gaps-toms-river-nj.jpg" alt="Dental Bonding">
-        <h3>8. Dental Bonding</h3>
-        <p>Using tooth-colored composite resin, we repair chipped, cracked, or discolored teeth in a single visit, improving aesthetics cost-effectively.</p>
-        <p class="price">Price: 70 OMR</p>
-      </div>
-
-      <!-- Service Card 9 -->
-      <div class="service-card">
-        <img src="Dental-crown-care-tips.jpg" alt="Dental Crowns">
-        <h3>9. Dental Crowns</h3>
-        <p>A crown is a custom-made cap that fully covers a damaged tooth, restoring its shape, size, strength, and appearance.</p>
-        <p class="price">Price: 120 OMR</p>
-      </div>
-
-      <!-- Service Card 10 -->
-      <div class="service-card">
-        <img src="dental bridge.jpg" alt="Dental Bridges">
-        <h3>10. Dental Bridges</h3>
-        <p>A bridge replaces missing teeth by anchoring artificial teeth to healthy adjacent teeth, restoring chewing, speech, and facial shape.</p>
-        <p class="price">Price: 200 OMR</p>
-      </div>
-
-      <!-- Service Card 11 -->
-      <div class="service-card">
-        <img src="images (1).jpeg" alt="Dental Implants">
-        <h3>11. Dental Implants</h3>
-        <p>A dental implant is a permanent solution for tooth loss. A titanium post is placed in the jawbone, topped with a crown that looks and functions like a natural tooth.</p>
-        <p class="price">Price: 400 OMR</p>
-      </div>
-
-      <!-- Service Card 12 -->
-      <div class="service-card">
-        <img src="iStock-115793179111.jpg" alt="Dentures">
-        <h3>12. Dentures</h3>
-        <p>We offer full and partial dentures to replace multiple missing teeth. Custom-crafted for comfort and natural appearance.</p>
-        <p class="price">Price: 250 OMR</p>
-      </div>
-
-      <!-- Service Card 13 -->
-      <div class="service-card">
-        <img src="68ef6741db1fdfd6257fd850_Invisalign-Vs-braces-1024x683-1.jpg" alt="Orthodontics">
-        <h3>13. Orthodontics (Braces & Invisalign®)</h3>
-        <p>We straighten teeth using braces or Invisalign. Proper alignment leads to an attractive smile, easier cleaning, and long-term oral health.</p>
-        <p class="price">Price: 1200 OMR</p>
-      </div>
-
-      <!-- Service Card 14 -->
-      <div class="service-card">
-        <img src="pediatric-dentistry-clinic.jpg" alt="Pediatric Dentistry">
-        <h3>14. Pediatric Dentistry</h3>
-        <p>Gentle care for children, including first dental visits, preventive cleanings, fluoride treatments, and sealants. Positive experiences for lifelong healthy habits.</p>
-        <p class="price">Price: 30 OMR</p>
-      </div>
-
-      <!-- Service Card 15 -->
-      <div class="service-card">
-        <img src="Treatment-for-gingivitis-.jpg" alt="Periodontal Therapy">
-        <h3>15. Periodontal (Gum) Therapy</h3>
-        <p>We diagnose and treat gum disease, from early gingivitis to advanced periodontitis. Includes deep cleanings and infection removal for gum health.</p>
-        <p class="price">Price: 80 OMR</p>
-      </div>
-
-      <!-- Service Card 16 -->
-      <div class="service-card">
-        <img src="tmj-tmd-treatment.jpg" alt="TMJ/TMD Therapy">
-        <h3>16. TMJ/TMD Therapy</h3>
-        <p>We diagnose and manage jaw joint disorders. Treatments include custom night guards, stress management, and therapies to relieve jaw pain and headaches.</p>
-        <p class="price">Price: 100 OMR</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-box">
-        <img src="2.jpg" alt="Mission Image" />
-        <div>
-          <h3>Our Mission</h3>
-          <p>To make every patient feel confident and comfortable with their smile.</p>
-          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+      <!-- 16 services divided in 4 slides -->
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="images.jpeg" class="card-img-top" alt="Dental Exams & Cleanings">
+              <div class="card-body">
+                <h5 class="card-title">Dental Exams & Cleanings</h5>
+                <p class="card-text">Routine check-ups and professional cleaning.</p>
+                <p class="price">15 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="GettyImages-1602825165.jpg" class="card-img-top" alt="Dental Fillings">
+              <div class="card-body">
+                <h5 class="card-title">Dental Fillings</h5>
+                <p class="card-text">Tooth-colored fillings for decayed teeth.</p>
+                <p class="price">20 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="Root-Canal-Treatment.jpeg" class="card-img-top" alt="Root Canal Therapy">
+              <div class="card-body">
+                <h5 class="card-title">Root Canal Therapy</h5>
+                <p class="card-text">Relieves pain and saves infected teeth.</p>
+                <p class="price">100 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="Tooth-Extraction.jpg" class="card-img-top" alt="Tooth Extractions">
+              <div class="card-body">
+                <h5 class="card-title">Tooth Extractions</h5>
+                <p class="card-text">Safe and gentle removal of teeth.</p>
+                <p class="price">50 OMR</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="footer-box">
-        <img src="office.jpg" alt="Visit Us Image" />
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="mouthguards_2.jpg" class="card-img-top" alt="Night Guards & Mouthguards">
+              <div class="card-body">
+                <h5 class="card-title">Night Guards & Mouthguards</h5>
+                <p class="card-text">Protect teeth from grinding or sports.</p>
+                <p class="price">25 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="what-options-are-available-for-dental-bleaching-teeth-whitening.jpg" class="card-img-top" alt="Teeth Whitening">
+              <div class="card-body">
+                <h5 class="card-title">Teeth Whitening</h5>
+                <p class="card-text">Professional whitening to brighten your smile.</p>
+                <p class="price">60 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="shutterstock_1784932625-scaled.jpg" class="card-img-top" alt="Dental Veneers">
+              <div class="card-body">
+                <h5 class="card-title">Dental Veneers</h5>
+                <p class="card-text">Correct chipped or discolored teeth.</p>
+                <p class="price">150 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="dental-bonding-for-gaps-toms-river-nj.jpg" class="card-img-top" alt="Dental Bonding">
+              <div class="card-body">
+                <h5 class="card-title">Dental Bonding</h5>
+                <p class="card-text">Repair chipped or cracked teeth in one visit.</p>
+                <p class="price">70 OMR</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="Dental-crown-care-tips.jpg" class="card-img-top" alt="Dental Crowns">
+              <div class="card-body">
+                <h5 class="card-title">Dental Crowns</h5>
+                <p class="card-text">Custom caps to restore damaged teeth.</p>
+                <p class="price">120 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="dental bridge.jpg" class="card-img-top" alt="Dental Bridges">
+              <div class="card-body">
+                <h5 class="card-title">Dental Bridges</h5>
+                <p class="card-text">Replace missing teeth anchored to healthy teeth.</p>
+                <p class="price">200 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="images (1).jpeg" class="card-img-top" alt="Dental Implants">
+              <div class="card-body">
+                <h5 class="card-title">Dental Implants</h5>
+                <p class="card-text">Permanent solution for tooth loss.</p>
+                <p class="price">400 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="iStock-115793179111.jpg" class="card-img-top" alt="Dentures">
+              <div class="card-body">
+                <h5 class="card-title">Dentures</h5>
+                <p class="card-text">Full or partial dentures for missing teeth.</p>
+                <p class="price">250 OMR</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="carousel-item">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="68ef6741db1fdfd6257fd850_Invisalign-Vs-braces-1024x683-1.jpg" class="card-img-top" alt="Orthodontics">
+              <div class="card-body">
+                <h5 class="card-title">Orthodontics (Braces & Invisalign)</h5>
+                <p class="card-text">Straighten teeth for better appearance and cleaning.</p>
+                <p class="price">1200 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="pediatric-dentistry-clinic.jpg" class="card-img-top" alt="Pediatric Dentistry">
+              <div class="card-body">
+                <h5 class="card-title">Pediatric Dentistry</h5>
+                <p class="card-text">Gentle care for children including sealants.</p>
+                <p class="price">30 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="Treatment-for-gingivitis-.jpg" class="card-img-top" alt="Periodontal Therapy">
+              <div class="card-body">
+                <h5 class="card-title">Periodontal (Gum) Therapy</h5>
+                <p class="card-text">Treat gum disease including deep cleaning.</p>
+                <p class="price">80 OMR</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 text-center">
+              <img src="tmj-tmd-treatment.jpg" class="card-img-top" alt="TMJ/TMD Therapy">
+              <div class="card-body">
+                <h5 class="card-title">TMJ/TMD Therapy</h5>
+                <p class="card-text">Relieve jaw pain with custom night guards.</p>
+                <p class="price">100 OMR</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Carousel controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+      <span>&lt;</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+      <span>&gt;</span>
+    </button>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="pt-4 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="2.jpg" class="rounded" width="100" height="100" alt="Mission">
         <div>
-          <h3>Visit Us</h3>
-          <p>Shati Al Qurum - 3024 way</p>
-          <p>📞 +92828289</p>
-          <p>📞 +24696622</p>
-          <p>📞 +93233100</p>
-          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <p class="mb-0 small">To make every patient feel confident with their smile.</p>
+          <p class="mb-0 small">We focus on gentle care + advanced technology.</p>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="office.jpg" class="rounded" width="100" height="100" alt="Visit Us">
+        <div>
+          <h6 class="fw-bold mb-1">Visit Us</h6>
+          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
+          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
     </div>
-    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
-  </footer>
+    <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<!-- ================= MOVING BANNER ================= -->
+<div class="marquee">
+  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ---------------- Moving banner script ---------------- */
+// This shows day, date, and time in the scrolling banner
+(function() {
+  const marquee = document.getElementById('welcomeMarquee');
+
+  // Function to add a leading 0 if number < 10
+  function pad(n){ return n<10?'0'+n:n; }
+
+  // Update the banner text
+  function refresh() {
+    const now = new Date();
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const day = days[now.getDay()];
+    const dateStr = now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+    const timeStr = pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+    marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+  }
+
+  refresh(); // show immediately
+  setInterval(refresh,1000); // update every second
+})();
+</script>
+
+<script>
+/* ---------------- Active navbar script ---------------- */
+// This highlights the current page link in the navbar
+(function(){
+  const links = document.querySelectorAll('.navbar-nav .nav-link'); // select all nav links
+  const current = location.pathname.split("/").pop(); // get current page filename
+  links.forEach(link => {
+    if(link.getAttribute('href') === current) {
+      link.classList.add('active'); // add 'active' class to current page link
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
+
