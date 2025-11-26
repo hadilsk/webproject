@@ -2,304 +2,231 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Book Appointment</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* ================== FIXED NAVBAR ================== */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ADD8E6; 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 1000;
-      font-family: 'Montserrat', sans-serif;
+    /* Global font & background */
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #0d1b2a;
+      background-color: #f8f9fa;
     }
 
-    header img.logo {
-      height: 40px;
+    /* Navbar style */
+    .navbar {
+      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
+    }
+    .navbar .navbar-brand img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 600; /* fw-semibold analog in plain CSS */
+      color: #0d1b2a;  /* text-dark */
+    }
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+      color: #ff8aa2 !important;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    /* Hero image cover */
+    .hero-img {
+      object-fit: cover;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #001F3F;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #FF5C7A;
-    }
-
-    /* ================== HERO SECTION ================== */
-    .appointment-hero {
-      background: url('team.jpg') center/cover no-repeat;
-      height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    /* Marquee style (matching example) */
+    .marquee {
+      background-color: #4a6fa5;
       color: white;
-      position: relative;
-      margin-top: 80px; /* space for navbar */
-    }
-
-    .appointment-hero::after {
-      content: "";
-      position: absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background: rgba(0,0,0,0.45);
-    }
-
-    .appointment-hero .content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 20px;
-    }
-
-    .appointment-hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .appointment-hero p {
-      font-size: 1.3rem;
-    }
-
-    /* ================== APPOINTMENT FORM ================== */
-    .contact-form-wrapper {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    form.contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    form.contact-form label {
-      font-weight: bold;
-      color: #003A52;
-    }
-
-    form.contact-form input,
-    form.contact-form select,
-    form.contact-form textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 100%;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    form.contact-form button {
-      background-color: #003A52;
-      color: #fff;
-      padding: 12px 20px;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-
-    form.contact-form button:hover {
-      background-color: #007ba7;
-    }
-
-    /* ================== FOOTER ================== */
-    footer {
-      background: #f4f4f4;
-      padding: 40px 20px;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-
-    .footer-box {
-      flex: 1 1 300px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .footer-box img {
-      width: 120px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .footer-box div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .footer-box h3 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .footer-box p {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
-    .copyright {
+      padding: 0.5rem 0;
       text-align: center;
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #666;
     }
 
-    @media(max-width:768px){
-      nav ul { flex-direction: column; gap: 10px; }
-      .appointment-hero h1 { font-size: 2.2rem; }
-      .appointment-hero p { font-size: 1.2rem; }
+    /* Footer style (matching example) */
+    footer {
+      background-color: #d9e2e8;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    footer h6 {
+      font-family: 'Montserrat', sans-serif;
     }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <header>
-    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="doctors.html">Doctors</a></li>
-        <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html" class="active">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logoo.png" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1) brightness(1.2);"></span>
+      </button>
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallary.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="review.html">Patient Reviews</a></li>
+          <li class="nav-item"><a class="nav-link active" href="bookAppointment.html">Book Appointment</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <!-- HERO -->
-  <section class="appointment-hero">
-    <div class="content">
-      <h1>Book Your Appointment</h1>
-      <p>We're here to help you smile brighter</p>
+  <!-- HERO SECTION -->
+  <section class="position-relative text-white text-center d-flex align-items-center" style="height: 65vh;">
+    <img src="team.jpg" class="position-absolute top-0 start-0 w-100 h-100 hero-img" alt="Hero Image">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+    <div class="position-relative container">
+      <h1 class="display-4 fw-bold">Book Your Appointment</h1>
+      <p class="lead">We're here to help you smile brighter</p>
     </div>
   </section>
 
-  <!-- APPOINTMENT FORM -->
-  <section class="contact-form-wrapper">
-    <form class="contact-form" action="https://httpbin.org/get" method="get">
-      <label for="patient-name">Full Name *</label>
-      <input type="text" id="patient-name" name="patient-name" required>
-
-      <label for="patient-email">Email Address *</label>
-      <input type="email" id="patient-email" name="patient-email" required>
-
-      <label for="patient-phone">Phone Number *</label>
-      <input type="tel" id="patient-phone" name="patient-phone" required>
-
-      <label for="service-select">Choose a Service *</label>
-      <select id="service-select" name="service-select" required>
-        <option value="">-- Please choose --</option>
-        <option value="cleaning">Dental Exams & Cleanings</option>
-        <option value="fillings">Dental Fillings</option>
-        <option value="therapy">Root Canal Therapy</option>
-        <option value="extractions">Tooth Extractions</option>
-        <option value="guards">Night Guards & Mouthguards</option>
-        <option value="whitening">Teeth Whitening</option>
-        <option value="veneers">Dental Veneers</option>
-        <option value="bonding">Dental Bonding</option>
-        <option value="crowns">Dental Crowns</option>
-        <option value="bridges">Dental Bridges</option>
-        <option value="implants">Dental Implants</option>
-        <option value="dentures">Dentures</option>
-        <option value="braces">Orthodontics (Braces & Invisalign®)</option>
-        <option value="pediatric">Pediatric Dentistry</option>
-        <option value="periodontal">Periodontal (Gum) Therapy</option>
-        <option value="tmj">TMJ/TMD Therapy</option>
-      </select>
-
-      <label for="dentist-select">Select a Doctor *</label>
-      <select id="dentist-select" name="dentist-select" required>
-        <option value="">-- Please choose --</option>
-        <option value="elena">Dr. Elena Vance</option>
-        <option value="ben">Dr. Ben Carter</option>
-        <option value="sophia">Dr. Sophia Rossi</option>
-        <option value="marcus">Dr. Marcus Thorne</option>
-        <option value="alisha">Dr. Alisha Kumar</option>
-        <option value="samuel">Dr. Samuel Jones</option>
-      </select>
-
-      <label for="date">Preferred Date *</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="time">Preferred Time *</label>
-      <input type="time" id="time" name="time" required>
-
-      <button type="submit">Confirm Booking</button>
-    </form>
+  <!-- FORM SECTION -->
+  <section class="container my-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
+        <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get">
+          <div class="col-md-6">
+            <label for="patient-name" class="form-label">Full Name *</label>
+            <input type="text" class="form-control" id="patient-name" name="patient-name" required>
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="patient-email" class="form-label">Email Address *</label>
+            <input type="email" class="form-control" id="patient-email" name="patient-email" required>
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="patient-phone" class="form-label">Phone Number *</label>
+            <input type="tel" class="form-control" id="patient-phone" name="patient-phone" required>
+            <div class="invalid-feedback">Phone number required.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="service-select" class="form-label">Choose a Service *</label>
+            <select class="form-select" id="service-select" name="service-select" required>
+              <option value="">-- Please choose --</option>
+              <option value="cleaning">Dental Exams & Cleanings</option>
+              <option value="fillings">Dental Fillings</option>
+              <option value="therapy">Root Canal Therapy</option>
+              <option value="extractions">Tooth Extractions</option>
+              <option value="guards">Night Guards & Mouthguards</option>
+              <option value="whitening">Teeth Whitening</option>
+              <option value="veneers">Dental Veneers</option>
+              <option value="bonding">Dental Bonding</option>
+              <option value="crowns">Dental Crowns</option>
+              <option value="bridges">Dental Bridges</option>
+              <option value="implants">Dental Implants</option>
+              <option value="dentures">Dentures</option>
+              <option value="braces">Orthodontics (Braces & Invisalign®)</option>
+              <option value="pediatric">Pediatric Dentistry</option>
+              <option value="periodontal">Periodontal (Gum) Therapy</option>
+              <option value="tmj">TMJ/TMD Therapy</option>
+            </select>
+            <div class="invalid-feedback">Select a service.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="dentist-select" class="form-label">Select a Doctor *</label>
+            <select class="form-select" id="dentist-select" name="dentist-select" required>
+              <option value="">-- Please choose --</option>
+              <option value="elena">Dr. Elena Vance</option>
+              <option value="ben">Dr. Ben Carter</option>
+              <option value="sophia">Dr. Sophia Rossi</option>
+              <option value="marcus">Dr. Marcus Thorne</option>
+              <option value="alisha">Dr. Alisha Kumar</option>
+              <option value="samuel">Dr. Samuel Jones</option>
+            </select>
+            <div class="invalid-feedback">Select a doctor.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="date" class="form-label">Preferred Date *</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+            <div class="invalid-feedback">Select a date.</div>
+          </div>
+          <div class="col-md-6">
+            <label for="time" class="form-label">Preferred Time *</label>
+            <input type="time" class="form-control" id="time" name="time" required>
+            <div class="invalid-feedback">Select a time.</div>
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-danger px-4">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-box">
-        <img src="2.jpg" alt="Mission Image" />
-        <div>
-          <h3>Our Mission</h3>
-          <p>To make every patient feel confident and comfortable with their smile.</p>
-          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+  <footer class="pt-4 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6 d-flex align-items-start gap-3">
+          <img src="2.jpg" alt="Mission" style="width:100px;height:100px;object-fit:cover;">
+          <div>
+            <h6 class="fw-bold mb-1">Our Mission</h6>
+            <p class="mb-0 small">To make every patient feel confident and comfortable with their smile.</p>
+            <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-start gap-3">
+          <img src="office.jpg" alt="Visit Us" style="width:100px;height:100px;object-fit:cover;">
+          <div>
+            <h6 class="fw-bold mb-1">Visit Us</h6>
+            <p class="mb-0 small">Shati Al Qurum – 3024 Way</p>
+            <p class="mb-0 small">📞 +968 92828289 | +24696622 | +93233100</p>
+            <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
+          </div>
         </div>
       </div>
-      <div class="footer-box">
-        <img src="office.jpg" alt="Visit Us Image" />
-        <div>
-          <h3>Visit Us</h3>
-          <p>Shati Al Qurum - 3024 way</p>
-          <p>📞 +92828289</p>
-          <p>📞 +24696622</p>
-          <p>📞 +93233100</p>
-          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
-        </div>
-      </div>
+      <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
     </div>
-    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
   </footer>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (() => {
+      'use strict';
+      const forms = document.querySelectorAll('.needs-validation');
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+
+      (function(){
+        const marquee = document.getElementById('welcomeMarquee');
+        function pad(n){ return n<10?'0'+n:n; }
+        function refresh(){
+          const now = new Date();
+          const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+          const day=days[now.getDay()];
+          const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+          const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+          marquee.textContent=`Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+        }
+        refresh();
+        setInterval(refresh,1000);
+      })();
+    })();
+  </script>
 
 </body>
 </html>
