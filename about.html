@@ -12,17 +12,30 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    
+    /* ——— BODY & FONT RULES ——— */
     body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
     h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; }
+
+    /* ——— NAVBAR HOVER + ACTIVE ——— */
     .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
+    .navbar-nav .nav-link.active { color: #ff8aa2 !important; font-weight: 600; }
+
+    /* ——— HERO OVERLAY ——— */
     .hero-overlay { background-color: rgba(10,30,60,0.45); }
+
+    /* ——— BUTTONS ——— */
     .custom-btn { background-color: #4a6fa5; color: #fff; transition: background-color 0.3s; }
     .custom-btn:hover { background-color: #ff8aa2; color: #fff; }
     .outline-btn { border:1px solid #fff; color:#fff; background-color:transparent; transition: all 0.3s; }
     .outline-btn:hover { background-color: #ff8aa2; color: #fff; }
+
+    /* ——— TEAM CARD HOVER ——— */
     .card-team:hover { transform: scale(1.03); transition: transform 0.3s; }
+
+    /* ——— MARQUEE ——— */
     .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
+
+    /* ——— FOOTER ——— */
     footer { font-family: 'Georgia', serif; }
     footer h6 { font-family: 'Montserrat', sans-serif; }
   </style>
@@ -33,7 +46,7 @@
 <!-- NAVBAR: top menu that links to other pages -->
 <nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
   <div class="container">
-    
+
     <!-- Logo on the left -->
     <a class="navbar-brand" href="index.html">
       <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
@@ -49,7 +62,7 @@
       <ul class="navbar-nav ms-lg-auto align-items-lg-center">
         <!-- Each link goes to its own page -->
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
@@ -183,67 +196,48 @@
 
   function refresh() {
     const now = new Date();
-
     const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     const day = days[now.getDay()];
-
     const dateStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
     const timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
 
-    // This updates the marquee text
-    marquee.textContent = 'Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.';
+    // Corrected template literal with backticks
+    marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
   }
 
-  refresh();             // Run once at page load
-  setInterval(refresh,1000); // Update every second
+  refresh();
+  setInterval(refresh,1000);
 })();
 </script>
 
 <!-- DOCTOR CARD JAVASCRIPT -->
 <script>
-/* Array that contains all doctor details */
 const doctors = [
-  {
-    name: "Dr. Evelyn Reed",
-    title: "DDS - Lead Dentist",
-    bio: "With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry.",
-    img: "dr1.jpg"
-  },
-
-  {
-    name: "Dr. Marcus Chen",
-    title: "DDS - Associate Dentist",
-    bio: "Dr. Chen specializes in family and restorative dentistry and is a certified Invisalign provider.",
-    img: "dr2.jpg"
-  },
-
-  {
-    name: "Sarah Jones",
-    title: "Office Manager",
-    bio: "Sarah ensures smooth clinic operation, scheduling, and patient support.",
-    img: "dr3.jpg"
-  }
+  {name:"Dr. Evelyn Reed",title:"DDS - Lead Dentist",bio:"With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry.",img:"dr1.jpg"},
+  {name:"Dr. Marcus Chen",title:"DDS - Associate Dentist",bio:"Dr. Chen specializes in family and restorative dentistry.",img:"dr2.jpg"},
+  {name:"Sarah Jones",title:"Office Manager",bio:"Sarah ensures smooth clinic operation, scheduling, and patient support.",img:"dr3.jpg"}
 ];
-
-let currentDoctor = 0;
-
-/* Shows doctor info on the page */
+let currentDoctor=0;
 function showDoctor(index){
-  const doc = doctors[index];
-  document.getElementById("doctorImg").src = doc.img;
-  document.getElementById("doctorName").textContent = doc.name;
-  document.getElementById("doctorTitle").textContent = doc.title;
-  document.getElementById("doctorBio").textContent = doc.bio;
+  const doc=doctors[index];
+  document.getElementById("doctorImg").src=doc.img;
+  document.getElementById("doctorName").textContent=doc.name;
+  document.getElementById("doctorTitle").textContent=doc.title;
+  document.getElementById("doctorBio").textContent=doc.bio;
 }
-
-/* Moves to next doctor when button is clicked */
-function nextDoctor(){
-  currentDoctor = (currentDoctor + 1) % doctors.length;
-  showDoctor(currentDoctor);
-}
-
-/* Show the first doctor when page loads */
+function nextDoctor(){ currentDoctor=(currentDoctor+1)%doctors.length; showDoctor(currentDoctor);}
 showDoctor(currentDoctor);
+</script>
+
+<!-- ACTIVE NAVBAR SCRIPT: Makes current page link stay pink -->
+<script>
+(function(){
+  const links = document.querySelectorAll('.navbar-nav .nav-link');
+  const current = location.pathname.split("/").pop(); // get current page file
+  links.forEach(link=>{
+    if(link.getAttribute('href') === current) link.classList.add('active');
+  });
+})();
 </script>
 
 </body>
