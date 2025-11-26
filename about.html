@@ -1,318 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us - SmileCare Dental Clinic</title>
+
+  <!-- Google Fonts: Used to load Montserrat and Roboto font families -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- External navbar CSS -->
+
+  <!-- Bootstrap CSS: This gives us all Bootstrap styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    /* ABOUT HERO SECTION */
-    .about-hero {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: #f0f0f0;
-      padding: 100px 40px 40px 40px; /* leave space for fixed navbar */
-      align-items: center;
-      gap: 40px;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .about-text h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #003A52;
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 15px;
-      color: #003A52;
-    }
-
-    .about-img {
-      flex: 1;
-      min-width: 300px;
-      text-align: right;
-    }
-
-    .about-img img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    /* TEAM SECTION */
-    .team-section {
-      background-color: #FFD6D9; /* pinkish background */
-      padding: 60px 40px;
-      text-align: center;
-    }
-
-    .team-section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 30px;
-      color: #003A52;
-    }
-
-    .team-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .team-card {
-      background: white;
-      border-radius: 10px;
-      width: 300px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .team-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .team-card h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #003A52;
-    }
-
-    .team-card p {
-      font-size: 0.95rem;
-      color: #003A52;
-      line-height: 1.5;
-    }
-
-    /* CALL-TO-ACTION SECTION */
-    .cta-section {
-      padding: 60px 40px;
-      text-align: center;
-      background-color: #f0f0f0;
-    }
-
-    .cta-section h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #003A52;
-    }
-
-    .cta-section p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: #003A52;
-    }
-
-    .cta-section button {
-      padding: 14px 40px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: white;
-      background: #003A52;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .cta-section button:hover {
-      background: #00AEEF;
-      transform: scale(1.05);
-    }
-
-    /* FIXED NAVBAR */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ADD8E6; /* Light blue navbar */
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 1000;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    header img.logo {
-      height: 40px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #001F3F;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #FF5C7A;
-    }
-
-    /* FOOTER FIX */
-    footer {
-      margin-top: 60px;
-      background: #f4f4f4;
-      padding: 40px 20px;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .footer-box {
-      flex: 1 1 300px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .footer-box img {
-      width: 120px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .footer-box div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .footer-box h3 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .footer-box p {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
-    .copyright {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #666;
-    }
+    
+    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; }
+    .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
+    .hero-overlay { background-color: rgba(10,30,60,0.45); }
+    .custom-btn { background-color: #4a6fa5; color: #fff; transition: background-color 0.3s; }
+    .custom-btn:hover { background-color: #ff8aa2; color: #fff; }
+    .outline-btn { border:1px solid #fff; color:#fff; background-color:transparent; transition: all 0.3s; }
+    .outline-btn:hover { background-color: #ff8aa2; color: #fff; }
+    .card-team:hover { transform: scale(1.03); transition: transform 0.3s; }
+    .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
+    footer { font-family: 'Georgia', serif; }
+    footer h6 { font-family: 'Montserrat', sans-serif; }
   </style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="doctors.html">Doctors</a></li>
-        <li><a href="gallary.html">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
+<!-- NAVBAR: top menu that links to other pages -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
+  <div class="container">
+    
+    <!-- Logo on the left -->
+    <a class="navbar-brand" href="index.html">
+      <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
+    </a>
+
+    <!-- Hamburger icon for small screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
+    </button>
+
+    <!-- Menu items -->
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+        <!-- Each link goes to its own page -->
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
       </ul>
-    </nav>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section class="about-hero">
-    <div class="about-text">
-      <h1>About Us - SmileCare Dental</h1>
-      <p><strong>Your Trusted Partner for a Healthy, Beautiful Smile</strong></p>
-      <p>Welcome to Smile Care Dental, where our passion is creating healthy, confident smiles for you and your family. For over a decade, we have been the trusted dental practice for the Omani community, founded on the belief that everyone deserves compassionate, high-quality care in a comfortable and welcoming environment.</p>
-      <p>We understand that a visit to the dentist can be daunting for some. That's why our entire team is dedicated to making your experience as relaxed and positive as possible. From the moment you walk in, you'll feel the difference that genuine care and modern dentistry can make.</p>
     </div>
-    <div class="about-img">
-      <img src="team.jpg" alt="About SmileCare">
+
+  </div>
+</nav>
+
+<!-- HERO SECTION: Big header with background image -->
+<section class="position-relative">
+  <div class="d-flex align-items-center justify-content-center text-center text-white min-vh-50"
+       style="background-image:url('team.jpg'); background-size:cover; background-position:center;">
+
+    <!-- Dark overlay to make text readable -->
+    <div class="p-4 hero-overlay">
+
+      <!-- Main title -->
+      <h1 class="fw-bold display-5">About Us - SmileCare Dental</h1>
+
+      <!-- Subtitle -->
+      <p class="fs-5 mt-2">Your Trusted Partner for a Healthy, Beautiful Smile</p>
+
+      <!-- Small description -->
+      <p class="fs-6">
+        Welcome to SmileCare Dental, where our passion is creating healthy, confident smiles for you and your family.
+        We provide compassionate, high-quality care in a comfortable environment.
+      </p>
     </div>
-  </section>
 
-  <!-- TEAM SECTION -->
-  <section class="team-section">
-    <h2>Meet Our Caring Team</h2>
-    <div class="team-cards">
-      <div class="team-card">
-        <img src="dr1.jpg" alt="Dr. Evelyn Reed">
-        <h3>Dr. Evelyn Reed, DDS - Lead Dentist</h3>
-        <p>With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry. Her gentle approach ensures that even the most anxious patients feel at ease.</p>
-      </div>
-      <div class="team-card">
-        <img src="dr2.jpg" alt="Dr. Marcus Chen">
-        <h3>Dr. Marcus Chen, DDS - Associate Dentist</h3>
-        <p>Dr. Chen specializes in family and restorative dentistry and is a certified provider of Invisalign and advanced implant procedures. He builds long-term relationships with patients to maintain oral health for a lifetime.</p>
-      </div>
-      <div class="team-card">
-        <img src="DR3.jpg" alt="Sarah Jones">
-        <h3>Sarah Jones - Office Manager</h3>
-        <p>Sarah is the friendly voice you hear on the phone and the warm smile that greets you at the front desk. She ensures the smooth operation of our practice and handles scheduling and insurance seamlessly.</p>
-      </div>
+  </div>
+</section>
+
+<!-- TEAM SECTION: Card that changes doctor info with JavaScript -->
+<section class="container my-5 text-center">
+  <h3 class="fw-bold mb-4">Meet Our Team</h3>
+
+  <div class="d-flex justify-content-center">
+    <!-- Card that holds doctor details -->
+    <div class="card card-team p-4 text-center" style="max-width: 500px;">
+
+      <!-- Doctor image -->
+      <img src="" id="doctorImg" class="rounded-circle mx-auto mb-3" width="150" height="150" alt="Doctor Photo">
+
+      <!-- Doctor name -->
+      <h4 id="doctorName" class="fw-bold"></h4>
+
+      <!-- Job title -->
+      <h6 id="doctorTitle" class="text-muted"></h6>
+
+      <!-- Biography -->
+      <p id="doctorBio"></p>
+
+      <!-- Button to show next doctor -->
+      <button class="btn custom-btn mt-3" onclick="nextDoctor()">Next Doctor</button>
     </div>
-  </section>
+  </div>
 
-  <!-- CALL TO ACTION -->
-  <section class="cta-section">
-    <h2>Your Journey to a Better Smile Starts Here</h2>
-    <p>We are not just a dental practice; we are your partners in health. Ready to experience compassionate, modern dental care?</p>
-    <button onclick="window.location.href='bookAppointment.html'">Book Your Appointment Today</button>
-  </section>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-box">
-        <img src="2.jpg" alt="Mission Image" />
+<!-- CALL TO ACTION SECTION -->
+<section class="container text-center my-5 p-5 bg-light rounded-3 shadow-sm">
+  <h2 class="fw-bold mb-3 text-primary">Your Journey to a Better Smile Starts Here</h2>
+  <p>We are not just a dental practice; we are your partners in health.</p>
+
+  <!-- Button linking to appointment page -->
+  <a href="bookAppointment.html" class="btn custom-btn">Book Your Appointment Today</a>
+</section>
+
+<!-- FOOTER SECTION: bottom of the page -->
+<footer class="pt-4 pb-4" style="background-color:#d9e2e8;">
+  <div class="container">
+
+    <div class="row g-4">
+
+      <!-- Mission section -->
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
+
         <div>
-          <h3>Our Mission</h3>
-          <p>To make every patient feel confident and comfortable with their smile.</p>
-          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <p class="mb-0 small">To make every patient feel confident with their smile.</p>
+          <p class="mb-0 small">We focus on gentle care + advanced technology.</p>
         </div>
       </div>
-      <div class="footer-box">
-        <img src="office.jpg" alt="Visit Us Image" />
+
+      <!-- Visit Us section -->
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
+
         <div>
-          <h3>Visit Us</h3>
-          <p>Shati Al Qurum - 3024 way</p>
-          <p>📞 +92828289</p>
-          <p>📞 +24696622</p>
-          <p>📞 +93233100</p>
-          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+          <h6 class="fw-bold mb-1">Visit Us</h6>
+          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
+          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
+
+          <!-- Email -->
+          <p class="mb-0 small">
+            <a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a>
+          </p>
         </div>
       </div>
+
     </div>
-    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
-  </footer>
+
+    <!-- Copyright -->
+    <div class="text-center mt-3 small text-muted">
+      © 2025 SmileCare Dental Clinic. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+<!-- MARQUEE SECTION: scrolling welcome message -->
+<div class="marquee">
+  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+</div>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- MARQUEE JAVASCRIPT -->
+<script>
+/* This script updates the scrolling text every second */
+(function() {
+  const marquee = document.getElementById('welcomeMarquee');
+
+  function pad(n){ return n < 10 ? '0' + n : n; }
+
+  function refresh() {
+    const now = new Date();
+
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const day = days[now.getDay()];
+
+    const dateStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
+    const timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+
+    // This updates the marquee text
+    marquee.textContent = 'Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.';
+  }
+
+  refresh();             // Run once at page load
+  setInterval(refresh,1000); // Update every second
+})();
+</script>
+
+<!-- DOCTOR CARD JAVASCRIPT -->
+<script>
+/* Array that contains all doctor details */
+const doctors = [
+  {
+    name: "Dr. Evelyn Reed",
+    title: "DDS - Lead Dentist",
+    bio: "With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry.",
+    img: "dr1.jpg"
+  },
+
+  {
+    name: "Dr. Marcus Chen",
+    title: "DDS - Associate Dentist",
+    bio: "Dr. Chen specializes in family and restorative dentistry and is a certified Invisalign provider.",
+    img: "dr2.jpg"
+  },
+
+  {
+    name: "Sarah Jones",
+    title: "Office Manager",
+    bio: "Sarah ensures smooth clinic operation, scheduling, and patient support.",
+    img: "dr3.jpg"
+  }
+];
+
+let currentDoctor = 0;
+
+/* Shows doctor info on the page */
+function showDoctor(index){
+  const doc = doctors[index];
+  document.getElementById("doctorImg").src = doc.img;
+  document.getElementById("doctorName").textContent = doc.name;
+  document.getElementById("doctorTitle").textContent = doc.title;
+  document.getElementById("doctorBio").textContent = doc.bio;
+}
+
+/* Moves to next doctor when button is clicked */
+function nextDoctor(){
+  currentDoctor = (currentDoctor + 1) % doctors.length;
+  showDoctor(currentDoctor);
+}
+
+/* Show the first doctor when page loads */
+showDoctor(currentDoctor);
+</script>
 
 </body>
 </html>
