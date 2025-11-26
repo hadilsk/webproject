@@ -1,84 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SmileCare Dental — Home</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS for layout and styling -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Internal CSS: colors, hover, overlay -->
   <style>
-    /* General font and body color */
+    /* Body font and background color */
     body {
       font-family: 'Georgia', serif;
       color: #0d1b2a;
-      background-color: #f8f9fa; /* light gray for Bootstrap bg-light */
+      background-color: #f8f9fa;
     }
 
-    /* Navbar hover effect: turn links pink when hovered */
-    .navbar-nav .nav-link:hover {
-      color: #ff8aa2 !important;
-    }
+    /* Navbar link hover color */
+    .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
 
-    /* Hero overlay: semi-transparent dark blue behind text */
-    .hero-overlay {
-      background-color: rgba(10, 30, 60, 0.45);
-    }
+    /* Dark overlay on hero image */
+    .hero-overlay { background-color: rgba(10,30,60,0.45); }
 
-    /* Primary buttons: blue with white text, pink on hover */
+    /* Main buttons */
     .custom-btn {
       background-color: #4a6fa5;
       color: #fff;
       transition: background-color 0.3s;
     }
-    .custom-btn:hover {
-      background-color: #ff8aa2;
-      color: #fff;
-    }
+    .custom-btn:hover { background-color: #ff8aa2; color: #fff; }
 
-    /* Outline buttons: white border, pink on hover */
+    /* Outline buttons */
     .outline-btn {
-      border: 1px solid #fff;
-      color: #fff;
-      background-color: transparent;
+      border:1px solid #fff;
+      color:#fff;
+      background-color:transparent;
       transition: all 0.3s;
     }
-    .outline-btn:hover {
-      background-color: #ff8aa2;
-      color: #fff;
-    }
+    .outline-btn:hover { background-color: #ff8aa2; color: #fff; }
 
-    /* Card buttons: pink default, blue on hover */
-    .card .btn-custom {
-      background-color: #ff8aa2;
-      color: #fff;
-      transition: background-color 0.3s;
-    }
-    .card .btn-custom:hover {
-      background-color: #4a6fa5;
-      color: #fff;
-    }
+    /* Buttons inside cards */
+    .card .btn-custom { background-color: #ff8aa2; color: #fff; transition: background-color 0.3s; }
+    .card .btn-custom:hover { background-color: #4a6fa5; color: #fff; }
 
-    /* Working hours table header */
-    .table-header {
-      background-color: #4a6fa5;
-      color: #fff;
-      font-weight: bold;
-    }
+    /* Table header color */
+    .table-header { background-color: #4a6fa5; color: #fff; font-weight: bold; }
 
-    /* Marquee section */
-    .marquee {
-      background-color: #4a6fa5;
-      color: white;
-      padding: 0.5rem 0;
-      text-align: center;
-    }
+    /* Marquee area */
+    .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
 
+    /* Rotating gallery image */
+    #galleryImg { border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); max-width:90%; height:auto; }
+
+    /* Footer style */
+    footer { background-color:#d9e2e8; font-family:'Georgia', serif; }
+    footer h6 { font-family: 'Montserrat', sans-serif; }
   </style>
 </head>
 <body>
@@ -86,15 +65,18 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
   <div class="container">
+    <!-- Logo -->
     <a class="navbar-brand" href="index.html">
       <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
     </a>
+    <!-- Menu button for small screens -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
     </button>
+    <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-lg-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
@@ -107,9 +89,11 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 <header class="position-relative">
-  <div class="d-flex align-items-center justify-content-center text-center text-white" style="background-image:url('home.jpeg'); background-size:cover; background-position:center; min-height:70vh;">
+  <div class="d-flex align-items-center justify-content-center text-center text-white" 
+       style="background-image:url('home.jpeg'); background-size:cover; background-position:center; min-height:70vh;">
+    <!-- Overlay text on hero image -->
     <div class="p-4 hero-overlay">
       <h1 class="fw-bold display-5">SmileCare Dental Appointment & Review System</h1>
       <p class="fs-5 mt-2">Modern dental treatments in a calm and friendly environment — feel confident, healthy, and happy.</p>
@@ -121,11 +105,11 @@
   </div>
 </header>
 
-<!-- FEATURE CARDS -->
+<!-- FEATURE CARDS SECTION -->
 <section class="container my-5">
   <h3 class="text-center mb-4 fw-bold">Explore Our Pages</h3>
   <div class="row g-4">
-    <!-- Card 1 -->
+    <!-- questionnaire card -->
     <div class="col-md-4">
       <div class="card h-100 text-center rounded-3">
         <div class="card-body">
@@ -135,7 +119,7 @@
         </div>
       </div>
     </div>
-    <!-- Card 2 -->
+    <!-- Calculate card -->
     <div class="col-md-4">
       <div class="card h-100 text-center rounded-3">
         <div class="card-body">
@@ -145,7 +129,7 @@
         </div>
       </div>
     </div>
-    <!-- Card 3 -->
+    <!-- fun card -->
     <div class="col-md-4">
       <div class="card h-100 text-center rounded-3">
         <div class="card-body">
@@ -158,15 +142,22 @@
   </div>
 </section>
 
+<!-- ROTATING GALLERY -->
+<section class="container my-5 text-center">
+  <h3 class="fw-bold mb-4">Patient Transformations</h3>
+  <!-- Image that changes every 3 seconds -->
+  <div>
+    <img id="galleryImg" src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20143936.png" alt="Gallery Image">
+  </div>
+</section>
+
 <!-- WORKING HOURS TABLE -->
 <section class="container mb-5">
   <div class="card border-0">
     <div class="card-header table-header text-center">Working Hours</div>
     <div class="card-body p-0">
       <table class="table table-borderless text-center mb-0">
-        <thead>
-          <tr><th>Day</th><th>Open</th><th>Close</th></tr>
-        </thead>
+        <thead><tr><th>Day</th><th>Open</th><th>Close</th></tr></thead>
         <tbody>
           <tr><td>Monday</td><td>09:00</td><td>18:00</td></tr>
           <tr><td>Tuesday</td><td>09:00</td><td>18:00</td></tr>
@@ -182,9 +173,10 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="pt-4 pb-4" style="background-color:#d9e2e8;">
+<footer class="pt-4 pb-4">
   <div class="container">
     <div class="row g-4">
+      <!-- Mission info -->
       <div class="col-md-6 d-flex align-items-start gap-3">
         <img src="2.jpg" alt="Mission" class="rounded" style="width:100px;height:100px;object-fit:cover;">
         <div>
@@ -193,6 +185,7 @@
           <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
+      <!-- Visit info -->
       <div class="col-md-6 d-flex align-items-start gap-3">
         <img src="office.jpg" alt="Visit Us" class="rounded" style="width:100px;height:100px;object-fit:cover;">
         <div>
@@ -209,35 +202,46 @@
 
 <!-- MARQUEE -->
 <div class="marquee">
+  <!-- Scrolling text -->
   <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap JS for menu and components -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Marquee JS -->
+<!-- JS for rotating gallery and marquee -->
 <script>
-(function(){
-  const marquee = document.getElementById('welcomeMarquee');
+  // Rotating gallery images
+  const galleryImages = [
+    "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20143936.png",
+    "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20144448.png",
+    "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20144527.png",
+    "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20151843.png"
+  ];
+  let currentImgIndex = 0;
+  const galleryImg = document.getElementById("galleryImg");
+  setInterval(() => {
+    // Change image every 3 seconds
+    currentImgIndex = (currentImgIndex + 1) % galleryImages.length;
+    galleryImg.src = galleryImages[currentImgIndex];
+  }, 3000);
 
-  // Add leading zero for single digits
-  function pad(n){ return n < 10 ? '0'+n : n; }
-
-  // Function to update marquee with current date and time
-  function refresh(){
-    const now = new Date();
-    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const day = days[now.getDay()];
-    const dateStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
-    const timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-
-    // Display welcome message
-    marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
-  }
-
-  refresh(); // initial call
-  setInterval(refresh, 1000); // update every second
-})();
+  // Marquee text updates every second
+  (function(){
+    const marquee = document.getElementById('welcomeMarquee');
+    function pad(n){ return n<10?'0'+n:n; }
+    function refresh(){
+      const now = new Date();
+      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const day=days[now.getDay()];
+      const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+      const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+      marquee.textContent=`Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+    }
+    refresh(); // first run
+    setInterval(refresh,1000); // update every second
+  })();
 </script>
+
 </body>
 </html>
