@@ -4,316 +4,317 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SmileCare – Gallery</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
   <style>
-    body {
-      background-color: #efefef;
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
+    
+    :root {
+      --primary-blue: #4a6fa5;
+      --primary-dark: #0d1b2a;
+      --accent-pink: #ff8aa2;
+      --text-main: #0d1b2a;
+      --background-body: #efefef;
+      --background-footer: #d9e2e8;
+      --card-title-color: #2f3156;
+      --card-subtitle-color: #a4c2f4;
     }
 
-    /* ======================= NAVBAR ======================= */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #ADD8E6;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      z-index: 1000;
+    
+    body { 
+        font-family: 'Georgia', serif; 
+        color: var(--text-main); 
+        background-color: var(--background-body); 
+    }
+    
+    
+    .navbar-custom {
+      background: linear-gradient(90deg, #f1f4f8, var(--primary-blue));
+    }
+    .navbar-nav .nav-link:hover { 
+        color: var(--accent-pink) !important; 
+    }
+    .navbar-nav .nav-link.active { 
+        color: var(--accent-pink) !important; 
+        font-weight: 600; 
+    }
+    .navbar-toggler-icon-custom {
+        filter:invert(1) brightness(1.2);
+    }
+    .nav-logo-img {
+        width:80px;
+        height:80px;
+        object-fit:contain;
     }
 
-    header img.logo {
-      height: 40px;
+  
+    footer { 
+        background-color: var(--background-footer); 
+        font-family:'Georgia', serif; 
+    }
+    footer h6 { 
+        font-family: 'Montserrat', sans-serif; 
+    }
+    .footer-img {
+        width:100px;
+        height:100px;
+        object-fit:cover;
+    }
+    .marquee-custom { 
+        background-color: var(--primary-blue); 
+        color: white; 
+        padding: 0.5rem 0; 
+        text-align: center; 
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
+    
+
+    
+    .hero-section {
+        background-image: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dental-chare.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 350px;  
+        position: relative; 
+        color: white; 
+        text-shadow: none; 
+    }
+    .hero-section h1 {
+        font-family: 'Montserrat', sans-serif;
     }
 
-    nav a {
-      text-decoration: none;
-      color: #001F3F;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: color 0.3s;
+    
+    .hero-text-overlay {
+        
+        background-color: rgba(10, 30, 60, 0.7); 
+        padding: 2rem 3rem; 
+        max-width: 800px; 
+        margin: 0 auto;
+        border-radius: 8px; 
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #FF5C7A;
+
+    
+    .card-title-custom {
+        color: var(--card-title-color); 
+        font-weight: bold;
+    }
+    .card-subtitle-custom {
+        color: var(--card-subtitle-color); 
+        font-weight: bold;
+    }
+    .card-text-custom {
+        font-size: small; 
+        line-height: 1.6;
+    }
+    
+    
+    .case-study-img {
+        max-height: 300px; 
+        object-fit: contain; 
+        width: 100%;
+        padding: 1rem 0; 
+    }
+    
+    
+    .card-body-flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .card-content-wrapper {
+        flex-grow: 1; 
+    }
+    .card-image-container {
+        margin-top: auto; 
+    }
+    
+    
+    .card-shadow-hover {
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .card-shadow-hover:hover {
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        transform: translateY(-5px);
     }
 
-    /* ======================= Gallery Header ======================= */
-    .gallery-header {
-      background-image: url("https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dental-chare.jpg");
-      background-size: cover;
-      background-position: center;
-      min-height: 300px;
-      color: #003A52; /* dark blue */
-      text-align: center;
-      padding: 140px 20px 60px;
-      text-shadow: 1px 1px 3px rgba(255,255,255,0.6);
-    }
-
-    .gallery-header h1,
-    .gallery-header h5 {
-      margin: 0;
-      padding: 5px 0;
-      color: #003A52; /* dark blue */
-    }
-
-    /* ======================= IMAGE GRID - 2 CARDS PER ROW ======================= */
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      gap: 30px;
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-      justify-items: center;
-    }
-
-    .grid-item {
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 450px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .grid-item h2 {
-      color: #2f3156;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .grid-item h3 {
-      color: #a4c2f4;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .grid-item p {
-      font-size: small;
-      line-height: 1.6;
-      margin: 10px 0;
-      text-align: center;
-    }
-
-    .image-pair {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .image-pair img {
-      width: 100%;
-      height: 250px; /* fixed height */
-      object-fit: cover; /* ensures images cover the area */
-      border-radius: 8px;
-      display: block;
-    }
-
-    /* ======================= FOOTER ======================= */
-    footer {
-      background: #f4f4f4;
-      padding: 40px 20px;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .footer-box {
-      flex: 1 1 300px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .footer-box img {
-      width: 120px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .footer-box div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .footer-box h3 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-    }
-
-    .footer-box p {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
-    .copyright {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* ======================= RESPONSIVE ======================= */
-    @media(max-width: 960px){
-      .image-grid {
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      }
-    }
-
-    @media(max-width: 600px){
-      .image-grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <img src="logoo.png" class="logo" alt="SmileCare Logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="doctors.html">Doctors</a></li>
-        <li><a href="gallary.html" class="active">Gallery</a></li>
-        <li><a href="review.html">Patient Reviews</a></li>
-        <li><a href="bookAppointment.html">Book Appointment</a></li>
-        <li><a href="contact.html">Contact</a></li>
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logoo.png" alt="Logo" class="rounded-circle nav-logo-img">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon navbar-toggler-icon-custom"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link active" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
       </ul>
-    </nav>
-  </header>
-
-  <!-- GALLERY HEADER -->
-  <main>
-    <div class="gallery-header">
-      <h1>Before & After Gallery</h1>
-      <h5>Browse our collection of real patient transformations to see the life-changing results we achieve.</h5>
     </div>
+  </div>
+</nav>
 
-    <!-- IMAGE GRID -->
-    <div class="image-grid">
-      <!-- Angela -->
-      <div class="grid-item">
-        <h2>Angela</h2>
-        <h3>Porcelain Veneers, Invisalign, Home Whitening</h3>
-        <p>
-          Angela felt that her smile was looking very tired and made her look older. She had some old crowns and composite veneers that had begun to stain and chip. She also had a deep bite and crooked incisors.<br><br>
-          I first aligned her teeth and corrected her bite with Invisalign over six months. This ensured that she would get the very best aesthetic results and that her porcelain restorations would last as long as possible.<br><br>
-          After finishing Angela’s alignment, I whitened her lower front teeth then placed a combination of porcelain veneers and crowns to rebuild her bite and create a dazzling new smile.<br><br>
-          The results take ten years off Angela’s smile.
-        </p>
-        <div class="image-pair">
-          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20143936.png" alt="Angela Before & After">
-        </div>
-      </div>
-
-      <!-- Ceri -->
-      <div class="grid-item">
-        <h2>Ceri</h2>
-        <h3>Porcelain Crowns and Veneers</h3>
-        <p>
-          Ceri wanted to look younger and fresher for her son’s upcoming wedding. She had always felt that her front teeth looked “goofy” and had been teased about it in her youth.<br><br>
-          Ceri had old and discoloured crowns, and her natural teeth had yellowed over the years.<br><br>
-          After some home teeth whitening, I placed a combination of porcelain crowns and veneers on ten upper teeth. They were planned using digital smile design techniques to make sure that her teeth look straighter without having to have orthodontic treatment.<br><br>
-          Ceri looked fantastic – and much younger than her years on her son’s special day!
-        </p>
-        <div class="image-pair">
-          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20144448.png" alt="Ceri Before & After">
-        </div>
-      </div>
-
-      <!-- Kristina -->
-      <div class="grid-item">
-        <h2>Kristina</h2>
-        <h3>Porcelain Veneers</h3>
-        <p>
-          Kristina had worn her teeth down very rapidly for someone so young. She had a grinding habit and had caused significant damage to her tooth enamel. On one side, she had worn down 30% of her tooth size, and she was still under 30 years old.<br><br>
-          I used orthodontic correction to improve Kristina’s bite and reduce the heavy grinding forces.<br><br>
-          Afterwards, I placed ten natural-looking porcelain veneers to create a beautiful and dramatic, yet natural-looking transformation Kristina was delighted that I gave her back her 20-year-old smile!
-        </p>
-        <div class="image-pair">
-          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20144527.png" alt="Kristina Before & After">
-        </div>
-      </div>
-
-      <!-- Jacqueline -->
-      <div class="grid-item">
-        <h2>Jacqueline</h2>
-        <h3>Braces, Enlighten Whitening, Full Gum Lift, Porcelain Crowns and Veneers</h3>
-        <p>
-          Jacqueline hated her smile. She was very embarrassed about how her teeth protruded and made her look “gummy”. After years of hiding her smile, Jacqueline decided it was time to invest in herself.<br><br>
-          Jacqueline’s was a very complex case. She would have benefitted from orthodontic treatment (braces) as a child but did not receive any. She had also lost several teeth, and those remaining were extensively filled with very old metal fillings.<br><br>
-          I first ensured Jacqueline’s mouth was healthy and stabilised before placing the braces that she didn’t receive as a child. This allowed me to correct her bite and prevent her upper teeth from protruding and giving her smile the gummy appearance she disliked so much.<br><br>
-          After this was completed, Jacqueline had a full gum lift to correct the gummy smile further, before I placed a combination of 12 porcelain veneers and crowns.<br><br>
-          Her gummy smile gone and her lips and teeth now in beautiful proportion, Jacqueline could smile with confidence for the first time. She was thrilled with how it all turned out and very happy with her investment!
-        </p>
-        <div class="image-pair">
-          <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20151843.png" alt="Jacqueline Before & After">
-        </div>
-      </div>
+<section class="hero-section text-center d-flex align-items-center justify-content-center">
+  <div class="container py-5">
+    <div class="hero-text-overlay">
+      <h1 class="display-4 fw-bold">Before & After Gallery</h1>
+      <h5 class="lead fw-normal">Browse our collection of real patient transformations to see the life-changing results we achieve.</h5>
     </div>
-  </main>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-box">
-        <img src="2.jpg" alt="Mission Image" />
+<main>
+  <div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      
+      <div class="col mx-auto">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
+          <div class="card-body card-body-flex">
+            <div class="card-content-wrapper">
+                <h2 class="card-title text-center card-title-custom">Angela</h2>
+                <h3 class="card-subtitle mb-2 text-center card-subtitle-custom">Porcelain Veneers, Invisalign, Home Whitening</h3>
+                <p class="card-text text-center card-text-custom">
+                  Angela felt that her smile was looking very tired and made her look older. She had some old crowns and composite veneers that had begun to stain and chip. She also had a deep bite and crooked incisors.<br><br>
+                  I first aligned her teeth and corrected her bite with Invisalign over six months. This ensured that she would get the very best aesthetic results and that her porcelain restorations would last as long as possible.<br><br>
+                  After finishing Angela’s alignment, I whitened her lower front teeth then placed a combination of porcelain veneers and crowns to rebuild her bite and create a dazzling new smile.<br><br>
+                  The results take ten years off Angela’s smile.
+                </p>
+            </div>
+            <div class="card-image-container text-center">
+              <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20143936.png" alt="Angela Before & After" class="img-fluid rounded case-study-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mx-auto">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
+          <div class="card-body card-body-flex">
+            <div class="card-content-wrapper">
+                <h2 class="card-title text-center card-title-custom">Ceri</h2>
+                <h3 class="card-subtitle mb-2 text-center card-subtitle-custom">Porcelain Crowns and Veneers</h3>
+                <p class="card-text text-center card-text-custom">
+                  Ceri wanted to look younger and fresher for her son’s upcoming wedding. She had always felt that her front teeth looked “goofy” and had been teased about it in her youth.<br><br>
+                  Ceri had old and discoloured crowns, and her natural teeth had yellowed over the years.<br><br>
+                  After some home teeth whitening, I placed a combination of porcelain crowns and veneers on ten upper teeth. They were planned using digital smile design techniques to make sure that her teeth look straighter without having to have orthodontic treatment.<br><br>
+                  Ceri looked fantastic – and much younger than her years on her son’s special day!
+                </p>
+            </div>
+            <div class="card-image-container text-center">
+              <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20144448.png" alt="Ceri Before & After" class="img-fluid rounded case-study-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mx-auto">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
+          <div class="card-body card-body-flex">
+            <div class="card-content-wrapper">
+                <h2 class="card-title text-center card-title-custom">Kristina</h2>
+                <h3 class="card-subtitle mb-2 text-center card-subtitle-custom">Porcelain Veneers</h3>
+                <p class="card-text text-center card-text-custom">
+                  Kristina had worn her teeth down very rapidly for someone so young. She had a grinding habit and had caused significant damage to her tooth enamel. On one side, she had worn down 30% of her tooth size, and she was still under 30 years old.<br><br>
+                  I used orthodontic correction to improve Kristina’s bite and reduce the heavy grinding forces.<br><br>
+                  Afterwards, I placed ten natural-looking porcelain veneers to create a beautiful and dramatic, yet natural-looking transformation Kristina was delighted that I gave her back her 20-year-old smile!
+                </p>
+            </div>
+            <div class="card-image-container text-center">
+              <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20144527.png" alt="Kristina Before & After" class="img-fluid rounded case-study-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col mx-auto">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
+          <div class="card-body card-body-flex">
+            <div class="card-content-wrapper">
+                <h2 class="card-title text-center card-title-custom">Jacqueline</h2>
+                <h3 class="card-subtitle mb-2 text-center card-subtitle-custom">Braces, Enlighten Whitening, Full Gum Lift, Porcelain Crowns and Veneers</h3>
+                <p class="card-text text-center card-text-custom">
+                  Jacqueline hated her smile. She was very embarrassed about how her teeth protruded and made her look “gummy”. After years of hiding her smile, Jacqueline decided it was time to invest in herself.<br><br>
+                  Jacqueline’s was a very complex case. She would have benefitted from orthodontic treatment (braces) as a child but did not receive any. She had also lost several teeth, and those remaining were extensively filled with very old metal fillings.<br><br>
+                  I first ensured Jacqueline’s mouth was healthy and stabilised before placing the braces that she didn’t receive as a child. This allowed me to correct her bite and prevent her upper teeth from protruding and giving her smile the gummy appearance she disliked so much.<br><br>
+                  After this was completed, Jacqueline had a full gum lift to correct the gummy smile further, before I placed a combination of 12 porcelain veneers and crowns.<br><br>
+                  Her gummy smile gone and her lips and teeth now in beautiful proportion, Jacqueline could smile with confidence for the first time. She was thrilled with how it all turned out and very happy with her investment!
+                </p>
+            </div>
+            <div class="card-image-container text-center">
+              <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Screenshot%202025-10-26%20151843.png" alt="Jacqueline Before & After" class="img-fluid rounded case-study-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="pt-4 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="2.jpg" alt="Mission" class="rounded footer-img">
         <div>
-          <h3>Our Mission</h3>
-          <p>To make every patient feel confident and comfortable with their smile.</p>
-          <p>At SmileCare, we focus on gentle care, advanced technology, and trusted results.</p>
+          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <p class="mb-0 small">To make every patient feel confident and comfortable with their smile.</p>
+          <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
-      <div class="footer-box">
-        <img src="office.jpg" alt="Visit Us Image" />
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="office.jpg" alt="Visit Us" class="rounded footer-img">
         <div>
-          <h3>Visit Us</h3>
-          <p>Shati Al Qurum - 3024 way</p>
-          <p>📞 +92828289</p>
-          <p>📞 +24696622</p>
-          <p>📞 +93233100</p>
-          <p>📧 <a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></p>
+          <h6 class="fw-bold mb-1">Visit Us</h6>
+          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
+          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
     </div>
-    <p class="copyright">© 2025 SmileCare Dental Clinic. All Rights Reserved.</p>
-  </footer>
+    <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
+  </div>
+</footer>
+<div class="marquee-custom">
+  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+</div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Bootstrap and JavaScript are active for dynamic components.');
+    });
+
+
+    (function(){
+    const marquee = document.getElementById('welcomeMarquee');
+    function pad(n){ return n<10?'0'+n:n; }
+    function refresh(){
+      const now = new Date();
+      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const day=days[now.getDay()];
+      const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+      const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+     marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+    }
+    refresh();
+    setInterval(refresh,1000);
+    })();
+  </script>
 
 </body>
 </html>
