@@ -19,8 +19,7 @@
       --background-body: #efefef;
       --background-footer: #d9e2e8;
       --card-title-color: #2f3156;
-      --card-subtitle-color: #a4c2f4;
-    }
+      --card-subtitle-color: #a4c2f4;}
 
     
     body { 
@@ -50,94 +49,37 @@
     }
 
   
-    footer { 
-        background-color: var(--background-footer); 
-        font-family:'Georgia', serif; 
-    }
-    footer h6 { 
-        font-family: 'Montserrat', sans-serif; 
-    }
-    .footer-img {
-        width:100px;
-        height:100px;
-        object-fit:cover;
-    }
-    .marquee-custom { 
-        background-color: var(--primary-blue); 
-        color: white; 
-        padding: 0.5rem 0; 
-        text-align: center; 
-    }
+    footer { background-color: var(--background-footer); font-family:'Georgia', serif; }
+    
+    footer h6 { font-family: 'Montserrat', sans-serif; }
 
-    
+    .footer-img {width:100px;height:100px;object-fit:cover;}
 
-    
-    .hero-section {
-        background-image: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dental-chare.jpg');
-        background-size: cover;
-        background-position: center;
-        min-height: 350px;  
-        position: relative; 
-        color: white; 
-        text-shadow: none; 
-    }
-    .hero-section h1 {
-        font-family: 'Montserrat', sans-serif;
-    }
+    .marquee-custom { background-color: var(--primary-blue); color: white; padding: 0.5rem 0; text-align: center; }
 
+    .hero-section {background-image: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dental-chare.jpg');background-size: cover;background-position: center;min-height: 350px; position: relative; color: white; text-shadow: none;}
     
-    .hero-text-overlay {
-        
-        background-color: rgba(10, 30, 60, 0.7); 
-        padding: 2rem 3rem; 
-        max-width: 800px; 
-        margin: 0 auto;
-        border-radius: 8px; 
-    }
+    .hero-section h1 {font-family: 'Montserrat', sans-serif; }
 
+    .hero-text-overlay { background-color: rgba(10, 30, 60, 0.7); padding: 2rem 3rem; max-width: 800px; margin: 0 auto;border-radius: 8px; }
 
+    .card-title-custom {color: var(--card-title-color); font-weight: bold;}
+
+    .card-subtitle-custom {color: var(--card-subtitle-color); font-weight: bold;}
+
+    .card-text-custom {font-size: small; line-height: 1.6;}
+
+    .case-study-img {max-height: 300px; object-fit: contain; width: 100%; padding: 1rem 0; }
+
+    .card-body-flex {display: flex; flex-direction: column;}
+
+    .card-content-wrapper {flex-grow: 1; }
+
+    .card-image-container {margin-top: auto; }
     
-    .card-title-custom {
-        color: var(--card-title-color); 
-        font-weight: bold;
-    }
-    .card-subtitle-custom {
-        color: var(--card-subtitle-color); 
-        font-weight: bold;
-    }
-    .card-text-custom {
-        font-size: small; 
-        line-height: 1.6;
-    }
-    
-    
-    .case-study-img {
-        max-height: 300px; 
-        object-fit: contain; 
-        width: 100%;
-        padding: 1rem 0; 
-    }
-    
-    
-    .card-body-flex {
-        display: flex;
-        flex-direction: column;
-    }
-    .card-content-wrapper {
-        flex-grow: 1; 
-    }
-    .card-image-container {
-        margin-top: auto; 
-    }
-    
-    
-    .card-shadow-hover {
-        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-    .card-shadow-hover:hover {
-        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
-        transform: translateY(-5px);
-    }
+    .card-shadow-hover {transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;}
+
+    .card-shadow-hover:hover {box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; transform: translateY(-5px);}
 
   </style>
 </head>
