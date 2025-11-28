@@ -95,7 +95,19 @@
     <section id="testimonial-section" class="py-5">
         <div class="container">
             <h3 class="text-center mb-4 text-primary fw-bold">Recent Patient Testimonials</h3>
+            <div class="row mb-4 justify-content-center">
+    <div class="col-md-6">
+        <div class="input-group shadow-sm">
+            <input type="text" id="reviewSearch" class="form-control" placeholder="Search reviews by name or comment...">
             
+            <button class="btn btn-outline-secondary" type="button" id="searchButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.085.122l3.057 3.057a1 1 0 0 0 1.414-1.414l-3.057-3.057a.75.75 0 0 0-.122-.085zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
             <div id="testimonial-cards" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center">
                 </div>
         </div>
@@ -131,7 +143,24 @@
                         <textarea id="reviewComments" name="review_comments" rows="4" class="form-control" required></textarea>
                         <div class="invalid-feedback">Please provide your comments.</div>
                     </div>
-                    
+                    <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="reviewConsent" name="consent" required>
+    <label class="form-check-label fw-bold text-secondary" for="reviewConsent">I consent to my review being published. <span class="text-danger">*</span></label>
+    <div class="invalid-feedback">You must consent to publish your review.</div>
+</div>
+
+<div class="mb-3">
+    <label class="form-label fw-bold text-secondary d-block">Would you recommend SmileCare?</label>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="recommend" id="radioYes" value="Yes" required>
+        <label class="form-check-label" for="radioYes">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="recommend" id="radioNo" value="No" required>
+        <label class="form-check-label" for="radioNo">No</label>
+    </div>
+    <div class="invalid-feedback d-block">Please choose an option.</div>
+</div>
                     <button type="submit" class="btn w-100 mt-3 btn-submit-custom text-white">Submit Review</button>
                 </form>
             </div>
