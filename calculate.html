@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculate Your Bill - SmileCare</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
+
+  <style>
+    /* Body font and background color */
+    body {
+      font-family: 'Georgia', serif;
+      color: #0d1b2a;
+      background-color: #f8f9fa;
+    }
+
+    /* Headings font */
+    h1,h2,h3,h4,h5,h6 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Hero section at top of page */
+    .hero-section {
+      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    /* Custom button color */
+    .btn-custom {
+      background-color: #4a6fa5;
+      color: white;
+    }
+
+    .btn-custom:hover {
+      background-color: #3b5785;
+    }
+
+    /* Result box styling */
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e2e8f0;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero section with title and description -->
+<header class="hero-section">
+  <h1 class="display-4 fw-bold">Dental Bill Calculator</h1>
+  <p class="fs-5 mt-2">Calculate your total cost including possible discounts!</p>
+</header>
+
+<!-- Main form section -->
+<section class="container mb-5">
+  <div class="card p-4 shadow-sm">
+    <h2 class="text-center fw-bold mb-4">Select Services & Enter Your Age</h2>
+    <form id="billForm">
+      <!-- User age input -->
+      <div class="mb-3 col-md-4">
+        <label for="age" class="form-label">Your Age</label>
+        <input type="number" class="form-control" id="age" placeholder="Enter your age" min="0" required>
+      </div>
+
+      <!-- Services table -->
+      <table class="table table-bordered table-striped text-center">
+        <thead class="table-primary">
+          <tr>
+            <th>Service</th>
+            <th>Price (OMR)</th>
+            <th>Select</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dental Exams & Cleanings</td><td>15</td><td><input type="checkbox" name="service" value="15" data-name="Dental Exams & Cleanings"></td></tr>
+          <tr><td>Dental Fillings</td><td>20</td><td><input type="checkbox" name="service" value="20" data-name="Dental Fillings"></td></tr>
+          <tr><td>Root Canal Therapy</td><td>100</td><td><input type="checkbox" name="service" value="100" data-name="Root Canal Therapy"></td></tr>
+          <tr><td>Tooth Extractions</td><td>50</td><td><input type="checkbox" name="service" value="50" data-name="Tooth Extractions"></td></tr>
+          <tr><td>Night Guards & Mouthguards</td><td>25</td><td><input type="checkbox" name="service" value="25" data-name="Night Guards & Mouthguards"></td></tr>
+          <tr><td>Teeth Whitening</td><td>60</td><td><input type="checkbox" name="service" value="60" data-name="Teeth Whitening"></td></tr>
+          <tr><td>Dental Veneers</td><td>150</td><td><input type="checkbox" name="service" value="150" data-name="Dental Veneers"></td></tr>
+          <tr><td>Dental Bonding</td><td>70</td><td><input type="checkbox" name="service" value="70" data-name="Dental Bonding"></td></tr>
+          <tr><td>Dental Crowns</td><td>120</td><td><input type="checkbox" name="service" value="120" data-name="Dental Crowns"></td></tr>
+          <tr><td>Dental Bridges</td><td>200</td><td><input type="checkbox" name="service" value="200" data-name="Dental Bridges"></td></tr>
+          <tr><td>Dental Implants</td><td>400</td><td><input type="checkbox" name="service" value="400" data-name="Dental Implants"></td></tr>
+          <tr><td>Dentures</td><td>250</td><td><input type="checkbox" name="service" value="250" data-name="Dentures"></td></tr>
+          <tr><td>Orthodontics (Braces & Invisalign)</td><td>1200</td><td><input type="checkbox" name="service" value="1200" data-name="Orthodontics"></td></tr>
+          <tr><td>Pediatric Dentistry</td><td>30</td><td><input type="checkbox" name="service" value="30" data-name="Pediatric Dentistry"></td></tr>
+          <tr><td>Periodontal (Gum) Therapy</td><td>80</td><td><input type="checkbox" name="service" value="80" data-name="Periodontal Therapy"></td></tr>
+          <tr><td>TMJ/TMD Therapy</td><td>100</td><td><input type="checkbox" name="service" value="100" data-name="TMJ/TMD Therapy"></td></tr>
+        </tbody>
+      </table>
+
+      <!-- Buttons to calculate or return home -->
+      <div class="text-center mt-3">
+        <button type="button" class="btn btn-custom me-2" onclick="calculateBill()">Calculate Total</button>
+        <a href="index.html" class="btn btn-secondary">Return to Home</a>
+      </div>
+    </form>
+
+    <!-- Result box -->
+    <div id="result" class="result text-center"></div>
+  </div>
+</section>
+
+<!-- JavaScript for calculation -->
+<script>
+function calculateBill() {
+  // Get user age input
+  var age = parseInt(document.getElementById('age').value);
+
+  // Get all service checkboxes
+  var services = document.getElementsByName('service');
+  var total = 0;
+  var selectedServices = [];
+
+  // Loop through each service to calculate total
+  for (var i = 0; i < services.length; i++) {
+    if (services[i].checked) {
+      var price = parseFloat(services[i].value);
+      var name = services[i].dataset.name;
+      total += price;
+      selectedServices.push({name: name, price: price});
+    }
+  }
+
+  // If no service selected, show warning
+  if (selectedServices.length === 0) {
+    document.getElementById('result').innerHTML = "Please select at least one service.";
+    return;
+  }
+
+  // Apply elderly discount if age >= 60
+  var discount = 0;
+  if (age >= 60) discount = total * 0.10;
+
+  // Calculate final amount
+  var finalAmount = total - discount;
+
+  // Create result HTML with table and totals
+  var resultText = '<h5>Selected Services:</h5>';
+  resultText += '<table class="table table-bordered"><thead><tr><th>Service</th><th>Price (OMR)</th></tr></thead><tbody>';
+  for (var j = 0; j < selectedServices.length; j++) {
+    resultText += '<tr><td>' + selectedServices[j].name + '</td><td>' + selectedServices[j].price.toFixed(2) + '</td></tr>';
+  }
+  resultText += '</tbody></table>';
+  resultText += '<p>Total before discount: <strong>' + total.toFixed(2) + ' OMR</strong></p>';
+  resultText += discount > 0 ? '<p>Elderly Discount (10%): -<strong>' + discount.toFixed(2) + ' OMR</strong></p>' : '<p>No discount applied.</p>';
+  resultText += '<p>Final Total: <strong>' + finalAmount.toFixed(2) + ' OMR</strong></p>';
+
+  // Display the result in the result div
+  document.getElementById('result').innerHTML = resultText;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+        crossorigin="anonymous"></script>
+</body>
+</html>
