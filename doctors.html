@@ -106,7 +106,18 @@
         width: 80px;
         height: 80px;
         object-fit: contain;
+
+
     }
+
+    .card-shadow-hover {
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+    .card-shadow-hover:hover {
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        transform: translateY(-5px);
+    }
+
 
   </style>
 </head>
@@ -150,8 +161,8 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       
-      <div class="col">
-        <div class="card h-100 shadow-sm rounded-3">
+      <div class="col ">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
           <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dr4.jpg" class="card-img-top doctor-img" alt="Dr. Elena Vance">
           <div class="card-body">
             <h4 class="card-title text-center fs-5 doctor-title">Dr. Elena Vance (Female)</h4>
@@ -163,8 +174,8 @@
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100 shadow-sm rounded-3">
+      <div class="col ">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
           <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr5.jpg" class="card-img-top doctor-img" alt="Dr. Ben Carter">
           <div class="card-body">
             <h4 class="card-title text-center fs-5 doctor-title">Dr. Ben Carter (Male)</h4>
@@ -176,8 +187,8 @@
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100 shadow-sm rounded-3">
+      <div class="col ">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
           <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/dr6.jpg" class="card-img-top doctor-img" alt="Dr. Sophia Rossi">
           <div class="card-body">
             <h4 class="card-title text-center fs-5 doctor-title">Dr. Sophia Rossi (Female)</h4>
@@ -189,8 +200,8 @@
         </div>
       </div>
       
-      <div class="col">
-        <div class="card h-100 shadow-sm rounded-3">
+      <div class="col r">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover">
           <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr7.jpg" class="card-img-top doctor-img" alt="Dr. Marcus Thorne">
           <div class="card-body">
             <h4 class="card-title text-center fs-5 doctor-title">Dr. Marcus Thorne (Male)</h4>
@@ -202,8 +213,8 @@
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100 shadow-sm rounded-3">
+      <div class="col ">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover ">
           <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr8.jpg" class="card-img-top doctor-img" alt="Dr. Alisha Kumar">
           <div class="card-body">
             <h4 class="card-title text-center fs-5 doctor-title">Dr. Alisha Kumar (Female)</h4>
@@ -215,8 +226,8 @@
         </div>
       </div>
 
-      <div class="col">
-        <div class="card h-100 shadow-sm rounded-3">
+      <div class="col ">
+        <div class="card h-100 shadow-sm rounded-3 card-shadow-hover ">
           <img src="https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/Dr9.jpg" class="card-img-top doctor-img" alt="Dr. Samuel Jones">
           <div class="card-body">
             <h4 class="card-title text-center fs-5 doctor-title">Dr. Samuel Jones (Male)</h4>
@@ -263,12 +274,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      e
-      console.log('Bootstrap and JavaScript are active for dynamic components.');
-    });
-
     
+        
     (function(){
     const marquee = document.getElementById('welcomeMarquee');
     function pad(n){ return n<10?'0'+n:n; }
