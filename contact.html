@@ -5,73 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us - SmileCare</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    /* Global font */
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      color: #0d1b2a;
-      background-color: #f8f9fa;
-    }
+    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
 
-    /* Navbar style matching home page */
-    .navbar {
-      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
-    }
-    .navbar-brand img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
-    .navbar-nav .nav-link {
-      font-weight: 600;
-      color: #0d1b2a;
-    }
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      color: #ff8aa2 !important;
-    }
+    .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
+    .navbar-nav .nav-link.active { color: #ff8aa2 !important; font-weight: 600; }
 
-    /* Hero image */
-    .hero-img { object-fit: cover; }
+    .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
 
-    /* Footer style (matches home page) */
-    footer {
-      background-color: #d9e2e8;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-    footer h6 {
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* Marquee strip */
-    .marquee {
-      background-color: #4a6fa5;
-      color: white;
-      padding: 0.5rem 0;
-      text-align: center;
-    }
+    footer { background-color:#d9e2e8; font-family:'Georgia', serif; }
+    footer h6 { font-family:'Montserrat', sans-serif; }
   </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg sticky-top">
+<!-- NAVBAR (same as index) -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
   <div class="container">
-
-    <!-- Logo -->
     <a class="navbar-brand" href="index.html">
-      <img src="logoo.png" alt="Logo">
+      <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
     </a>
 
-    <!-- Mobile menu button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
     </button>
 
-    <!-- Links -->
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-lg-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
@@ -84,54 +48,66 @@
         <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="contact.html">Contact</a></li>
       </ul>
     </div>
-
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="position-relative text-white text-center d-flex align-items-center" style="height: 60vh;">
-  <img src="team.jpg" class="position-absolute top-0 start-0 w-100 h-100 hero-img">
-  <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-
-  <div class="position-relative container">
-    <h1 class="display-4 fw-bold">Contact Us</h1>
-    <p class="lead">Have questions or want to book an appointment? We are here for you.</p>
+<header class="position-relative">
+  <div class="d-flex align-items-center justify-content-center text-center text-white"
+       style="background-image:url('team.jpg'); background-size:cover; background-position:center; min-height:60vh;">
+    <div class="p-4" style="background-color: rgba(10,30,60,0.45);">
+      <h1 class="fw-bold display-5">Contact Us</h1>
+      <p class="fs-5 mt-2">Have questions or want to book an appointment? We're here for you.</p>
+    </div>
   </div>
-</section>
+</header>
 
 <!-- CONTACT INFO + MAP -->
 <section class="container my-5">
   <div class="row g-4">
 
-    <!-- Details -->
+    <!-- CONTACT DETAILS -->
     <div class="col-lg-6">
       <div class="card shadow-sm">
         <div class="card-header bg-primary text-white fw-bold">Clinic Details</div>
         <div class="card-body p-0">
           <table class="table table-bordered mb-0">
-            <tr><th class="bg-light">Address</th><td>Shati Al Qurum – 3024 Way, Muscat, Oman</td></tr>
-            <tr><th class="bg-light">Phone</th><td>+968 92828289<br>+968 24696622<br>+968 93233100</td></tr>
-            <tr><th class="bg-light">Email</th><td><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></td></tr>
+            <tr>
+              <th class="bg-light">Address</th>
+              <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
+            </tr>
+            <tr>
+              <th class="bg-light">Phone</th>
+              <td>
+                +968 92828289<br>
+                +968 24696622<br>
+                +968 93233100
+              </td>
+            </tr>
+            <tr>
+              <th class="bg-light">Email</th>
+              <td><a href="mailto:smilecare@gmail.com">smilecare@gmail.com</a></td>
+            </tr>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- Map -->
+    <!-- MAP -->
     <div class="col-lg-6">
       <button class="btn btn-outline-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#mapCollapse">
         Show Location Map
       </button>
       <div class="collapse show" id="mapCollapse">
         <div class="ratio ratio-4x3 shadow-sm">
-          <iframe src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed" allowfullscreen loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed"
+                  allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
 
   </div>
 </section>
-
 
 <!-- CONTACT FORM -->
 <section class="container my-5">
@@ -139,7 +115,7 @@
     <div class="card-body">
       <h3 class="text-center text-danger fw-bold mb-4">Send Us a Message</h3>
 
-      <form class="row g-3 needs-validation" method="get" novalidate action="https://httpbin.org/get">
+      <form class="row g-3 needs-validation" novalidate method="get" action="https://httpbin.org/get">
 
         <div class="col-md-6">
           <label class="form-label">Your Name *</label>
@@ -173,29 +149,27 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (same as index) -->
 <footer class="pt-4 pb-4">
   <div class="container">
     <div class="row g-4">
 
-      <!-- Mission -->
       <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="2.jpg" style="width:100px;height:100px;object-fit:cover;" class="rounded">
+        <img src="2.jpg" alt="Mission" class="rounded" style="width:100px;height:100px;object-fit:cover;">
         <div>
           <h6 class="fw-bold mb-1">Our Mission</h6>
-          <p class="small mb-0">To make every patient feel confident and comfortable with their smile.</p>
-          <p class="small mb-0">We focus on gentle care, advanced technology, and trusted results.</p>
+          <p class="mb-0 small">To make every patient feel confident and comfortable with their smile.</p>
+          <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
         </div>
       </div>
 
-      <!-- Visit -->
       <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="office.jpg" style="width:100px;height:100px;object-fit:cover;" class="rounded">
+        <img src="office.jpg" alt="Visit Us" class="rounded" style="width:100px;height:100px;object-fit:cover;">
         <div>
           <h6 class="fw-bold mb-1">Visit Us</h6>
-          <p class="small mb-0">Shati Al Qurum - 3024 way</p>
-          <p class="small mb-0">📞 +92828289 | +24696622 | +93233100</p>
-          <p class="small mb-0"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
+          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
+          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
 
@@ -207,22 +181,22 @@
   </div>
 </footer>
 
-<!-- MARQUEE -->
+<!-- MARQUEE (same as index) -->
 <div class="marquee">
   <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
 </div>
 
-<!-- Scripts -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
   // Form validation
   (() => {
     'use strict';
-    const forms = document.querySelectorAll('.needs-validation');
-    forms.forEach(form => {
-      form.addEventListener('submit', e => {
-        if (!form.checkValidity()) {
+    const forms=document.querySelectorAll('.needs-validation');
+    forms.forEach(form=>{
+      form.addEventListener('submit', e=>{
+        if(!form.checkValidity()){
           e.preventDefault();
           e.stopPropagation();
         }
@@ -231,20 +205,29 @@
     });
   })();
 
-  // Marquee time updater
+  // Marquee updater (same as index)
   (function(){
-    const marquee = document.getElementById('welcomeMarquee');
+    const marquee=document.getElementById('welcomeMarquee');
     function pad(n){ return n<10?'0'+n:n; }
     function update(){
       const now=new Date();
       const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-      marquee.textContent =
-        `Welcome to SmileCare Dental! Today is ${days[now.getDay()]}, `
-        + `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}, `
-        + `and the time is ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}.`;
+      marquee.textContent=
+        `Welcome to SmileCare Dental! Today is ${days[now.getDay()]}, `+
+        `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}, `+
+        `and the time is ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}.`;
     }
     update();
     setInterval(update,1000);
+  })();
+
+  // Active navbar highlight
+  (function(){
+    const links=document.querySelectorAll('.navbar-nav .nav-link');
+    const current=location.pathname.split("/").pop();
+    links.forEach(link=>{
+      if(link.getAttribute('href')===current) link.classList.add('active');
+    });
   })();
 </script>
 
