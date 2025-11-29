@@ -1,277 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Contact Us</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Linking Bootstrap CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body class="bg-light text-dark">
 
-<!-- ==========================================================
-     NAVBAR 
-     ========================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-primary bg-gradient">
+<!-- ========== NAVIGATION BAR ========== -->
+<!-- Using Bootstrap navbar with logo and links to other pages -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top">
   <div class="container">
-
-    <!-- Logo -->
+    <!-- Clinic logo -->
     <a class="navbar-brand" href="index.html">
-      <img src="logoo.png" alt="Logo" class="img-fluid" style="width:120px;">
+      <img src="logoo.png" alt="Logo" class="img-fluid" width="80" height="80">
     </a>
 
-    <!-- Toggle Button -->
+    <!-- Button toggles navbar in mobile view -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Links -->
+    <!-- Navigation links -->
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="bookAppointment.html">Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white active" href="contact.html">Contact</a></li>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- Each item links to a page -->
+        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="bookAppointment.html">Book Appointment</a></li>
+        <!-- Active page is Contact -->
+        <li class="nav-item"><a class="nav-link active text-white" href="contact.html">Contact</a></li>
       </ul>
     </div>
-
   </div>
 </nav>
 
-<!-- ==========================================================
-     HERO 
-     ========================================================== -->
-<header class="position-relative">
-  <div class="d-flex align-items-center justify-content-center text-center text-white"
-       style="background-image:url('team.jpg'); background-size:cover; background-position:center; min-height:60vh;">
-
-    <div class="p-4 bg-dark bg-opacity-50 rounded">
-      <h1 class="fw-bold display-5">Contact Us</h1>
-      <p class="fs-5 mt-2">Have questions? Need help? Reach out to us anytime.</p>
-    </div>
-
+<!-- ========== HERO SECTION ========== -->
+<!-- A large section with background image and text in the center -->
+<div class="bg-dark bg-opacity-50 text-white text-center d-flex align-items-center justify-content-center"
+     style="height: 60vh; background-image: url('team.jpg'); background-size: cover; background-position: center;">
+  <div>
+    <h1 class="display-5 fw-bold">Contact Us</h1>
+    <p class="lead">Have questions? Need help? Reach out to us anytime.</p>
   </div>
-</header>
+</div>
 
-<!-- ==========================================================
-     CONTACT DETAILS + MAP
-     ========================================================== -->
-<section class="container my-5">
+<!-- ========== CONTACT INFO + MAP ========== -->
+<div class="container my-5">
   <div class="row g-4">
-
-    <!-- CONTACT DETAILS -->
+    <!-- LEFT SIDE: Clinic Details -->
     <div class="col-lg-6">
-      <div class="card shadow-sm">
+      <div class="card">
         <div class="card-header bg-primary text-white fw-bold">Clinic Details</div>
-
         <div class="card-body p-0">
+          <!-- Using Bootstrap table for layout -->
           <table class="table mb-0">
-            <tr>
-              <th class="bg-light">Address</th>
-              <td>Shati Al Qurum – 3024 Way, Muscat, Oman</td>
-            </tr>
-            <tr>
-              <th class="bg-light">Phone</th>
-              <td>
-                +968 92828289<br>
-                +968 24696622<br>
-                +968 93233100
-              </td>
-            </tr>
-            <tr>
-              <th class="bg-light">Email</th>
-              <td><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></td>
-            </tr>
+            <tr><th class="table-light">Address</th><td>Shati Al Qurum – 3024 Way, Muscat, Oman</td></tr>
+            <tr><th class="table-light">Phone</th><td>+968 92828289<br>+968 24696622<br>+968 93233100</td></tr>
+            <tr><th class="table-light">Email</th><td><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></td></tr>
           </table>
         </div>
-
       </div>
     </div>
 
-    <!-- GOOGLE MAP -->
+    <!-- RIGHT SIDE: Embedded Google Map -->
     <div class="col-lg-6">
-      <!-- Bootstrap collapse to hide/show the map -->
-      <button class="btn btn-outline-primary mb-3" data-bs-toggle="collapse" data-bs-target="#mapBox">
-        Show Location Map
-      </button>
-
-      <div class="collapse show" id="mapBox">
-        <div class="ratio ratio-4x3 shadow-sm">
-          <iframe src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed" loading="lazy"></iframe>
+      <!-- Collapse toggle to show/hide map -->
+      <button class="btn btn-outline-primary mb-3" data-bs-toggle="collapse" data-bs-target="#mapCollapse">Show Location Map</button>
+      <div class="collapse show" id="mapCollapse">
+        <!-- Bootstrap responsive aspect ratio -->
+        <div class="ratio ratio-4x3">
+          <iframe src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
-
   </div>
-</section>
+</div>
 
-<!-- ==========================================================
-     CONTACT FORM
-     ========================================================== -->
-<section class="container my-5">
-  <div class="card shadow-sm">
-
+<!-- ========== CONTACT FORM ========== -->
+<div class="container my-5">
+  <div class="card">
     <div class="card-body">
+      <!-- Form heading -->
       <h3 class="text-center text-danger fw-bold mb-4">Send Us a Message</h3>
 
+      <!-- Contact form -->
       <form class="row g-3 needs-validation" novalidate method="get" action="https://httpbin.org/get">
-
-        <!-- Name -->
+        <!-- Input for Name -->
         <div class="col-md-6">
           <label class="form-label">Your Name *</label>
-          <input type="text" class="form-control" required name="name">
+          <input type="text" class="form-control" name="name" required>
           <div class="invalid-feedback">Please enter your name.</div>
         </div>
 
-        <!-- Email -->
+        <!-- Input for Email -->
         <div class="col-md-6">
           <label class="form-label">Your Email *</label>
-          <input type="email" class="form-control" required name="email">
+          <input type="email" class="form-control" name="email" required>
           <div class="invalid-feedback">Please enter a valid email.</div>
         </div>
 
-        <!-- Optional Phone -->
+        <!-- Input for Phone (optional) -->
         <div class="col-12">
           <label class="form-label">Phone Number (optional)</label>
           <input type="tel" class="form-control" name="phone">
         </div>
 
-        <!-- Message -->
+        <!-- Textarea for Message -->
         <div class="col-12">
           <label class="form-label">Your Message *</label>
-          <textarea class="form-control" rows="5" required name="message"></textarea>
+          <textarea class="form-control" name="message" rows="5" required></textarea>
           <div class="invalid-feedback">Please enter a message.</div>
         </div>
 
-        <!-- Submit -->
+        <!-- Submit button -->
         <div class="col-12 text-center">
           <button class="btn btn-danger px-4" type="submit">Submit</button>
         </div>
-
       </form>
     </div>
-
   </div>
-</section>
+</div>
 
-<!-- ==========================================================
-     FOOTER 
-     ========================================================== -->
-<footer class="pt-4 pb-4 bg-secondary bg-opacity-10">
+<!-- ========== FOOTER ========== -->
+<footer class="bg-light pt-4 pb-4 border-top">
   <div class="container">
     <div class="row g-4">
-
-      <div class="col-md-6 d-flex align-items-start gap-3">
+      <!-- Mission section -->
+      <div class="col-md-6 d-flex gap-3">
         <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
         <div>
-          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <h6 class="fw-bold">Our Mission</h6>
           <p class="small mb-0">To make every patient feel confident with their smile.</p>
-          <p class="small mb-0">We focus on gentle care + advanced technology.</p>
+          <p class="small mb-0">We focus on gentle care and advanced technology.</p>
         </div>
       </div>
 
-      <div class="col-md-6 d-flex align-items-start gap-3">
+      <!-- Visit Us section -->
+      <div class="col-md-6 d-flex gap-3">
         <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
         <div>
-          <h6 class="fw-bold mb-1">Visit Us</h6>
-          <p class="small mb-0">Shati Al Qurum - 3024 way</p>
+          <h6 class="fw-bold">Visit Us</h6>
+          <p class="small mb-0">Shati Al Qurum - 3024 Way</p>
           <p class="small mb-0">📞 +92828289 | +24696622 | +93233100</p>
           <p class="small mb-0"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
-
     </div>
-
-    <div class="text-center mt-3 small text-muted">
-      © 2025 SmileCare Dental Clinic. All Rights Reserved.
-    </div>
-
+    <!-- Footer bottom note -->
+    <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
   </div>
 </footer>
 
-<!-- ==========================================================
-     MARQUEE
-     ========================================================== -->
-<div class="bg-primary text-white py-1 text-center">
+<!-- ========== MARQUEE BAR ========== -->
+<!-- This scrolls the date and time continuously -->
+<div class="bg-primary text-white py-2 text-center">
   <marquee id="welcomeMarquee" scrollamount="6"></marquee>
 </div>
 
-<!-- ==========================================================
-     JAVASCRIPT
-     ========================================================== -->
+<!-- ========== JAVASCRIPT ========== -->
+<!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-/* ==========================================================
-   FORM VALIDATION 
-========================================================== */
-(() => {
-  const forms = document.querySelectorAll('.needs-validation');
+  // =========================================================
+  // FORM VALIDATION USING BOOTSTRAP STYLES
+  // =========================================================
+  (() => {
+    // Select all forms on the page that require validation
+    const forms = document.querySelectorAll('.needs-validation');
 
-  forms.forEach(form => {
-    form.addEventListener('submit', event => {
+    // Loop through each form
+    forms.forEach(form => {
+      // Listen for the submit event on the form
+      form.addEventListener('submit', event => {
+        // If the form is invalid 
+        if (!form.checkValidity()) {
+          event.preventDefault(); // Stop form from submitting
+          event.stopPropagation(); // Stop event from bubbling up
+        }
 
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-
-      form.classList.add('was-validated');
+        // Add Bootstrap class to show validation feedback
+        form.classList.add('was-validated');
+      });
     });
-  });
-})();
+  })();
 </script>
 
 <script>
-/* ==========================================================
-   MARQUEE
-========================================================== */
-(function () {
-  const marquee = document.getElementById("welcomeMarquee");
+  // =========================================================
+  // MARQUEE
+  // =========================================================
+  (function () {
+    // Get the <marquee> element from the page
+    const marquee = document.getElementById("welcomeMarquee");
 
-  function pad(n){ return n<10 ? "0"+n : n; }
-
-  function update(){
-    const now = new Date();
-    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-    marquee.textContent =
-      "Welcome to SmileCare Dental! Today is " +
-      days[now.getDay()] + ", " +
-      now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate()) +
-      ", and the time is " +
-      pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()) + ".";
-  }
-
-  update();
-  setInterval(update, 1000);
-})();
-</script>
-
-<script>
-/* ==========================================================
-   ACTIVE NAV HIGHLIGHTER
-========================================================== */
-(function(){
-  const links = document.querySelectorAll('.navbar-nav .nav-link');
-  const current = location.pathname.split("/").pop();
-
-  links.forEach(link => {
-    if (link.getAttribute('href') === current) {
-      link.classList.add('active');
+    // Helper function to add a leading zero to numbers less than 10
+    function pad(n) {
+      return n < 10 ? "0" + n : n;
     }
-  });
-})();
+
+    // Function that updates the marquee text with current time/date
+    function update() {
+      const now = new Date(); // Get the current date and time
+
+      // Array of day names to convert numeric day to text (e.g., 0 = Sunday)
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+      // Build the final message
+      marquee.textContent =
+        "Welcome to SmileCare Dental! Today is " +
+        days[now.getDay()] + ", " +                          // Day name
+        now.getFullYear() + "-" +                            // Year
+        pad(now.getMonth() + 1) + "-" +                      // Month (0-based, so add 1)
+        pad(now.getDate()) +                                 // Day of month
+        ", and the time is " +
+        pad(now.getHours()) + ":" +                          // Hours
+        pad(now.getMinutes()) + ":" +                        // Minutes
+        pad(now.getSeconds()) + ".";                         // Seconds
+    }
+
+    update();                 // Initial call to set content immediately
+    setInterval(update, 1000); // Update marquee every 1 second
+  })();
 </script>
+
 
 </body>
 </html>
