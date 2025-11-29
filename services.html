@@ -9,146 +9,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-        crossorigin="anonymous">
-  
-  <style>
-    /* ================= BODY & HEADINGS ================= */
-    body {
-      font-family: 'Georgia', serif; /* main font */
-      color: #0d1b2a;
-      background-color: #f8f9fa;
-    }
-    h1,h2,h3,h4,h5,h6 {
-      font-family: 'Montserrat', sans-serif; /* headings font */
-    }
-
-    /* ================= NAVBAR ================= */
-    .navbar {
-      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
-    }
-    .navbar-nav .nav-link.active {
-      color: #ff8aa2 !important;
-      font-weight: bold;
-    }
-
-    /* ================= LOGO IMAGE ================= */
-    .logo-img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-
-    /* ================= HERO SECTION ================= */
-    .hero-section { 
-      background-image: url('kid2.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 70vh;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
-    .hero-overlay {
-      background-color: rgba(0,0,0,0.45);
-      position: absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-    }
-    .hero-content {
-      position: relative;
-      z-index:1;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      height:100%;
-    }
-
-    /* ================= CARD STYLES ================= */
-    .card .price {
-      font-weight: 700;
-      color: #001F3F;
-    }
-    .card img {
-      border-radius: 10px;
-    }
-
-    /* ================= CAROUSEL ARROWS ================= */
-    .carousel-control-prev, .carousel-control-next {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background-color:#4a6fa5;
-      border:none;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .carousel-control-prev span, .carousel-control-next span {
-      color:white; font-size:1.5rem;
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      font-family:'Georgia', serif;
-      background-color:#d9e2e8;
-    }
-    footer h6 {
-      font-family:'Montserrat', sans-serif;
-    }
-
-    /* ================= MOVING BANNER ================= */
-    .marquee {
-      background-color: #4a6fa5;
-      color: white;
-      padding: 0.5rem 0;
-      text-align: center;
-    }
-
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light text-dark">
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar navbar-expand-lg sticky-top">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-primary bg-gradient">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-      <img src="logoo.png" class="logo-img" alt="Logo">
+      <img src="logoo.png" alt="Logo" class="img-fluid" style="width:120px; height:auto;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="bookAppointment.html">Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white active" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- ================= HERO SECTION ================= -->
-<header class="hero-section">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="display-4 fw-bold">Our Dental Services</h1>
-    <p class="fs-5 mt-2">Comprehensive, compassionate care for every smile.</p>
+<!-- HERO SECTION -->
+<header class="position-relative">
+  <div class="d-flex align-items-center justify-content-center text-center text-white" 
+       style="background-image:url('kid2.jpg'); background-size:cover; background-position:center; min-height:70vh;">
+    <div class="p-4 bg-dark bg-opacity-50 rounded">
+      <h1 class="fw-bold display-5">Our Dental Services</h1>
+      <p class="fs-5 mt-2">Comprehensive, compassionate care for every smile.</p>
+    </div>
   </div>
 </header>
 
-<!-- ================= SERVICES CAROUSEL ================= -->
+<!-- SERVICES CAROUSEL -->
 <section class="container my-5">
   <h2 class="text-center fw-bold mb-4">Explore Our Services</h2>
   <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 
-      <!-- 16 services divided in 4 slides -->
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <div class="row g-4">
@@ -158,7 +63,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Exams & Cleanings</h5>
                 <p class="card-text">Routine check-ups and professional cleaning.</p>
-                <p class="price">15 OMR</p>
+                <p>15 OMR</p>
               </div>
             </div>
           </div>
@@ -168,7 +73,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Fillings</h5>
                 <p class="card-text">Tooth-colored fillings for decayed teeth.</p>
-                <p class="price">20 OMR</p>
+                <p>20 OMR</p>
               </div>
             </div>
           </div>
@@ -178,7 +83,7 @@
               <div class="card-body">
                 <h5 class="card-title">Root Canal Therapy</h5>
                 <p class="card-text">Relieves pain and saves infected teeth.</p>
-                <p class="price">100 OMR</p>
+                <p>100 OMR</p>
               </div>
             </div>
           </div>
@@ -188,7 +93,7 @@
               <div class="card-body">
                 <h5 class="card-title">Tooth Extractions</h5>
                 <p class="card-text">Safe and gentle removal of teeth.</p>
-                <p class="price">50 OMR</p>
+                <p>50 OMR</p>
               </div>
             </div>
           </div>
@@ -204,7 +109,7 @@
               <div class="card-body">
                 <h5 class="card-title">Night Guards & Mouthguards</h5>
                 <p class="card-text">Protect teeth from grinding or sports.</p>
-                <p class="price">25 OMR</p>
+                <p>25 OMR</p>
               </div>
             </div>
           </div>
@@ -214,7 +119,7 @@
               <div class="card-body">
                 <h5 class="card-title">Teeth Whitening</h5>
                 <p class="card-text">Professional whitening to brighten your smile.</p>
-                <p class="price">60 OMR</p>
+                <p>60 OMR</p>
               </div>
             </div>
           </div>
@@ -224,7 +129,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Veneers</h5>
                 <p class="card-text">Correct chipped or discolored teeth.</p>
-                <p class="price">150 OMR</p>
+                <p>150 OMR</p>
               </div>
             </div>
           </div>
@@ -234,7 +139,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Bonding</h5>
                 <p class="card-text">Repair chipped or cracked teeth in one visit.</p>
-                <p class="price">70 OMR</p>
+                <p>70 OMR</p>
               </div>
             </div>
           </div>
@@ -250,7 +155,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Crowns</h5>
                 <p class="card-text">Custom caps to restore damaged teeth.</p>
-                <p class="price">120 OMR</p>
+                <p>120 OMR</p>
               </div>
             </div>
           </div>
@@ -260,7 +165,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Bridges</h5>
                 <p class="card-text">Replace missing teeth anchored to healthy teeth.</p>
-                <p class="price">200 OMR</p>
+                <p>200 OMR</p>
               </div>
             </div>
           </div>
@@ -270,7 +175,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dental Implants</h5>
                 <p class="card-text">Permanent solution for tooth loss.</p>
-                <p class="price">400 OMR</p>
+                <p>400 OMR</p>
               </div>
             </div>
           </div>
@@ -280,7 +185,7 @@
               <div class="card-body">
                 <h5 class="card-title">Dentures</h5>
                 <p class="card-text">Full or partial dentures for missing teeth.</p>
-                <p class="price">250 OMR</p>
+                <p>250 OMR</p>
               </div>
             </div>
           </div>
@@ -294,9 +199,9 @@
             <div class="card h-100 text-center">
               <img src="68ef6741db1fdfd6257fd850_Invisalign-Vs-braces-1024x683-1.jpg" class="card-img-top" alt="Orthodontics">
               <div class="card-body">
-                <h5 class="card-title">Orthodontics (Braces & Invisalign)</h5>
-                <p class="card-text">Straighten teeth for better appearance and cleaning.</p>
-                <p class="price">1200 OMR</p>
+                <h5 class="card-title">Orthodontics</h5>
+                <p class="card-text">Braces & Invisalign for straight teeth.</p>
+                <p>1200 OMR</p>
               </div>
             </div>
           </div>
@@ -306,7 +211,7 @@
               <div class="card-body">
                 <h5 class="card-title">Pediatric Dentistry</h5>
                 <p class="card-text">Gentle care for children including sealants.</p>
-                <p class="price">30 OMR</p>
+                <p>30 OMR</p>
               </div>
             </div>
           </div>
@@ -314,9 +219,9 @@
             <div class="card h-100 text-center">
               <img src="Treatment-for-gingivitis-.jpg" class="card-img-top" alt="Periodontal Therapy">
               <div class="card-body">
-                <h5 class="card-title">Periodontal (Gum) Therapy</h5>
+                <h5 class="card-title">Periodontal Therapy</h5>
                 <p class="card-text">Treat gum disease including deep cleaning.</p>
-                <p class="price">80 OMR</p>
+                <p>80 OMR</p>
               </div>
             </div>
           </div>
@@ -326,7 +231,7 @@
               <div class="card-body">
                 <h5 class="card-title">TMJ/TMD Therapy</h5>
                 <p class="card-text">Relieve jaw pain with custom night guards.</p>
-                <p class="price">100 OMR</p>
+                <p>100 OMR</p>
               </div>
             </div>
           </div>
@@ -335,32 +240,37 @@
 
     </div>
 
-    <!-- Carousel controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
-      <span>&lt;</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
-      <span>&gt;</span>
-    </button>
+ <!-- Carousel controls -->
+   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-  </div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon d-none"></span> 
+  <i class="bi bi-chevron-left text-danger fs-2"></i> <!-- red arrow -->
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon d-none"></span> 
+  <i class="bi bi-chevron-right text-danger fs-2"></i> <!-- red arrow -->
+</button>
+
 </section>
-<!-- ================= CALCULATE BILL LINK BOX ================= -->
+
+<!-- CALCULATE BILL -->
 <section class="container my-5">
   <div class="card p-4 shadow-sm text-center">
     <h3 class="fw-bold mb-3">Calculate Your Bill</h3>
     <p class="mb-4">Use our bill calculator to see your total cost including any discounts for elderly patients.</p>
-    <a href="calculate.html" class="btn btn-custom btn-lg">Go to Bill Calculator</a>
+    <a href="calculate.html" class="btn btn-danger btn-lg">Go to Bill Calculator</a>
   </div>
 </section>
 
-
-<!-- ================= FOOTER ================= -->
-<footer class="pt-4 pb-4">
+<!-- FOOTER -->
+<footer class="pt-4 pb-4 bg-secondary bg-opacity-10">
   <div class="container">
     <div class="row g-4">
       <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="2.jpg" class="rounded" width="100" height="100" alt="Mission">
+        <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
         <div>
           <h6 class="fw-bold mb-1">Our Mission</h6>
           <p class="mb-0 small">To make every patient feel confident with their smile.</p>
@@ -368,7 +278,7 @@
         </div>
       </div>
       <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="office.jpg" class="rounded" width="100" height="100" alt="Visit Us">
+        <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
         <div>
           <h6 class="fw-bold mb-1">Visit Us</h6>
           <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
@@ -381,52 +291,53 @@
   </div>
 </footer>
 
-<!-- ================= MOVING BANNER ================= -->
-<div class="marquee">
+<!-- MARQUEE -->
+<div class="bg-primary text-white py-1 text-center">
   <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
 </div>
 
-<!-- ================= SCRIPTS ================= -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-/* ---------------- Moving banner script ---------------- */
-// This shows day, date, and time in the scrolling banner
-(function() {
-  const marquee = document.getElementById('welcomeMarquee');
+// ---------------- Moving Banner ----------------
+var marquee = document.getElementById('welcomeMarquee');
 
-  // Function to add a leading 0 if number < 10
-  function pad(n){ return n<10?'0'+n:n; }
-
-  // Update the banner text
-  function refresh() {
-    const now = new Date();
-    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const day = days[now.getDay()];
-    const dateStr = now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
-    const timeStr = pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
-    marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+// Add leading zero if number < 10
+function pad(n) {
+  if(n < 10) {
+    return '0' + n;
+  } else {
+    return n;
   }
+}
 
-  refresh(); // show immediately
-  setInterval(refresh,1000); // update every second
-})();
-</script>
+// Update the marquee text with day, date, and time
+function updateBanner() {
+  var now = new Date();
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var day = days[now.getDay()];
+  var dateStr = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+  var timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
 
-<script>
-/* ---------------- Active navbar script ---------------- */
-// This highlights the current page link in the navbar
-(function(){
-  const links = document.querySelectorAll('.navbar-nav .nav-link'); // select all nav links
-  const current = location.pathname.split("/").pop(); // get current page filename
-  links.forEach(link => {
-    if(link.getAttribute('href') === current) {
-      link.classList.add('active'); // add 'active' class to current page link
-    }
-  });
-})();
+  // Set the marquee text 
+  marquee.textContent = "Welcome to SmileCare Dental! Today is " + day + ", " + dateStr + ", and the time is " + timeStr + ".";
+}
+
+// Update immediately and every second
+updateBanner();
+setInterval(updateBanner, 1000);
+
+// ---------------- Active Navbar Link ----------------
+var links = document.querySelectorAll('.navbar-nav .nav-link');
+var currentPage = location.pathname.split("/").pop();
+
+for(var i=0; i<links.length; i=i+1) {
+  if(links[i].getAttribute('href') === currentPage) {
+    links[i].classList.add('active'); // Highlight current page
+  }
+}
 </script>
 
 </body>
 </html>
-
