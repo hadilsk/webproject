@@ -10,105 +10,117 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
-
-    .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
-    .navbar-nav .nav-link.active { color: #ff8aa2 !important; font-weight: 600; }
-
-    .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
-
-    footer { background-color:#d9e2e8; font-family:'Georgia', serif; }
-    footer h6 { font-family: 'Montserrat', sans-serif; }
-  </style>
 </head>
-<body>
 
-<!-- NAVBAR (same as index) -->
-<nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
+<!-- Bootstrap body background  -->
+<body class="bg-light text-dark">
+
+<!-- ==========================================================
+     NAVBAR  
+     ========================================================== -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-primary bg-gradient">
   <div class="container">
+
+    <!-- Logo -->
     <a class="navbar-brand" href="index.html">
-      <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
+      <img src="logoo.png" alt="Logo" class="img-fluid" style="width:120px;">
     </a>
 
+    <!-- Mobile Toggle Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="bookAppointment.html">Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white active" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="contact.html">Contact</a></li>
       </ul>
     </div>
+
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ==========================================================
+     HERO SECTION 
+     ========================================================== -->
 <header class="position-relative">
   <div class="d-flex align-items-center justify-content-center text-center text-white"
        style="background-image:url('team.jpg'); background-size:cover; background-position:center; min-height:60vh;">
-    <div class="p-4" style="background-color: rgba(10,30,60,0.45);">
+
+    <!-- Semi-transparent box using Bootstrap colors -->
+    <div class="p-4 bg-dark bg-opacity-50 rounded">
       <h1 class="fw-bold display-5">Book Your Appointment</h1>
       <p class="fs-5 mt-2">We're here to help you smile brighter</p>
     </div>
+
   </div>
 </header>
 
-<!-- FORM SECTION -->
+<!-- ==========================================================
+     BOOKING FORM SECTION
+     ========================================================== -->
 <section class="container my-5">
+
   <div class="card shadow-sm">
     <div class="card-body">
+
       <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
 
       <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get">
+
+        <!-- Full Name -->
         <div class="col-md-6">
           <label class="form-label">Full Name *</label>
           <input type="text" class="form-control" name="patient-name" required>
           <div class="invalid-feedback">Please enter your name.</div>
         </div>
 
+        <!-- Email -->
         <div class="col-md-6">
           <label class="form-label">Email *</label>
           <input type="email" class="form-control" name="patient-email" required>
-          <div class="invalid-feedback">Please enter your email.</div>
+          <div class="invalid-feedback">A valid email is required.</div>
         </div>
 
+        <!-- Phone -->
         <div class="col-md-6">
           <label class="form-label">Phone *</label>
           <input type="tel" class="form-control" name="patient-phone" required>
-          <div class="invalid-feedback">Phone number required.</div>
+          <div class="invalid-feedback">Please enter your phone number.</div>
         </div>
 
+        <!-- Service Selection -->
         <div class="col-md-6">
           <label class="form-label">Service *</label>
           <select class="form-select" name="service-select" required>
             <option value="">-- Choose --</option>
-            <option value="cleaning">Dental Exams & Cleanings</option>
-            <option value="fillings">Dental Fillings</option>
-            <option value="therapy">Root Canal Therapy</option>
-            <option value="extractions">Tooth Extractions</option>
-            <option value="guards">Night Guards</option>
-            <option value="whitening">Teeth Whitening</option>
-            <option value="veneers">Dental Veneers</option>
-            <option value="bonding">Dental Bonding</option>
-            <option value="crowns">Dental Crowns</option>
-            <option value="bridges">Dental Bridges</option>
-            <option value="implants">Dental Implants</option>
-            <option value="dentures">Dentures</option>
-            <option value="braces">Orthodontics</option>
-            <option value="pediatric">Pediatric Dentistry</option>
+            <option>Dental Exams & Cleanings</option>
+            <option>Dental Fillings</option>
+            <option>Root Canal Therapy</option>
+            <option>Tooth Extractions</option>
+            <option>Night Guards</option>
+            <option>Teeth Whitening</option>
+            <option>Dental Veneers</option>
+            <option>Dental Bonding</option>
+            <option>Dental Crowns</option>
+            <option>Dental Bridges</option>
+            <option>Dental Implants</option>
+            <option>Dentures</option>
+            <option>Orthodontics (Braces)</option>
+            <option>Pediatric Dentistry</option>
           </select>
           <div class="invalid-feedback">Select a service.</div>
         </div>
 
+        <!-- Doctor Selection -->
         <div class="col-md-6">
           <label class="form-label">Select Doctor *</label>
           <select class="form-select" name="dentist-select" required>
@@ -123,105 +135,152 @@
           <div class="invalid-feedback">Choose a doctor.</div>
         </div>
 
+        <!-- Date -->
         <div class="col-md-6">
           <label class="form-label">Preferred Date *</label>
           <input type="date" class="form-control" name="date" required>
-          <div class="invalid-feedback">Select a date.</div>
+          <div class="invalid-feedback">Please choose a date.</div>
         </div>
 
+        <!-- Time -->
         <div class="col-md-6">
           <label class="form-label">Preferred Time *</label>
           <input type="time" class="form-control" name="time" required>
-          <div class="invalid-feedback">Select a time.</div>
+          <div class="invalid-feedback">Please choose a time.</div>
         </div>
 
+        <!-- Submit Button -->
         <div class="col-12 text-center mt-3">
           <button type="submit" class="btn btn-danger px-4">Confirm Booking</button>
         </div>
+
       </form>
 
     </div>
   </div>
+
 </section>
 
-<!-- FOOTER (same as index) -->
-<footer class="pt-4 pb-4">
+<!-- ==========================================================
+     FOOTER 
+     ========================================================== -->
+<footer class="pt-4 pb-4 bg-secondary bg-opacity-10">
   <div class="container">
     <div class="row g-4">
+
       <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="2.jpg" alt="Mission" class="rounded" style="width:100px;height:100px;object-fit:cover;">
+        <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
         <div>
           <h6 class="fw-bold mb-1">Our Mission</h6>
-          <p class="mb-0 small">To make every patient feel confident and comfortable with their smile.</p>
-          <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
+          <p class="small mb-0">To make every patient feel confident with their smile.</p>
+          <p class="small mb-0">We focus on gentle care + advanced technology.</p>
         </div>
       </div>
 
       <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="office.jpg" alt="Visit Us" class="rounded" style="width:100px;height:100px;object-fit:cover;">
+        <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
         <div>
           <h6 class="fw-bold mb-1">Visit Us</h6>
-          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
-          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
-          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
+          <p class="small mb-0">Shati Al Qurum - 3024 way</p>
+          <p class="small mb-0">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="small mb-0"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
+
     </div>
 
     <div class="text-center mt-3 small text-muted">
       © 2025 SmileCare Dental Clinic. All Rights Reserved.
     </div>
+
   </div>
 </footer>
 
-<!-- MARQUEE (same as index) -->
-<div class="marquee">
-  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+<!-- ==========================================================
+     MARQUEE (same as index)
+     ========================================================== -->
+<div class="bg-primary text-white py-1 text-center">
+  <marquee id="welcomeMarquee" scrollamount="6"></marquee>
 </div>
 
-<!-- JS -->
+<!-- ==========================================================
+     JAVASCRIPT SECTION
+     ========================================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  // Form validation
-  (() => {
-    'use strict';
-    const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  })();
+/* ==========================================================
+   FORM VALIDATION — STUDENT EXPLANATION
+   ==========================================================
+   This script goes through all forms that use the
+   .needs-validation class. If the user presses "Submit"
+   and a required field is empty, Bootstrap will add
+   red borders + error messages.
+========================================================== */
+(() => {
+  const forms = document.querySelectorAll('.needs-validation');
 
-  // Marquee script (same as index)
-  (function(){
-    const marquee = document.getElementById('welcomeMarquee');
-    function pad(n){ return n<10?'0'+n:n; }
-    function refresh(){
-      const now=new Date();
-      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-      const day=days[now.getDay()];
-      const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
-      const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
-      marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+  forms.forEach(form => {
+    form.addEventListener('submit', event => {
+
+      // If form is invalid → stop submission
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      // Bootstrap adds classes that show red borders + messages
+      form.classList.add('was-validated');
+    });
+  });
+})();
+</script>
+
+<script>
+/* ==========================================================
+   MARQUEE 
+========================================================== */
+(function () {
+
+  const marquee = document.getElementById('welcomeMarquee');
+
+  // Helper function to add 0 in front of numbers < 10
+  function pad(n) { return n < 10 ? "0" + n : n; }
+
+  // Updates the marquee text
+  function update() {
+    const now = new Date();
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+    marquee.textContent =
+      "Welcome to SmileCare Dental! Today is " +
+      days[now.getDay()] + ", " +
+      now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate()) +
+      ", and the time is " + pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()) + ".";
+  }
+
+  update();
+  setInterval(update, 1000);
+
+})();
+</script>
+
+<script>
+/* ==========================================================
+   ACTIVE LINK HIGHLIGHTER=
+   Highlights the current page in the navbar automatically.
+========================================================== */
+(function(){
+  const links = document.querySelectorAll('.navbar-nav .nav-link');
+  const current = location.pathname.split("/").pop();
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === current) {
+      link.classList.add('active');
     }
-    refresh();
-    setInterval(refresh,1000);
-  })();
-
-  // Active navbar highlight
-  (function(){
-    const links=document.querySelectorAll('.navbar-nav .nav-link');
-    const current=location.pathname.split("/").pop();
-    links.forEach(link=>{
-      if(link.getAttribute('href')===current) link.classList.add('active');
-    });
-  })();
+  });
+})();
 </script>
 
 </body>

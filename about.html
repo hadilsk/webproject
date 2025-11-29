@@ -5,240 +5,180 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us - SmileCare Dental Clinic</title>
 
-  <!-- Google Fonts: Used to load Montserrat and Roboto font families -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap CSS: This gives us all Bootstrap styles -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    /* ——— BODY & FONT RULES ——— */
-    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
-    h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; }
-
-    /* ——— NAVBAR HOVER + ACTIVE ——— */
-    .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
-    .navbar-nav .nav-link.active { color: #ff8aa2 !important; font-weight: 600; }
-
-    /* ——— HERO OVERLAY ——— */
-    .hero-overlay { background-color: rgba(10,30,60,0.45); }
-
-    /* ——— BUTTONS ——— */
-    .custom-btn { background-color: #4a6fa5; color: #fff; transition: background-color 0.3s; }
-    .custom-btn:hover { background-color: #ff8aa2; color: #fff; }
-    .outline-btn { border:1px solid #fff; color:#fff; background-color:transparent; transition: all 0.3s; }
-    .outline-btn:hover { background-color: #ff8aa2; color: #fff; }
-
-    /* ——— TEAM CARD HOVER ——— */
-    .card-team:hover { transform: scale(1.03); transition: transform 0.3s; }
-
-    /* ——— MARQUEE ——— */
-    .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
-
-    /* ——— FOOTER ——— */
-    footer { font-family: 'Georgia', serif; }
-    footer h6 { font-family: 'Montserrat', sans-serif; }
-  </style>
+  <!-- Bootstrap  -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<body class="bg-light text-dark">
 
-<body>
-
-<!-- NAVBAR: top menu that links to other pages -->
-<nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-primary bg-gradient">
   <div class="container">
-
-    <!-- Logo on the left -->
     <a class="navbar-brand" href="index.html">
-      <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
+      <img src="logoo.png" alt="Logo" class="img-fluid" style="width:120px; height:auto;">
     </a>
-
-    <!-- Hamburger icon for small screens -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Menu items -->
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
-        <!-- Each link goes to its own page -->
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="bookAppointment.html">Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="contact.html">Contact</a></li>
       </ul>
     </div>
-
   </div>
 </nav>
 
-<!-- HERO SECTION: Big header with background image -->
+<!-- HERO SECTION -->
 <section class="position-relative">
-  <div class="d-flex align-items-center justify-content-center text-center text-white min-vh-50"
-       style="background-image:url('team.jpg'); background-size:cover; background-position:center;">
-
-    <!-- Dark overlay to make text readable -->
-    <div class="p-4 hero-overlay">
-
-      <!-- Main title -->
+  <div class="d-flex align-items-center justify-content-center text-center text-white" 
+       style="background-image:url('team.jpg'); background-size:cover; background-position:center; min-height:70vh;">
+    <div class="p-4 bg-dark bg-opacity-50 rounded">
       <h1 class="fw-bold display-5">About Us - SmileCare Dental</h1>
-
-      <!-- Subtitle -->
       <p class="fs-5 mt-2">Your Trusted Partner for a Healthy, Beautiful Smile</p>
-
-      <!-- Small description -->
       <p class="fs-6">
         Welcome to SmileCare Dental, where our passion is creating healthy, confident smiles for you and your family.
         We provide compassionate, high-quality care in a comfortable environment.
       </p>
     </div>
-
   </div>
 </section>
 
-<!-- TEAM SECTION: Card that changes doctor info with JavaScript -->
+<!-- TEAM SECTION -->
 <section class="container my-5 text-center">
   <h3 class="fw-bold mb-4">Meet Our Team</h3>
-
   <div class="d-flex justify-content-center">
-    <!-- Card that holds doctor details -->
-    <div class="card card-team p-4 text-center" style="max-width: 500px;">
-
-      <!-- Doctor image -->
-      <img src="" id="doctorImg" class="rounded-circle mx-auto mb-3" width="150" height="150" alt="Doctor Photo">
-
-      <!-- Doctor name -->
+    <div class="card p-4 text-center shadow-sm" style="max-width: 500px;">
+      <img src="" id="doctorImg" class="rounded-circle mx-auto mb-3 img-fluid" width="150" height="150" alt="Doctor Photo">
       <h4 id="doctorName" class="fw-bold"></h4>
-
-      <!-- Job title -->
       <h6 id="doctorTitle" class="text-muted"></h6>
-
-      <!-- Biography -->
       <p id="doctorBio"></p>
-
-      <!-- Button to show next doctor -->
-      <button class="btn custom-btn mt-3" onclick="nextDoctor()">Next Doctor</button>
+      <button class="btn btn-primary mt-3" onclick="nextDoctor()">Next Doctor</button>
     </div>
   </div>
-
 </section>
 
 <!-- CALL TO ACTION SECTION -->
 <section class="container text-center my-5 p-5 bg-light rounded-3 shadow-sm">
   <h2 class="fw-bold mb-3 text-primary">Your Journey to a Better Smile Starts Here</h2>
   <p>We are not just a dental practice; we are your partners in health.</p>
-
-  <!-- Button linking to appointment page -->
-  <a href="bookAppointment.html" class="btn custom-btn">Book Your Appointment Today</a>
+  <a href="bookAppointment.html" class="btn btn-primary">Book Your Appointment Today</a>
 </section>
 
-<!-- FOOTER SECTION: bottom of the page -->
-<footer class="pt-4 pb-4" style="background-color:#d9e2e8;">
+<!-- FOOTER -->
+<footer class="pt-4 pb-4 bg-secondary bg-opacity-10">
   <div class="container">
-
     <div class="row g-4">
-
-      <!-- Mission section -->
       <div class="col-md-6 d-flex align-items-start gap-3">
         <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
-
         <div>
           <h6 class="fw-bold mb-1">Our Mission</h6>
           <p class="mb-0 small">To make every patient feel confident with their smile.</p>
           <p class="mb-0 small">We focus on gentle care + advanced technology.</p>
         </div>
       </div>
-
-      <!-- Visit Us section -->
       <div class="col-md-6 d-flex align-items-start gap-3">
         <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
-
         <div>
           <h6 class="fw-bold mb-1">Visit Us</h6>
           <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
           <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
-
-          <!-- Email -->
-          <p class="mb-0 small">
-            <a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a>
-          </p>
+          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
-
     </div>
-
-    <!-- Copyright -->
-    <div class="text-center mt-3 small text-muted">
-      © 2025 SmileCare Dental Clinic. All Rights Reserved.
-    </div>
-
+    <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
   </div>
 </footer>
 
-<!-- MARQUEE SECTION: scrolling welcome message -->
-<div class="marquee">
+
+<!-- MARQUEE -->
+<div class="bg-primary text-white py-1 text-center">
   <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
 </div>
 
-<!-- BOOTSTRAP JAVASCRIPT -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- MARQUEE JAVASCRIPT -->
 <script>
-/* This script updates the scrolling text every second */
-(function() {
-  const marquee = document.getElementById('welcomeMarquee');
-
-  function pad(n){ return n < 10 ? '0' + n : n; }
-
-  function refresh() {
-    const now = new Date();
-    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const day = days[now.getDay()];
-    const dateStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
-    const timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-
-    // Corrected template literal with backticks
-    marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
-  }
-
-  refresh();
-  setInterval(refresh,1000);
-})();
-</script>
-
-<!-- DOCTOR CARD JAVASCRIPT -->
-<script>
-const doctors = [
-  {name:"Dr. Evelyn Reed",title:"DDS - Lead Dentist",bio:"With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry.",img:"dr1.jpg"},
-  {name:"Dr. Marcus Chen",title:"DDS - Associate Dentist",bio:"Dr. Chen specializes in family and restorative dentistry.",img:"dr2.jpg"},
-  {name:"Sarah Jones",title:"Office Manager",bio:"Sarah ensures smooth clinic operation, scheduling, and patient support.",img:"dr3.jpg"}
+// ---------------- Doctor Card ----------------
+var doctors = [
+  {name:"Dr. Evelyn Reed", title:"DDS - Lead Dentist", bio:"With over 15 years of experience, Dr. Reed is passionate about patient education and cosmetic dentistry.", img:"dr1.jpg"},
+  {name:"Dr. Marcus Chen", title:"DDS - Associate Dentist", bio:"Dr. Chen specializes in family and restorative dentistry.", img:"dr2.jpg"},
+  {name:"Sarah Jones", title:"Office Manager", bio:"Sarah ensures smooth clinic operation, scheduling, and patient support.", img:"dr3.jpg"}
 ];
-let currentDoctor=0;
-function showDoctor(index){
-  const doc=doctors[index];
-  document.getElementById("doctorImg").src=doc.img;
-  document.getElementById("doctorName").textContent=doc.name;
-  document.getElementById("doctorTitle").textContent=doc.title;
-  document.getElementById("doctorBio").textContent=doc.bio;
+
+var currentDoctor = 0;
+
+// Function to show a doctor
+function showDoctor(index) {
+  var doc = doctors[index];
+  document.getElementById("doctorImg").src = doc.img;
+  document.getElementById("doctorName").textContent = doc.name;
+  document.getElementById("doctorTitle").textContent = doc.title;
+  document.getElementById("doctorBio").textContent = doc.bio;
 }
-function nextDoctor(){ currentDoctor=(currentDoctor+1)%doctors.length; showDoctor(currentDoctor);}
+
+// Function to go to the next doctor
+function nextDoctor() {
+  currentDoctor = currentDoctor + 1;
+  if(currentDoctor >= doctors.length) {
+    currentDoctor = 0; // Reset to first doctor
+  }
+  showDoctor(currentDoctor);
+}
+
+// Show first doctor initially
 showDoctor(currentDoctor);
-</script>
 
-<!-- ACTIVE NAVBAR SCRIPT: Makes current page link stay pink -->
-<script>
-(function(){
-  const links = document.querySelectorAll('.navbar-nav .nav-link');
-  const current = location.pathname.split("/").pop(); // get current page file
-  links.forEach(link=>{
-    if(link.getAttribute('href') === current) link.classList.add('active');
-  });
-})();
-</script>
 
+// ---------------- Moving Banner ----------------
+var marquee = document.getElementById('welcomeMarquee');
+
+// Add leading zero if less than 10
+function pad(n) {
+  if(n < 10) {
+    return '0' + n;
+  } else {
+    return n;
+  }
+}
+
+// Update marquee with date, day, and time
+function updateBanner() {
+  var now = new Date();
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var day = days[now.getDay()];
+  var dateStr = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+  var timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+  
+  // Set marquee text 
+  marquee.textContent = "Welcome to SmileCare Dental! Today is " + day + ", " + dateStr + ", and the time is " + timeStr + ".";
+}
+
+// Show immediately and update every second
+updateBanner();
+setInterval(updateBanner, 1000);
+
+
+// ---------------- Active Navbar ----------------
+var links = document.querySelectorAll('.navbar-nav .nav-link');
+var currentPage = location.pathname.split("/").pop();
+
+for(var i=0; i<links.length; i=i+1) {
+  if(links[i].getAttribute('href') === currentPage) {
+    links[i].classList.add('active');
+  }
+}
+</script>
 </body>
 </html>
+
