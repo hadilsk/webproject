@@ -14,7 +14,6 @@
   <style>
     body { font-family: 'Georgia', serif; background-color:#f8f9fa; color:#0d1b2a; }
 
-    /* Navbar + footer same as index */
     .navbar-nav .nav-link:hover { color:#ff8aa2 !important; }
     .navbar-nav .nav-link.active { color:#ff8aa2 !important; font-weight:600; }
 
@@ -27,7 +26,7 @@
 </head>
 <body>
 
-<!-- NAVBAR (same as index, do NOT add Fun Page link) -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
   <div class="container">
     <a class="navbar-brand" href="index.html">
@@ -59,7 +58,7 @@
   <p class="text-muted">Drag the pieces to reassemble the smile!</p>
 </div>
 
-<!-- RESPONSIVE PUZZLE -->
+<!-- RESPONSIVE PUZZLE GRID -->
 <div class="container d-flex justify-content-center mt-4">
   <div id="puzzle" class="row g-1"
        style="width:100%; max-width:350px; aspect-ratio:1; position:relative;">
@@ -107,94 +106,182 @@
   <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- PUZZLE JS -->
+<!-- PUZZLE JAVASCRIPT -->
 <script>
+
+  // The puzzle container
   const puzzle = document.getElementById('puzzle');
+
+  // This array represents tile positions: [0,1,2,3,4,5,6,7,8]
+  // Each number represents the correct place for that tile.
   const order = [...Array(9).keys()];
+
+  // Before creating tiles, we shuffle their order randomly.
   shuffle(order);
 
+
+  /* ---------------------------------------------
+       FUNCTION: createTiles()
+       PURPOSE: Builds the puzzle grid every time
+       the page loads or the window resizes.
+     --------------------------------------------- */
   function createTiles() {
+
+    // Remove old tiles so we can recreate them
     puzzle.innerHTML = "";
+
+    // Each tile should be one-third of the puzzle width
     const size = puzzle.clientWidth / 3;
 
+    // Create each tile based on the shuffled order
     order.forEach((pos, i) => {
-      const tile = document.createElement("div");
-      tile.className = "col-4 border";
-      tile.draggable = true;
-      tile.dataset.pos = pos;
-      tile.dataset.index = i;
-      tile.id = "tile"+i;
 
-      tile.style.height = size+"px";
+      // Create a <div> for the tile
+      const tile = document.createElement("div");
+
+      // Use Bootstrap to make a 3×3 grid (col-4 means 1/3 width)
+      tile.className = "col-4 border";
+
+      // Make tile draggable
+      tile.draggable = true;
+
+      // Save the correct position in a dataset
+      tile.dataset.pos = pos;
+
+      // Save the current tile index
+      tile.dataset.index = i;
+
+      // Make sure each tile has a unique ID
+      tile.id = "tile" + i;
+
+      // Each tile must be square
+      tile.style.height = size + "px";
+
+      // Set the background image 
       tile.style.backgroundImage = "url('puzzle.jpg')";
-      tile.style.backgroundSize = (size*3)+"px "+(size*3)+"px";
+
+      // The full image is 3 tiles wide × 3 tiles tall
+      tile.style.backgroundSize = (size * 3) + "px " + (size * 3) + "px";
+
+      // Position the tile so it shows only the correct slice of the full image
       tile.style.backgroundPosition =
         `${-(pos % 3) * size}px ${-Math.floor(pos / 3) * size}px`;
 
+      // Add drag event listeners
       tile.addEventListener("dragstart", dragStart);
       tile.addEventListener("dragover", dragOver);
       tile.addEventListener("drop", dropTile);
 
+      // Add tile into the grid
       puzzle.appendChild(tile);
     });
   }
 
+
+  /* ---------------------------------------------
+       DRAG EVENTS
+     --------------------------------------------- */
+
+  // When dragging starts, store the tile being dragged
   let dragged;
 
-  function dragStart(e){ dragged = e.target; }
-  function dragOver(e){ e.preventDefault(); }
+  function dragStart(e) {
+    dragged = e.target;
+  }
 
-  function dropTile(e){
+  // Allow dragging over another tile
+  function dragOver(e) {
     e.preventDefault();
-    if(dragged === e.target) return;
+  }
 
+  /* ---------------------------------------------
+       FUNCTION: dropTile()
+       PURPOSE: Swap two tiles when dropped
+     --------------------------------------------- */
+  function dropTile(e) {
+    e.preventDefault();
+
+    // Prevent dropping on itself
+    if (dragged === e.target) return;
+
+    // Save the old values
     let tempBg = e.target.style.backgroundPosition;
     let tempPos = e.target.dataset.pos;
 
+    // Swap background images
     e.target.style.backgroundPosition = dragged.style.backgroundPosition;
     e.target.dataset.pos = dragged.dataset.pos;
 
     dragged.style.backgroundPosition = tempBg;
     dragged.dataset.pos = tempPos;
 
+    // Check if puzzle is solved
     checkWin();
   }
 
-  function checkWin(){
+
+  /* ---------------------------------------------
+       FUNCTION: checkWin()
+       PURPOSE: See if each tile is in the right place
+     --------------------------------------------- */
+  function checkWin() {
     const tiles = document.querySelectorAll("#puzzle > div");
+
+    // Check if tile.dataset.pos matches its index
     const win = [...tiles].every((tile, i) => tile.dataset.pos == i);
-    if(win){
-      setTimeout(() => alert("🎉 You completed the puzzle! Great job!"), 100);
+
+    if (win) {
+      setTimeout(() => {
+        alert("🎉 You completed the puzzle! Great job!");
+      }, 100);
     }
   }
 
-  function shuffle(arr){
-    for(let i=arr.length-1;i>0;i--){
-      let j=Math.floor(Math.random()*(i+1));
-      [arr[i],arr[j]]=[arr[j],arr[i]];
+
+  /* ---------------------------------------------
+       FUNCTION: shuffle(array)
+       PURPOSE: Randomize tile order
+     --------------------------------------------- */
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
   }
 
+
+  /* ---------------------------------------------
+       REBUILD PUZZLE WHEN WINDOW RESIZES
+     --------------------------------------------- */
   window.addEventListener("resize", createTiles);
+
+  // Build puzzle the first time
   createTiles();
 
-  // MARQUEE SCRIPT (same as index)
+
+  /* ---------------------------------------------
+       MARQUEE 
+     --------------------------------------------- */
   (function () {
-    const marquee=document.getElementById("welcomeMarquee");
-    function pad(n){ return n<10?'0'+n:n; }
-    function update(){
-      const now=new Date();
-      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const marquee = document.getElementById("welcomeMarquee");
+
+    function pad(n) { return n < 10 ? '0' + n : n; }
+
+    function update() {
+      const now = new Date();
+      const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
       marquee.textContent =
-      `Welcome to SmileCare Dental! Today is ${days[now.getDay()]}, `+
-      `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}, `+
-      `and the time is ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}.`;
+        `Welcome to SmileCare Dental! Today is ${days[now.getDay()]}, ` +
+        `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}, ` +
+        `and the time is ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}.`;
     }
+
     update();
-    setInterval(update,1000);
+    setInterval(update, 1000);
   })();
 
 </script>
