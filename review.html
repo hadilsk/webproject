@@ -222,13 +222,15 @@
     
     <script>
         
+        //Creating a new Review object include name, rating, comment,and  imageURL
         function Review(name, rating, comment, imageURL) {
-            this.name = name || 'Anonymous';
-            this.rating = parseInt(rating);
+            this.name = name || ' null '; //if name is not giing replae it with null
+            this.rating = parseInt(rating);  //onerte rating to an integer
             this.comment = comment;
             this.imageURL = imageURL;
         }
 
+        //Creating an array to hold the patient review data
         let reviews = [
             new Review("Robert T.", 3, "The dentist knew what he was doing and made me feel at ease.", "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/31H4fUBky1L.jpg"),
             new Review("Susan D.", 5, "Dr. Carter is excellent! Quick and painless.", "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/pIrD3JzW_400x400.jpg"),
@@ -237,6 +239,7 @@
         ];
 
 
+        //Creating a new Doctor object include id, name, specialty, and experience
         function Doctor(id, name, specialty, experience) {
             this.id = id;
             this.name = name;
@@ -244,29 +247,31 @@
             this.experience = experience;
         }
 
-       
+       // Array to hold all doctor data.
         let doctors = [
             new Doctor("D001", "Dr. Jane Carter", "Orthodontics", 12),
             new Doctor("D002", "Dr. Alex Smith", "General Dentistry", 8),
             new Doctor("D003", "Dr. Mia Lopez", "Pediatric Dentistry", 5)
         ];
 
-        
+        //converting the numeric rating to a star 
         function getStarRating(rating) {
             const fullStar = '★';
             const emptyStar = '☆';
-            
+            //repeat a full star rating times , and the empty star for the rest (5 - rating )
             return fullStar.repeat(rating) + emptyStar.repeat(5 - rating);
         }
 
       
+        //creating a new html card review
         function displayReviews(arr) {
             const container = document.getElementById('testimonial-cards');
             if (!container) return; 
             
-            container.innerHTML = ''; 
+            container.innerHTML = ''; //clear exiting cards
 
             arr.forEach(review => {
+                //building a new card
                 const cardHTML = `
                     <div class="col">
                         <div class="card h-100 p-4 shadow-sm review-card border-0">
@@ -281,18 +286,21 @@
                         </div>
                     </div>
                 `;
-                container.innerHTML += cardHTML;
+                container.innerHTML += cardHTML;  //add the new card html
             });
             
+            //printing a message if the array is empty
             if (arr.length === 0) {
                  container.innerHTML = '<div class="col-12"><p class="text-center text-muted fs-5">No reviews found matching your search criteria.</p></div>';
             }
         }
 
+        //calculate the review summary and then update it 
         function updateRatingSummary() {
             const tbody = document.getElementById('rating-summary-body');
-            if (!tbody) return;
+            if (!tbody) return; //return if the table body is not found
             
+            //calculate the count and sum
             const totalReviews = reviews.length;
             let sumRatings = 0;
             const ratingCounts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
@@ -309,6 +317,7 @@
             const averageRating = totalReviews > 0 ? (sumRatings / totalReviews).toFixed(1) : 'N/A';
             
         
+            // define the labels and order for summary table
             const rowData = [
                 { rating: 5, label: "★★★★★ (Excellent)" },
                 { rating: 4, label: "★★★★☆ (Very Good)" },
@@ -317,7 +326,7 @@
                 { rating: 1, label: "★☆☆☆☆ (Very Poor)" }
             ];
 
-            
+            //create the table rows
             let tableHTML = '';
             rowData.forEach(data => {
                 const count = ratingCounts[data.rating];
@@ -331,7 +340,7 @@
                 `;
             });
 
-            
+            //after adding the rating row , add row for the average
             tableHTML += `
                 <tr class="overall-rating-row">
                     <td colspan="2" class="text-start">Overall Average Rating (Total: ${totalReviews} Reviews)</td>
@@ -345,7 +354,7 @@
        
         function displayDoctors(arr) {
             const tbody = document.getElementById('doctor-table-body');
-           if (!tbody) return;
+           if (!tbody) return; //return if the table body is not found
             tbody.innerHTML = '';
             arr.forEach(doctor => {
                 const row = document.createElement('tr');
@@ -359,31 +368,38 @@
             });
         }
 
+
+
+        //handle th for submission event for adding a new review,and update the review array
         function addReview(event) {
             event.preventDefault(); 
             
             const form = document.getElementById('reviewForm');
             
-            
+            //form validation
             if (!form.checkValidity()) {
                 event.stopPropagation();
-              form.classList.add('was-validated'); 
+              form.classList.add('was-validated');//show validation feedback 
                 return;
             }
             
-            
-            const name = document.getElementById('reviewName').value.trim() || '  ';
+            //get the values from the form input
+            const name = document.getElementById('reviewName').value.trim() || ' null  '; //if there is no name input replace it with null
             const rating = document.getElementById('reviewRating').value;
             const comments = document.getElementById('reviewComments').value.trim();
             
+            //fixed url for default image for new reviews
             const imageURL = "https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/default-user.jpg"; 
 
+            //create a new review object and add it to the array
             const newReview = new Review(name, rating, comments, imageURL);
             reviews.unshift(newReview); 
 
+            //rest the form validation
             form.reset();
             form.classList.remove('was-validated');
 
+            //update the rating summary table
            displayReviews(reviews);
             updateRatingSummary();
            
