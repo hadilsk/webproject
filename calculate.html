@@ -5,69 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculate Your Bill - SmileCare</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-        crossorigin="anonymous">
-
-  <style>
-    /* Body font and background color */
-    body {
-      font-family: 'Georgia', serif;
-      color: #0d1b2a;
-      background-color: #f8f9fa;
-    }
-
-    /* Headings font */
-    h1,h2,h3,h4,h5,h6 {
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* Hero section at top of page */
-    .hero-section {
-      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-
-    /* Custom button color */
-    .btn-custom {
-      background-color: #4a6fa5;
-      color: white;
-    }
-
-    .btn-custom:hover {
-      background-color: #3b5785;
-    }
-
-    /* Result box styling */
-    .result {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #e2e8f0;
-      font-weight: 600;
-      border-radius: 8px;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Hero section with title and description -->
-<header class="hero-section">
-  <h1 class="display-4 fw-bold">Dental Bill Calculator</h1>
-  <p class="fs-5 mt-2">Calculate your total cost including possible discounts!</p>
+<!-- Hero section with title -->
+<header class="bg-primary text-white text-center py-5">
+  <h1 class="fw-bold">Dental Bill Calculator</h1>
+  <p>Calculate your total cost including possible discounts!</p>
 </header>
 
 <!-- Main form section -->
-<section class="container mb-5">
-  <div class="card p-4 shadow-sm">
+<section class="container my-5">
+  <div class="card p-4">
     <h2 class="text-center fw-bold mb-4">Select Services & Enter Your Age</h2>
     <form id="billForm">
-      <!-- User age input -->
+
+      <!-- Age input -->
       <div class="mb-3 col-md-4">
         <label for="age" class="form-label">Your Age</label>
         <input type="number" class="form-control" id="age" placeholder="Enter your age" min="0" required>
@@ -102,22 +57,23 @@
         </tbody>
       </table>
 
-      <!-- Buttons to calculate or return home -->
+      <!-- Buttons -->
       <div class="text-center mt-3">
-        <button type="button" class="btn btn-custom me-2" onclick="calculateBill()">Calculate Total</button>
+        <button type="button" class="btn btn-primary me-2" onclick="calculateBill()">Calculate Total</button>
         <a href="index.html" class="btn btn-secondary">Return to Home</a>
       </div>
     </form>
 
-    <!-- Result box -->
-    <div id="result" class="result text-center"></div>
+    <!-- Result -->
+    <div id="result" class="mt-3"></div>
   </div>
 </section>
+
 
 <!-- JavaScript for calculation -->
 <script>
 function calculateBill() {
-  // Get user age input
+  // Get the user's age
   var age = parseInt(document.getElementById('age').value);
 
   // Get all service checkboxes
@@ -125,47 +81,62 @@ function calculateBill() {
   var total = 0;
   var selectedServices = [];
 
-  // Loop through each service to calculate total
+  // Loop through services to check which are selected
   for (var i = 0; i < services.length; i++) {
     if (services[i].checked) {
-      var price = parseFloat(services[i].value);
-      var name = services[i].dataset.name;
-      total += price;
-      selectedServices.push({name: name, price: price});
+      var price = parseFloat(services[i].value);   // Get price of selected service
+      var name = services[i].dataset.name;         // Get service name
+      total += price;                               // Add price to total
+      selectedServices.push({name: name, price: price}); // Save selected service info
     }
   }
 
-  // If no service selected, show warning
+  // If no service is selected, show a message and exit
   if (selectedServices.length === 0) {
-    document.getElementById('result').innerHTML = "Please select at least one service.";
+    document.getElementById('result').innerHTML = "<div class='alert alert-warning text-center'>Please select at least one service.</div>";
     return;
   }
 
-  // Apply elderly discount if age >= 60
+  // Apply 10% discount if user is elderly (60 or older)
   var discount = 0;
-  if (age >= 60) discount = total * 0.10;
+  if (age >= 60) {
+    discount = total * 0.10;
+  }
 
-  // Calculate final amount
+  // Calculate final amount after discount
   var finalAmount = total - discount;
 
-  // Create result HTML with table and totals
-  var resultText = '<h5>Selected Services:</h5>';
-  resultText += '<table class="table table-bordered"><thead><tr><th>Service</th><th>Price (OMR)</th></tr></thead><tbody>';
-  for (var j = 0; j < selectedServices.length; j++) {
-    resultText += '<tr><td>' + selectedServices[j].name + '</td><td>' + selectedServices[j].price.toFixed(2) + '</td></tr>';
-  }
-  resultText += '</tbody></table>';
-  resultText += '<p>Total before discount: <strong>' + total.toFixed(2) + ' OMR</strong></p>';
-  resultText += discount > 0 ? '<p>Elderly Discount (10%): -<strong>' + discount.toFixed(2) + ' OMR</strong></p>' : '<p>No discount applied.</p>';
-  resultText += '<p>Final Total: <strong>' + finalAmount.toFixed(2) + ' OMR</strong></p>';
+  // Build the result HTML
+  var resultHTML = "<h4 class='text-center mb-3'>Your Selected Services</h4>";
+  resultHTML += "<div class='row g-3'>";
 
-  // Display the result in the result div
-  document.getElementById('result').innerHTML = resultText;
+  // Each service in a Bootstrap card
+  for (var j = 0; j < selectedServices.length; j++) {
+    resultHTML += "<div class='col-md-4'>";
+    resultHTML += "<div class='card shadow-sm'>";
+    resultHTML += "<div class='card-body'>";
+    resultHTML += "<h6 class='card-title'>" + selectedServices[j].name + "</h6>";
+    resultHTML += "<p class='card-text'>Price: <strong>" + selectedServices[j].price.toFixed(2) + " OMR</strong></p>";
+    resultHTML += "</div></div></div>";
+  }
+  resultHTML += "</div>"; // close row
+
+  // Totals section
+  resultHTML += "<div class='mt-4 p-3 border rounded bg-light'>";
+  resultHTML += "<p>Total before discount: <strong>" + total.toFixed(2) + " OMR</strong></p>";
+  if (discount > 0) {
+    resultHTML += "<p>Elderly Discount (10%): -<strong>" + discount.toFixed(2) + " OMR</strong></p>";
+  } else {
+    resultHTML += "<p>No discount applied.</p>";
+  }
+  resultHTML += "<p class='fs-5 fw-bold'>Final Total: " + finalAmount.toFixed(2) + " OMR</p>";
+  resultHTML += "</div>";
+
+  // Display the result
+  document.getElementById('result').innerHTML = resultHTML;
 }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
