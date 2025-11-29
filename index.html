@@ -166,10 +166,9 @@ var galleryImages = [
 var currentImgIndex = 0;
 var galleryImg = document.getElementById("galleryImg");
 
-// Function to rotate the gallery image
 function rotateGallery() {
   currentImgIndex = currentImgIndex + 1;
-  if(currentImgIndex >= galleryImages.length) {
+  if (currentImgIndex >= galleryImages.length) {
     currentImgIndex = 0; // Reset to first image
   }
   galleryImg.src = galleryImages[currentImgIndex];
@@ -178,29 +177,26 @@ function rotateGallery() {
 // Change image every 3 seconds
 setInterval(rotateGallery, 3000);
 
-
 /* ---------------- Moving banner ---------------- */
 var marquee = document.getElementById('welcomeMarquee');
 
-// Add leading zero if number is less than 10
 function pad(n) {
-  if(n < 10) {
+  if (n < 10) {
     return '0' + n;
   } else {
     return n;
   }
 }
 
-// Update the banner text
 function updateBanner() {
   var now = new Date();
   var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   var day = days[now.getDay()];
   
-  var dateStr = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
+  var month = now.getMonth() + 1; // Months start from 0
+  var dateStr = now.getFullYear() + '-' + pad(month) + '-' + pad(now.getDate());
   var timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-  
-  // Set the text of the marquee
+
   marquee.textContent = "Welcome to SmileCare Dental! Today is " + day + ", " + dateStr + ", and the time is " + timeStr + ".";
 }
 
@@ -208,14 +204,15 @@ function updateBanner() {
 updateBanner();
 setInterval(updateBanner, 1000);
 
-
 /* ---------------- Active navbar link ---------------- */
-var links = document.querySelectorAll('.navbar-nav .nav-link');
-var currentPage = location.pathname.split("/").pop();
 
-for(var i = 0; i < links.length; i++) {
-  if(links[i].getAttribute('href') === currentPage) {
-    links[i].classList.add('active'); // Highlight current page
+var currentPage = "index.html"; 
+var links = document.querySelectorAll('.navbar-nav .nav-link');
+
+for (var i = 0; i < links.length; i++) {
+  if (links[i].getAttribute('href') === currentPage) {
+    links[i].classList.add('active'); // Highlight the current page
   }
 }
 </script>
+
