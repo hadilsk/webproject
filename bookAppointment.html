@@ -1,232 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SmileCare – Book Appointment</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    /* Global font & background */
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      color: #0d1b2a;
-      background-color: #f8f9fa;
-    }
+    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
 
-    /* Navbar style */
-    .navbar {
-      background: linear-gradient(90deg, #f1f4f8, #4a6fa5);
-    }
-    .navbar .navbar-brand img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-    }
-    .navbar-nav .nav-link {
-      font-weight: 600; /* fw-semibold analog in plain CSS */
-      color: #0d1b2a;  /* text-dark */
-    }
-    .navbar-nav .nav-link.active,
-    .navbar-nav .nav-link:hover {
-      color: #ff8aa2 !important;
-    }
+    .navbar-nav .nav-link:hover { color: #ff8aa2 !important; }
+    .navbar-nav .nav-link.active { color: #ff8aa2 !important; font-weight: 600; }
 
-    /* Hero image cover */
-    .hero-img {
-      object-fit: cover;
-    }
+    .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
 
-    /* Marquee style (matching example) */
-    .marquee {
-      background-color: #4a6fa5;
-      color: white;
-      padding: 0.5rem 0;
-      text-align: center;
-    }
-
-    /* Footer style (matching example) */
-    footer {
-      background-color: #d9e2e8;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-    footer h6 {
-      font-family: 'Montserrat', sans-serif;
-    }
+    footer { background-color:#d9e2e8; font-family:'Georgia', serif; }
+    footer h6 { font-family: 'Montserrat', sans-serif; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="logoo.png" alt="Logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-        <span class="navbar-toggler-icon" style="filter: invert(1) brightness(1.2);"></span>
-      </button>
-        <ul class="navbar-nav ms-lg-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallary.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="review.html">Patient Reviews</a></li>
-          <li class="nav-item"><a class="nav-link active" href="bookAppointment.html">Book Appointment</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!-- NAVBAR (same as index) -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
+    </a>
 
-  <!-- HERO SECTION -->
-  <section class="position-relative text-white text-center d-flex align-items-center" style="height: 65vh;">
-    <img src="team.jpg" class="position-absolute top-0 start-0 w-100 h-100 hero-img" alt="Hero Image">
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-    <div class="position-relative container">
-      <h1 class="display-4 fw-bold">Book Your Appointment</h1>
-      <p class="lead">We're here to help you smile brighter</p>
-    </div>
-  </section>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
+    </button>
 
-  <!-- FORM SECTION -->
-  <section class="container my-5">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
-        <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get">
-          <div class="col-md-6">
-            <label for="patient-name" class="form-label">Full Name *</label>
-            <input type="text" class="form-control" id="patient-name" name="patient-name" required>
-            <div class="invalid-feedback">Please enter your name.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="patient-email" class="form-label">Email Address *</label>
-            <input type="email" class="form-control" id="patient-email" name="patient-email" required>
-            <div class="invalid-feedback">Please enter a valid email.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="patient-phone" class="form-label">Phone Number *</label>
-            <input type="tel" class="form-control" id="patient-phone" name="patient-phone" required>
-            <div class="invalid-feedback">Phone number required.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="service-select" class="form-label">Choose a Service *</label>
-            <select class="form-select" id="service-select" name="service-select" required>
-              <option value="">-- Please choose --</option>
-              <option value="cleaning">Dental Exams & Cleanings</option>
-              <option value="fillings">Dental Fillings</option>
-              <option value="therapy">Root Canal Therapy</option>
-              <option value="extractions">Tooth Extractions</option>
-              <option value="guards">Night Guards & Mouthguards</option>
-              <option value="whitening">Teeth Whitening</option>
-              <option value="veneers">Dental Veneers</option>
-              <option value="bonding">Dental Bonding</option>
-              <option value="crowns">Dental Crowns</option>
-              <option value="bridges">Dental Bridges</option>
-              <option value="implants">Dental Implants</option>
-              <option value="dentures">Dentures</option>
-              <option value="braces">Orthodontics (Braces & Invisalign®)</option>
-              <option value="pediatric">Pediatric Dentistry</option>
-              <option value="periodontal">Periodontal (Gum) Therapy</option>
-              <option value="tmj">TMJ/TMD Therapy</option>
-            </select>
-            <div class="invalid-feedback">Select a service.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="dentist-select" class="form-label">Select a Doctor *</label>
-            <select class="form-select" id="dentist-select" name="dentist-select" required>
-              <option value="">-- Please choose --</option>
-              <option value="elena">Dr. Elena Vance</option>
-              <option value="ben">Dr. Ben Carter</option>
-              <option value="sophia">Dr. Sophia Rossi</option>
-              <option value="marcus">Dr. Marcus Thorne</option>
-              <option value="alisha">Dr. Alisha Kumar</option>
-              <option value="samuel">Dr. Samuel Jones</option>
-            </select>
-            <div class="invalid-feedback">Select a doctor.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="date" class="form-label">Preferred Date *</label>
-            <input type="date" class="form-control" id="date" name="date" required>
-            <div class="invalid-feedback">Select a date.</div>
-          </div>
-          <div class="col-md-6">
-            <label for="time" class="form-label">Preferred Time *</label>
-            <input type="time" class="form-control" id="time" name="time" required>
-            <div class="invalid-feedback">Select a time.</div>
-          </div>
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-danger px-4">Confirm Booking</button>
-          </div>
-        </form>
-      </div>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark active" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="pt-4 pb-4">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-6 d-flex align-items-start gap-3">
-          <img src="2.jpg" alt="Mission" style="width:100px;height:100px;object-fit:cover;">
-          <div>
-            <h6 class="fw-bold mb-1">Our Mission</h6>
-            <p class="mb-0 small">To make every patient feel confident and comfortable with their smile.</p>
-            <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-start gap-3">
-          <img src="office.jpg" alt="Visit Us" style="width:100px;height:100px;object-fit:cover;">
-          <div>
-            <h6 class="fw-bold mb-1">Visit Us</h6>
-            <p class="mb-0 small">Shati Al Qurum – 3024 Way</p>
-            <p class="mb-0 small">📞 +968 92828289 | +24696622 | +93233100</p>
-            <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
-    </div>
-  </footer>
-
-  <!-- MARQUEE -->
-  <div class="marquee">
-    <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
   </div>
+</nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- HERO -->
+<header class="position-relative">
+  <div class="d-flex align-items-center justify-content-center text-center text-white"
+       style="background-image:url('team.jpg'); background-size:cover; background-position:center; min-height:60vh;">
+    <div class="p-4" style="background-color: rgba(10,30,60,0.45);">
+      <h1 class="fw-bold display-5">Book Your Appointment</h1>
+      <p class="fs-5 mt-2">We're here to help you smile brighter</p>
+    </div>
+  </div>
+</header>
 
-  <script>
-    (() => {
-      'use strict';
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
+<!-- FORM SECTION -->
+<section class="container my-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
 
-      (function(){
-        const marquee = document.getElementById('welcomeMarquee');
-        function pad(n){ return n<10?'0'+n:n; }
-        function refresh(){
-          const now = new Date();
-          const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-          const day=days[now.getDay()];
-          const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
-          const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
-          marquee.textContent=`Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+      <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get">
+        <div class="col-md-6">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-control" name="patient-name" required>
+          <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email *</label>
+          <input type="email" class="form-control" name="patient-email" required>
+          <div class="invalid-feedback">Please enter your email.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Phone *</label>
+          <input type="tel" class="form-control" name="patient-phone" required>
+          <div class="invalid-feedback">Phone number required.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Service *</label>
+          <select class="form-select" name="service-select" required>
+            <option value="">-- Choose --</option>
+            <option value="cleaning">Dental Exams & Cleanings</option>
+            <option value="fillings">Dental Fillings</option>
+            <option value="therapy">Root Canal Therapy</option>
+            <option value="extractions">Tooth Extractions</option>
+            <option value="guards">Night Guards</option>
+            <option value="whitening">Teeth Whitening</option>
+            <option value="veneers">Dental Veneers</option>
+            <option value="bonding">Dental Bonding</option>
+            <option value="crowns">Dental Crowns</option>
+            <option value="bridges">Dental Bridges</option>
+            <option value="implants">Dental Implants</option>
+            <option value="dentures">Dentures</option>
+            <option value="braces">Orthodontics</option>
+            <option value="pediatric">Pediatric Dentistry</option>
+          </select>
+          <div class="invalid-feedback">Select a service.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Select Doctor *</label>
+          <select class="form-select" name="dentist-select" required>
+            <option value="">-- Choose --</option>
+            <option>Dr. Elena Vance</option>
+            <option>Dr. Ben Carter</option>
+            <option>Dr. Sophia Rossi</option>
+            <option>Dr. Marcus Thorne</option>
+            <option>Dr. Alisha Kumar</option>
+            <option>Dr. Samuel Jones</option>
+          </select>
+          <div class="invalid-feedback">Choose a doctor.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Preferred Date *</label>
+          <input type="date" class="form-control" name="date" required>
+          <div class="invalid-feedback">Select a date.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Preferred Time *</label>
+          <input type="time" class="form-control" name="time" required>
+          <div class="invalid-feedback">Select a time.</div>
+        </div>
+
+        <div class="col-12 text-center mt-3">
+          <button type="submit" class="btn btn-danger px-4">Confirm Booking</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (same as index) -->
+<footer class="pt-4 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="2.jpg" alt="Mission" class="rounded" style="width:100px;height:100px;object-fit:cover;">
+        <div>
+          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <p class="mb-0 small">To make every patient feel confident and comfortable with their smile.</p>
+          <p class="mb-0 small">We focus on gentle care, advanced technology, and trusted results.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="office.jpg" alt="Visit Us" class="rounded" style="width:100px;height:100px;object-fit:cover;">
+        <div>
+          <h6 class="fw-bold mb-1">Visit Us</h6>
+          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
+          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-3 small text-muted">
+      © 2025 SmileCare Dental Clinic. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MARQUEE (same as index) -->
+<div class="marquee">
+  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Form validation
+  (() => {
+    'use strict';
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
         }
-        refresh();
-        setInterval(refresh,1000);
-      })();
-    })();
-  </script>
+        form.classList.add('was-validated');
+      }, false);
+    });
+  })();
+
+  // Marquee script (same as index)
+  (function(){
+    const marquee = document.getElementById('welcomeMarquee');
+    function pad(n){ return n<10?'0'+n:n; }
+    function refresh(){
+      const now=new Date();
+      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const day=days[now.getDay()];
+      const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
+      const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+      marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
+    }
+    refresh();
+    setInterval(refresh,1000);
+  })();
+
+  // Active navbar highlight
+  (function(){
+    const links=document.querySelectorAll('.navbar-nav .nav-link');
+    const current=location.pathname.split("/").pop();
+    links.forEach(link=>{
+      if(link.getAttribute('href')===current) link.classList.add('active');
+    });
+  })();
+</script>
 
 </body>
 </html>
