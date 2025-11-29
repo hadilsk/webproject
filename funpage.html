@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmileCare – Fun Puzzle</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Georgia', serif; background-color:#f8f9fa; color:#0d1b2a; }
+
+    /* Navbar + footer same as index */
+    .navbar-nav .nav-link:hover { color:#ff8aa2 !important; }
+    .navbar-nav .nav-link.active { color:#ff8aa2 !important; font-weight:600; }
+
+    footer { background-color:#d9e2e8; font-family:'Georgia', serif; }
+    footer h6 { font-family:'Montserrat', sans-serif; }
+
+    .marquee { background-color:#4a6fa5; color:white; padding:0.5rem 0; }
+  </style>
+
+</head>
+<body>
+
+<!-- NAVBAR (same as index, do NOT add Fun Page link) -->
+<nav class="navbar navbar-expand-lg sticky-top" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logoo.png" alt="Logo" class="rounded-circle" style="width:80px;height:80px;object-fit:contain;">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon" style="filter:invert(1) brightness(1.2);"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-lg-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="container text-center mt-4">
+  <h2 class="text-danger fw-bold">🧩 Fun Smile Puzzle</h2>
+  <p class="text-muted">Drag the pieces to reassemble the smile!</p>
+</div>
+
+<!-- RESPONSIVE PUZZLE -->
+<div class="container d-flex justify-content-center mt-4">
+  <div id="puzzle" class="row g-1"
+       style="width:100%; max-width:350px; aspect-ratio:1; position:relative;">
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="pt-4 pb-4 mt-5">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="2.jpg" alt="Mission" class="rounded"
+             style="width:100px;height:100px;object-fit:cover;">
+        <div>
+          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <p class="small mb-0">To make every patient feel confident and comfortable with their smile.</p>
+          <p class="small mb-0">We focus on gentle care, advanced technology, and trusted results.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 d-flex align-items-start gap-3">
+        <img src="office.jpg" alt="Visit Us" class="rounded"
+             style="width:100px;height:100px;object-fit:cover;">
+        <div>
+          <h6 class="fw-bold mb-1">Visit Us</h6>
+          <p class="small mb-0">Shati Al Qurum - 3024 way</p>
+          <p class="small mb-0">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="small mb-0">
+            <a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-3 small text-muted">
+      © 2025 SmileCare Dental Clinic. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- PUZZLE JS -->
+<script>
+  const puzzle = document.getElementById('puzzle');
+  const order = [...Array(9).keys()];
+  shuffle(order);
+
+  function createTiles() {
+    puzzle.innerHTML = "";
+    const size = puzzle.clientWidth / 3;
+
+    order.forEach((pos, i) => {
+      const tile = document.createElement("div");
+      tile.className = "col-4 border";
+      tile.draggable = true;
+      tile.dataset.pos = pos;
+      tile.dataset.index = i;
+      tile.id = "tile"+i;
+
+      tile.style.height = size+"px";
+      tile.style.backgroundImage = "url('puzzle.jpg')";
+      tile.style.backgroundSize = (size*3)+"px "+(size*3)+"px";
+      tile.style.backgroundPosition =
+        `${-(pos % 3) * size}px ${-Math.floor(pos / 3) * size}px`;
+
+      tile.addEventListener("dragstart", dragStart);
+      tile.addEventListener("dragover", dragOver);
+      tile.addEventListener("drop", dropTile);
+
+      puzzle.appendChild(tile);
+    });
+  }
+
+  let dragged;
+
+  function dragStart(e){ dragged = e.target; }
+  function dragOver(e){ e.preventDefault(); }
+
+  function dropTile(e){
+    e.preventDefault();
+    if(dragged === e.target) return;
+
+    let tempBg = e.target.style.backgroundPosition;
+    let tempPos = e.target.dataset.pos;
+
+    e.target.style.backgroundPosition = dragged.style.backgroundPosition;
+    e.target.dataset.pos = dragged.dataset.pos;
+
+    dragged.style.backgroundPosition = tempBg;
+    dragged.dataset.pos = tempPos;
+
+    checkWin();
+  }
+
+  function checkWin(){
+    const tiles = document.querySelectorAll("#puzzle > div");
+    const win = [...tiles].every((tile, i) => tile.dataset.pos == i);
+    if(win){
+      setTimeout(() => alert("🎉 You completed the puzzle! Great job!"), 100);
+    }
+  }
+
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      let j=Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+  }
+
+  window.addEventListener("resize", createTiles);
+  createTiles();
+
+  // MARQUEE SCRIPT (same as index)
+  (function () {
+    const marquee=document.getElementById("welcomeMarquee");
+    function pad(n){ return n<10?'0'+n:n; }
+    function update(){
+      const now=new Date();
+      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      marquee.textContent =
+      `Welcome to SmileCare Dental! Today is ${days[now.getDay()]}, `+
+      `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}, `+
+      `and the time is ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}.`;
+    }
+    update();
+    setInterval(update,1000);
+  })();
+
+</script>
+
+</body>
+</html>
