@@ -10,24 +10,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    /* Body styling */
-    body { font-family: 'Georgia', serif;color: #0d1b2a;background-color: #f8f9fa; }
-    /* Headings font */
-    h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif; }
-    /* Navbar gradient */
-    .navbar-custom {background: linear-gradient(90deg, #f1f4f8, #4a6fa5);}
-    /* Active link color */
-    .nav-link.active {color: #ff4f79 !important;font-weight: bold; }
-    /* Buttons colors */
-    .btn-main {background-color: #4a6fa5;color: white;}
-    .btn-main:hover {background-color: #ff8aa2;color: white;}
-    /* Hero overlay */
-    .hero-overlay {background-color: rgba(10,30,60,0.45);padding: 30px; }
-    /* Footer styling */
-    footer {background-color: #d9e2e8; font-family: 'Georgia', serif;}
-    footer h6 {font-family: 'Montserrat', sans-serif; }
-    /* Marquee styling */
-    .marquee {background-color: #4a6fa5;color: white;text-align: center;padding: 6px 0; }
+    /* Body styling */ body{font-family:'Georgia',serif;color:#0d1b2a;background-color:#f8f9fa;}
+    /* Headings */ h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;}
+    /* Navbar */ .navbar-custom{background:linear-gradient(90deg,#f1f4f8,#4a6fa5);}
+    /* Active link */ .nav-link.active{color:#ff4f79!important;font-weight:bold;}
+    /* Buttons */ .btn-main{background-color:#4a6fa5;color:white;} .btn-main:hover{background-color:#ff8aa2;color:white;}
+    /* Hero background */ .hero-bg{background-image:url('team.jpg');background-size:cover;background-position:center;min-height:70vh;}
+    /* Hero overlay */ .hero-overlay{background-color:rgba(10,30,60,0.45);padding:30px;}
+    /* Footer */ footer{background-color:#d9e2e8;font-family:'Georgia',serif;} footer h6{font-family:'Montserrat',sans-serif;}
+    /* Marquee */ .marquee{background-color:#4a6fa5;color:white;text-align:center;padding:6px 0;}
   </style>
 </head>
 
@@ -61,7 +52,7 @@
 
 <!-- HERO SECTION -->
 <header class="position-relative">
-  <div class="text-center text-white" style="background-image:url('team.jpg'); background-size:cover; background-position:center; min-height:70vh;">
+  <div class="text-center text-white hero-bg">
     <div class="hero-overlay d-flex flex-column justify-content-center align-items-center h-100">
       <h1 class="fw-bold display-5">About Us - SmileCare Dental</h1>
       <p class="fs-5 mt-2">Your Trusted Partner for a Healthy, Beautiful Smile</p>
