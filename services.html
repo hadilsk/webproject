@@ -5,35 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Dental Services - SmileCare</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Body styling */
+    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
+    /* Headings font */
+    h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat', sans-serif; }
+    /* Navbar gradient and colors */
+    .navbar-custom { background: linear-gradient(90deg, #f1f4f8, #4a6fa5); }
+    .nav-link { color: #0d1b2a !important; font-weight: 500; }
+    .nav-link.active { color: #ff4f79 !important; font-weight: bold; }
+    /* Buttons colors */
+    .btn-main { background-color: #4a6fa5; color: white; }
+    .btn-main:hover { background-color: #ff8aa2; color: white; }
+    /* Hero overlay */
+    .hero-overlay { background-color: rgba(10,30,60,0.45); padding: 30px; }
+    /* Footer styling */
+    footer { background-color: #d9e2e8; font-family: 'Georgia', serif; }
+    footer h6 { font-family: 'Montserrat', sans-serif; }
+    /* Marquee styling */
+    .marquee { background-color: #4a6fa5; color: white; text-align: center; padding: 6px 0; }
+    /* Carousel card styling */
+    .card { border-radius: 10px; }
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon { display: none; }
+  </style>
 </head>
-<body class="bg-light text-dark">
+
+<body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-primary bg-gradient">
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
   <div class="container">
-    <!-- Clinic logo -->
     <a class="navbar-brand" href="index.html">
-      <img src="logoo.png" alt="Logo" class="img-fluid" width="80" height="80">
+      <img src="logoo.png" class="img-fluid" width="80" height="80" alt="Logo">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white active" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="bookAppointment.html">Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link fw-semibold text-white" href="contact.html">Contact</a></li>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold active" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -41,11 +66,11 @@
 
 <!-- HERO SECTION -->
 <header class="position-relative">
-  <div class="d-flex align-items-center justify-content-center text-center text-white" 
-       style="background-image:url('kid2.jpg'); background-size:cover; background-position:center; min-height:70vh;">
-    <div class="p-4 bg-dark bg-opacity-50 rounded">
+  <div class="text-center text-white" style="background-image:url('kid2.jpg'); background-size:cover; background-position:center; min-height:70vh;">
+    <div class="hero-overlay d-flex flex-column justify-content-center align-items-center h-100">
       <h1 class="fw-bold display-5">Our Dental Services</h1>
       <p class="fs-5 mt-2">Comprehensive, compassionate care for every smile.</p>
+      <p class="fs-6">We provide a full range of dental treatments for all ages.</p>
     </div>
   </div>
 </header>
@@ -242,19 +267,15 @@
 
     </div>
 
- <!-- Carousel controls -->
-   
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
-
-<button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
-  <span class="carousel-control-prev-icon d-none"></span> 
-  <i class="bi bi-chevron-left text-danger fs-2"></i> <!-- red arrow -->
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
-  <span class="carousel-control-next-icon d-none"></span> 
-  <i class="bi bi-chevron-right text-danger fs-2"></i> <!-- red arrow -->
-</button>
+    <!-- Carousel controls as images below the slides -->
+<div class="d-flex justify-content-center mt-3 gap-3">
+  <a href="#servicesCarousel" role="button" data-bs-slide="prev">
+    <img src="leftarrowblue.jpg" alt="Previous" width="50" height="50">
+  </a>
+  <a href="#servicesCarousel" role="button" data-bs-slide="next">
+    <img src="rightarrowblue.jpg" alt="Next" width="50" height="50">
+  </a>
+</div>
 
 </section>
 
@@ -263,24 +284,25 @@
   <div class="card p-4 shadow-sm text-center">
     <h3 class="fw-bold mb-3">Calculate Your Bill</h3>
     <p class="mb-4">Use our bill calculator to see your total cost including any discounts for elderly patients.</p>
-    <a href="calculate.html" class="btn btn-danger btn-lg">Go to Bill Calculator</a>
+    <a href="calculate.html" class="btn btn-main btn-lg">Go to Bill Calculator</a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="pt-4 pb-4 bg-secondary bg-opacity-10">
+<footer class="pt-4 pb-4">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
+
+      <div class="col-md-6 d-flex gap-3">
+        <img src="2.jpg" class="rounded" width="100" height="100" alt="Mission">
         <div>
           <h6 class="fw-bold mb-1">Our Mission</h6>
-          <p class="mb-0 small">To make every patient feel confident with their smile.</p>
-          <p class="mb-0 small">We focus on gentle care + advanced technology.</p>
+          <p class="small mb-0">To make every patient feel confident with their smile. We focus on gentle care + advanced technology.</p>
         </div>
       </div>
-      <div class="col-md-6 d-flex align-items-start gap-3">
-        <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
+
+      <div class="col-md-6 d-flex gap-3">
+        <img src="office.jpg" class="rounded" width="100" height="100" alt="Visit Us">
         <div>
           <h6 class="fw-bold mb-1">Visit Us</h6>
           <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
@@ -288,57 +310,86 @@
           <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
+
     </div>
     <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
   </div>
 </footer>
 
 <!-- MARQUEE -->
-<div class="bg-primary text-white py-1 text-center">
-  <marquee id="welcomeMarquee" behavior="scroll" scrollamount="6"></marquee>
+<div class="marquee">
+  <marquee id="welcomeMarquee" scrollamount="6"></marquee>
 </div>
 
-<!-- Bootstrap JS -->
+<!-- Scripts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-// ---------------- Moving Banner ----------------
-var marquee = document.getElementById('welcomeMarquee');
+// Get the marquee element to display welcome message and current time
+var marquee = document.getElementById("welcomeMarquee");
 
-// Add leading zero if number < 10
+// Function to add a leading zero for numbers less than 10
 function pad(n) {
-  if(n < 10) {
-    return '0' + n;
-  } else {
-    return n;
-  }
+  return n < 10 ? "0" + n : n;
 }
 
-// Update the marquee text with day, date, and time
+// Function to update the marquee text with current day, date, and time
 function updateBanner() {
-  var now = new Date();
-  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var day = days[now.getDay()];
-  var dateStr = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
-  var timeStr = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-
-  // Set the marquee text 
+  var now = new Date(); // Get current date and time
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; // Array of weekday names
+  var day = days[now.getDay()]; // Get name of current day
+  var dateStr = now.getFullYear() + "-" + pad(now.getMonth() + 1) + "-" + pad(now.getDate()); // Format date as YYYY-MM-DD
+  var timeStr = pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()); // Format time as HH:MM:SS
+  // Set the marquee text to include the welcome message, day, date, and time
   marquee.textContent = "Welcome to SmileCare Dental! Today is " + day + ", " + dateStr + ", and the time is " + timeStr + ".";
 }
 
-// Update immediately and every second
+// Call once to display immediately, then update every second
 updateBanner();
 setInterval(updateBanner, 1000);
 
-// ---------------- Active Navbar Link ----------------
-var links = document.querySelectorAll('.navbar-nav .nav-link');
-var currentPage = location.pathname.split("/").pop();
+// Highlight the active navbar link based on the current page
+var links = document.querySelectorAll(".navbar-nav .nav-link"); // Get all nav links
+var currentPage = location.pathname.split("/").pop(); // Get current page filename
 
-for(var i=0; i<links.length; i=i+1) {
-  if(links[i].getAttribute('href') === currentPage) {
-    links[i].classList.add('active'); // Highlight current page
+// Loop through all nav links
+for (var i = 0; i < links.length; i++) {
+  // If the link href matches the current page, add the 'active' class
+  if (links[i].getAttribute("href") === currentPage) {
+    links[i].classList.add("active");
   }
 }
+
+// Select the carousel arrow images for hover and click effects
+const prevArrow = document.querySelector('a[href="#servicesCarousel"][data-bs-slide="prev"] img'); // Previous arrow image
+const nextArrow = document.querySelector('a[href="#servicesCarousel"][data-bs-slide="next"] img'); // Next arrow image
+
+// Define image sources for hover and default states
+const prevArrowHover = 'leftarrowpinl.jpg'; // Image to show on hover for previous arrow
+const nextArrowHover = 'rightarrowpink.jpg'; // Image to show on hover for next arrow
+const prevArrowDefault = 'leftarrowblue.jpg'; // Default previous arrow image
+const nextArrowDefault = 'rightarrowblue.jpg'; // Default next arrow image
+
+// Change arrow image when hovering over previous arrow
+prevArrow.addEventListener('mouseenter', () => prevArrow.src = prevArrowHover);
+prevArrow.addEventListener('mouseleave', () => prevArrow.src = prevArrowDefault);
+
+// Change arrow image when hovering over next arrow
+nextArrow.addEventListener('mouseenter', () => nextArrow.src = nextArrowHover);
+nextArrow.addEventListener('mouseleave', () => nextArrow.src = nextArrowDefault);
+
+//  Change image temporarily when clicking the previous arrow
+prevArrow.parentElement.addEventListener('click', () => {
+    prevArrow.src = prevArrowHover; // Change to hover image on click
+    setTimeout(() => prevArrow.src = prevArrowDefault, 300); // Reset to default after 0.3 seconds
+});
+
+//  Change image temporarily when clicking the next arrow
+nextArrow.parentElement.addEventListener('click', () => {
+    nextArrow.src = nextArrowHover; // Change to hover image on click
+    setTimeout(() => nextArrow.src = nextArrowDefault, 300); // Reset to default after 0.3 seconds
+});
+
 </script>
 
 </body>

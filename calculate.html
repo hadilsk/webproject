@@ -7,11 +7,30 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+ <style>
+    /* Body theme */
+    body {font-family: 'Georgia', serif;background-color: #f8f9fa; /* Light background like About page */ color: #0d1b2a; /* Dark text color */}
+    /* Hero section */
+    header {background: linear-gradient(90deg, #f1f4f8, #4a6fa5); /* About page gradient */color: white }
+    /* Form card styling */
+    .card {border-radius: 10px; /* Rounded corners */background-color: #ffffff; /* White background for card */box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Slight shadow */}
+    /* Table header colors */
+    .table-primary {background-color: #4a6fa5 !important; /* Dark blue background */ color: white; /* White text */}
+    /* Buttons styling */
+    .btn-primary { background-color: #4a6fa5;border-color: #4a6fa5;}
+    .btn-primary:hover {background-color: #ff8aa2;border-color: #ff8aa2;}
+    .btn-secondary {background-color: #d9e2e8;border-color: #d9e2e8;color: #0d1b2a; }
+    .btn-secondary:hover { background-color: #b0c4de; color: white;}
+    /* Result cards background */
+    #result .card { background-color: #f1f4f8; /* Light grayish-blue background */ }
+    /* Totals section styling */
+    #result .bg-light { background-color: #d6e8f4 !important; /* Light blue background */ }
+  </style>
 </head>
 <body>
 
 <!-- Hero section with title -->
-<header class="bg-primary text-white text-center py-5">
+<header class="text-center py-5">
   <h1 class="fw-bold">Dental Bill Calculator</h1>
   <p>Calculate your total cost including possible discounts!</p>
 </header>
@@ -22,7 +41,7 @@
     <h2 class="text-center fw-bold mb-4">Select Services & Enter Your Age</h2>
     <form id="billForm">
 
-      <!-- Age input -->
+      <!-- Age input field -->
       <div class="mb-3 col-md-4">
         <label for="age" class="form-label">Your Age</label>
         <input type="number" class="form-control" id="age" placeholder="Enter your age" min="0" required>
@@ -57,47 +76,46 @@
         </tbody>
       </table>
 
-      <!-- Buttons -->
+      <!-- Buttons to calculate or return -->
       <div class="text-center mt-3">
         <button type="button" class="btn btn-primary me-2" onclick="calculateBill()">Calculate Total</button>
         <a href="index.html" class="btn btn-secondary">Return to Home</a>
       </div>
     </form>
 
-    <!-- Result -->
+    <!-- Result section -->
     <div id="result" class="mt-3"></div>
   </div>
 </section>
 
-
 <!-- JavaScript for calculation -->
 <script>
 function calculateBill() {
-  // Get the user's age
+  // Get the age input by user
   var age = parseInt(document.getElementById('age').value);
 
   // Get all service checkboxes
   var services = document.getElementsByName('service');
-  var total = 0;
-  var selectedServices = [];
+  var total = 0; // Initialize total price
+  var selectedServices = []; // List of selected services
 
-  // Loop through services to check which are selected
+  // Loop through checkboxes to find selected services
   for (var i = 0; i < services.length; i++) {
     if (services[i].checked) {
-      var price = parseFloat(services[i].value);   // Get price of selected service
-      var name = services[i].dataset.name;         // Get service name
-      total += price;                               // Add price to total
-      selectedServices.push({name: name, price: price}); // Save selected service info
+      var price = parseFloat(services[i].value); // Price of selected service
+      var name = services[i].dataset.name; // Name of selected service
+      total += price; // Add to total
+      selectedServices.push({name: name, price: price}); // Add to list
     }
   }
 
-  // If no service is selected, show a message and exit
+  // If no services selected, show warning
   if (selectedServices.length === 0) {
     document.getElementById('result').innerHTML = "<div class='alert alert-warning text-center'>Please select at least one service.</div>";
     return;
   }
 
-  // Apply 10% discount if user is elderly (60 or older)
+  // Apply 10% discount if age >= 60
   var discount = 0;
   if (age >= 60) {
     discount = total * 0.10;
@@ -106,22 +124,17 @@ function calculateBill() {
   // Calculate final amount after discount
   var finalAmount = total - discount;
 
-  // Build the result HTML
-  var resultHTML = "<h4 class='text-center mb-3'>Your Selected Services</h4>";
-  resultHTML += "<div class='row g-3'>";
-
-  // Each service in a Bootstrap card
+  // Build HTML to show selected services
+  var resultHTML = "<h4 class='text-center mb-3'>Your Selected Services</h4><div class='row g-3'>";
   for (var j = 0; j < selectedServices.length; j++) {
-    resultHTML += "<div class='col-md-4'>";
-    resultHTML += "<div class='card shadow-sm'>";
-    resultHTML += "<div class='card-body'>";
+    resultHTML += "<div class='col-md-4'><div class='card shadow-sm'><div class='card-body'>";
     resultHTML += "<h6 class='card-title'>" + selectedServices[j].name + "</h6>";
     resultHTML += "<p class='card-text'>Price: <strong>" + selectedServices[j].price.toFixed(2) + " OMR</strong></p>";
     resultHTML += "</div></div></div>";
   }
-  resultHTML += "</div>"; // close row
+  resultHTML += "</div>"; // Close row
 
-  // Totals section
+  // Totals section with discount
   resultHTML += "<div class='mt-4 p-3 border rounded bg-light'>";
   resultHTML += "<p>Total before discount: <strong>" + total.toFixed(2) + " OMR</strong></p>";
   if (discount > 0) {
@@ -129,10 +142,9 @@ function calculateBill() {
   } else {
     resultHTML += "<p>No discount applied.</p>";
   }
-  resultHTML += "<p class='fs-5 fw-bold'>Final Total: " + finalAmount.toFixed(2) + " OMR</p>";
-  resultHTML += "</div>";
+  resultHTML += "<p class='fs-5 fw-bold'>Final Total: " + finalAmount.toFixed(2) + " OMR</p></div>";
 
-  // Display the result
+  // Show the results in the page
   document.getElementById('result').innerHTML = resultHTML;
 }
 </script>
