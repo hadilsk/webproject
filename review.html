@@ -21,97 +21,29 @@
 
 
     <style>
-
-        
-
-        :root {
-
-            --sc-light-blue: #ADD8E6;
-
-            --sc-accent-pink: #FF5C7A;
-
-            --sc-text-dark: #003A52;
-
-            --sc-bg-light: #eef9ff;
-
-        }
-
-      
-
-     
-
-       
-
+        :root {--sc-light-blue: #ADD8E6; --sc-accent-pink: #FF5C7A; --sc-text-dark: #003A52;--sc-bg-light: #eef9ff;}
         body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa;} 
-
    .navbar-custom { background: linear-gradient(90deg, #f1f4f8, #4a6fa5);}
     .navbar-nav .nav-link.active { color: #ff4d88 !important;  /* Pink color for active page */ font-weight: 600;}
-
-        
-
-       
-
-        .hero-reviews {
-
-            height: 60vh;
-
-            background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat;
-
-            margin-top: -60px; 
-
-            position: relative; 
-
-        }
-
-        .hero-reviews::after {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0; left: 0; width: 100%; height: 100%;
-
-            background: rgba(0,0,0,0.45);
-
-            z-index: 1;
-
-        }
-
+        .hero-reviews { height: 60vh; background: url('https://raw.githubusercontent.com/hadilsk/webproject/eb62d640a70187409981fffa5f56850cc26f2840/webproject/patient-review-700x467.jpg') center/cover no-repeat; margin-top: -60px;  position: relative; }
+        .hero-reviews::after {  content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45); z-index: 1;}
         .hero-reviews h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-
-       
-
         .review-card { background-color: var(--sc-bg-light); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-
         .review-card:hover { transform: translateY(-5px); box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15) !important; }
-
         .trim-frame { width: 100%; max-width: 300px; height: 200px; overflow: hidden; }
-
         .trim-frame img { width: 100%; height: 100%; object-fit: cover; }
-
         .name-text { color: var(--sc-text-dark); }
-
-       
-
        .btn-submit-custom { background-color: var(--sc-text-dark); border-color: var(--sc-text-dark); transition: all 0.3s ease; }
-
         .btn-submit-custom:hover { background-color: #00AEEF !important; border-color: #00AEEF !important; transform: scale(1.02); }
-
-      
-
        .rating-table th { background-color: #f0f0f0; color: var(--sc-text-dark); }
-
         .overall-rating-row { background-color: var(--sc-bg-light); font-weight: bold; }
-
         .rating-table td:last-child { color: #007bff; }
-
         .marquee { background-color: #4a6fa5; color: white; padding: 0.5rem 0; text-align: center; }
-
-       
-
+       #form {max-width: 500px}
+       #post {z-index: 2}
+       #table {max-width: 800px}
         footer { background-color:#d9e2e8; font-family:'Georgia', serif; }
-
-    footer h6 { font-family: 'Montserrat', sans-serif; }
+        footer h6 { font-family: 'Montserrat', sans-serif; }
 
     </style>
 
@@ -148,7 +80,7 @@
 
     <section class="hero-reviews position-relative text-white d-flex align-items-center justify-content-center text-center">
 
-        <div class="container position-relative py-5" style="z-index: 2;">
+        <div class="container position-relative py-5" id="post">
 
             <h2 class="display-5 fw-bold mb-3">Don’t Just Take Our Word For It</h2>
 
@@ -206,7 +138,7 @@
 
     <div class="container my-5">
 
-        <div class="card p-4 mx-auto shadow-lg" style="max-width: 500px;">
+        <div class="card p-4 mx-auto shadow-lg" id="form">
 
             <div class="card-body">
 
@@ -314,7 +246,7 @@
 
     <div class="container mb-5">
 
-        <div class="card p-3 mx-auto shadow-sm rating-summary" style="max-width: 800px;">
+        <div class="card p-3 mx-auto shadow-sm rating-summary" id="table" >
 
             <h4 class="text-center mb-3 text-primary">Patient Rating Summary (Calculated Dynamically)</h4>
 
