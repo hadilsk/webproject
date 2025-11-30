@@ -520,48 +520,41 @@
 
         
 
-    (function(){
+    /* Marquee (moving text banner) */
+  // Select the marquee element where the welcome message will appear
+  var marquee = document.getElementById("welcomeMarquee");
 
-    const marquee = document.getElementById('welcomeMarquee');
+  // Function to add leading zero if a number is less than 10
+  function pad(n) { 
+    return n < 10 ? "0" + n : n; 
+  }
 
-    function pad(n){ return n<10?'0'+n:n; }
+  // Function to update the marquee with current day, date, and time
+  function updateMarquee() {
+    var now = new Date(); // Get current date and time
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var day = days[now.getDay()]; // Get the current day name
+    var dateStr = now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate()); // Format date
+    var timeStr = pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()); // Format time
+    marquee.textContent = "Welcome to SmileCare Dental! Today is " + day + ", " + dateStr + ", and the time is " + timeStr + ".";
+  }
 
-    function refresh(){
+  updateMarquee(); // Run once immediately
+  setInterval(updateMarquee, 1000); // Update every second
 
-      const now = new Date();
+    /* Active navbar link highlighting */
+  // Select all navigation links
+  var links = document.querySelectorAll(".navbar-nav .nav-link");
 
-      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  // Get the current page filename from the URL
+  var currentPage = location.pathname.split("/").pop();
 
-      const day=days[now.getDay()];
-
-      const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
-
-      const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
-
-     marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
-
+  // Loop through all links and add "active" class to the one matching the current page
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].getAttribute("href") === currentPage) {
+      links[i].classList.add("active"); // Highlight current page link
     }
-
-    refresh();
-
-    setInterval(refresh,1000);
-
-    })();
-
-    (function(){
-
-    const links = document.querySelectorAll('.navbar-nav .nav-link');
-
-    const current = location.pathname.split("/").pop();
-
-    links.forEach(link => {
-
-        if(link.getAttribute('href') === current) link.classList.add('active');
-
-    });
-
-})();
-var links = document.querySelectorAll(".navbar-nav .nav-link");
+  }
   </script>
 
 
