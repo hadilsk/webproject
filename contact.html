@@ -6,62 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Contact Us</title>
 
-  <!-- Linking Bootstrap CSS from CDN -->
+  <!-- Google Fonts (same as book page) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Same APPEARANCE as BOOK PAGE — no content changed */
+    body { font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+
+    /* Gradient Navbar identical to book page */
+    .navbar-custom { background: linear-gradient(90deg, #f1f4f8, #4a6fa5); }
+    .navbar-nav .nav-link.active { color: #ff4d88 !important; font-weight: 600; }
+
+    /* Hero section – same overlay style as book */
+    .hero-bg-contact {
+      background-image: url('team.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      background-color: rgba(10, 30, 60, 0.45);
+      padding: 30px;
+      color: white;
+      text-align: center;
+    }
+
+    /* Footer – same as book page */
+    footer { background-color: #d9e2e8; font-family: 'Georgia', serif; }
+    footer h6 { font-family: 'Montserrat', sans-serif; }
+    .footer-img { width: 100px; height: 100px; object-fit: cover; }
+
+    /* Marquee style */
+    .marquee { background-color: #4a6fa5; color: white; text-align: center; padding: 0.5rem 0; }
+  </style>
+
 </head>
 <body class="bg-light text-dark">
 
 <!-- ========== NAVIGATION BAR ========== -->
-<!-- Using Bootstrap navbar with logo and links to other pages -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient sticky-top">
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
   <div class="container">
-    <!-- Clinic logo -->
+
     <a class="navbar-brand" href="index.html">
       <img src="logoo.png" alt="Logo" class="img-fluid" width="80" height="80">
     </a>
 
-    <!-- Button toggles navbar in mobile view -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navigation links -->
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <!-- Each item links to a page -->
-        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="bookAppointment.html">Book Appointment</a></li>
-        <!-- Active page is Contact -->
-        <li class="nav-item"><a class="nav-link active text-white" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link active text-dark fw-semibold" href="contact.html">Contact</a></li>
       </ul>
     </div>
+
   </div>
 </nav>
 
-<!-- ========== HERO SECTION ========== -->
-<!-- A large section with background image and text in the center -->
-<div class="bg-dark bg-opacity-50 text-white text-center d-flex align-items-center justify-content-center"
-     style="height: 60vh; background-image: url('team.jpg'); background-size: cover; background-position: center;">
-  <div>
-    <h1 class="display-5 fw-bold">Contact Us</h1>
-    <p class="lead">Have questions? Need help? Reach out to us anytime.</p>
+<!-- ========== HERO SECTION (MATCHING BOOK PAGE) ========== -->
+<header class="hero-bg-contact">
+  <div class="hero-overlay w-100 d-flex flex-column justify-content-center align-items-center h-100">
+    <h1 class="fw-bold display-5">Contact Us</h1>
+    <p class="fs-5 mt-2">Have questions? Need help? Reach out to us anytime.</p>
   </div>
-</div>
+</header>
 
-<!-- ========== CONTACT INFO + MAP ========== -->
+<!-- ========== CONTACT INFO + MAP (unchanged content) ========== -->
 <div class="container my-5">
   <div class="row g-4">
-    <!-- LEFT SIDE: Clinic Details -->
+
     <div class="col-lg-6">
-      <div class="card">
+      <div class="card shadow-sm">
         <div class="card-header bg-primary text-white fw-bold">Clinic Details</div>
         <div class="card-body p-0">
-          <!-- Using Bootstrap table for layout -->
           <table class="table mb-0">
             <tr><th class="table-light">Address</th><td>Shati Al Qurum – 3024 Way, Muscat, Oman</td></tr>
             <tr><th class="table-light">Phone</th><td>+968 92828289<br>+968 24696622<br>+968 93233100</td></tr>
@@ -71,82 +104,76 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE: Embedded Google Map -->
     <div class="col-lg-6">
-      <!-- Collapse toggle to show/hide map -->
-      <button class="btn btn-outline-primary mb-3" data-bs-toggle="collapse" data-bs-target="#mapCollapse">Show Location Map</button>
+      <button class="btn btn-outline-danger mb-3" data-bs-toggle="collapse" data-bs-target="#mapCollapse">Show Location Map</button>
       <div class="collapse show" id="mapCollapse">
-        <!-- Bootstrap responsive aspect ratio -->
         <div class="ratio ratio-4x3">
           <iframe src="https://www.google.com/maps?q=Shati+Al+Qurum+Muscat+Oman&output=embed" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
 <!-- ========== CONTACT FORM ========== -->
 <div class="container my-5">
-  <div class="card">
+  <div class="card shadow-sm">
     <div class="card-body">
-      <!-- Form heading -->
+
       <h3 class="text-center text-danger fw-bold mb-4">Send Us a Message</h3>
 
-      <!-- Contact form -->
       <form class="row g-3 needs-validation" novalidate method="get" action="https://httpbin.org/get">
-        <!-- Input for Name -->
+
         <div class="col-md-6">
           <label class="form-label">Your Name *</label>
           <input type="text" class="form-control" name="name" required>
           <div class="invalid-feedback">Please enter your name.</div>
         </div>
 
-        <!-- Input for Email -->
         <div class="col-md-6">
           <label class="form-label">Your Email *</label>
           <input type="email" class="form-control" name="email" required>
           <div class="invalid-feedback">Please enter a valid email.</div>
         </div>
 
-        <!-- Input for Phone (optional) -->
         <div class="col-12">
           <label class="form-label">Phone Number (optional)</label>
           <input type="tel" class="form-control" name="phone">
         </div>
 
-        <!-- Textarea for Message -->
         <div class="col-12">
           <label class="form-label">Your Message *</label>
           <textarea class="form-control" name="message" rows="5" required></textarea>
           <div class="invalid-feedback">Please enter a message.</div>
         </div>
 
-        <!-- Submit button -->
         <div class="col-12 text-center">
           <button class="btn btn-danger px-4" type="submit">Submit</button>
         </div>
+
       </form>
+
     </div>
   </div>
 </div>
 
-<!-- ========== FOOTER ========== -->
-<footer class="bg-light pt-4 pb-4 border-top">
+<!-- FOOTER -->
+<footer class="pt-4 pb-4">
   <div class="container">
     <div class="row g-4">
-      <!-- Mission section -->
+
       <div class="col-md-6 d-flex gap-3">
-        <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
+        <img src="2.jpg" alt="Mission" class="rounded footer-img">
         <div>
           <h6 class="fw-bold">Our Mission</h6>
           <p class="small mb-0">To make every patient feel confident with their smile.</p>
-          <p class="small mb-0">We focus on gentle care and advanced technology.</p>
+          <p class="small mb-0">We focus on gentle care + advanced technology.</p>
         </div>
       </div>
 
-      <!-- Visit Us section -->
       <div class="col-md-6 d-flex gap-3">
-        <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
+        <img src="office.jpg" alt="Visit Us" class="rounded footer-img">
         <div>
           <h6 class="fw-bold">Visit Us</h6>
           <p class="small mb-0">Shati Al Qurum - 3024 Way</p>
@@ -154,17 +181,11 @@
           <p class="small mb-0"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
+
     </div>
-    <!-- Footer bottom note -->
     <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
   </div>
 </footer>
-
-<!-- ========== MARQUEE BAR ========== -->
-<!-- This scrolls the date and time continuously -->
-<div class="bg-primary text-white py-2 text-center">
-  <marquee id="welcomeMarquee" scrollamount="6"></marquee>
-</div>
 
 <!-- ========== JAVASCRIPT ========== -->
 <!-- Bootstrap JS Bundle -->
