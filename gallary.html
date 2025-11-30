@@ -446,6 +446,20 @@
   updateMarquee(); // Run once immediately
   setInterval(updateMarquee, 1000); // Update every second
 
+    /* Active navbar link highlighting */
+  // Select all navigation links
+  var links = document.querySelectorAll(".navbar-nav .nav-link");
+
+  // Get the current page filename from the URL
+  var currentPage = location.pathname.split("/").pop();
+
+  // Loop through all links and add "active" class to the one matching the current page
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].getAttribute("href") === currentPage) {
+      links[i].classList.add("active"); // Highlight current page link
+    }
+  }
+
   </script>
 
 

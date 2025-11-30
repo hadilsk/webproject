@@ -789,13 +789,17 @@
         }
 
 
+        /**
+         * searches the 'reviews' array based on the user's input
+         */
 
         function searchReviews() {
 
+            //get the current value from the search inputfield and convertit to lowercase
             const query = document.getElementById('reviewSearch').value.toLowerCase();
 
-            
-
+        
+            //Check if the input is included in the review name OR the review comment
             const filteredReviews = reviews.filter(review => {
 
                 return review.name.toLowerCase().includes(query) || 
@@ -806,32 +810,37 @@
 
 
 
+            // Call the display function
             displayReviews(filteredReviews);
 
         }
 
 
 
+        /** 
+         * Initializes the page by displaying content
+         */
         function initPage() {
 
+            //display all initial reviews on load
             displayReviews(reviews);
 
+            //Calculate and update the summary of the star ratings
             updateRatingSummary();
 
             displayDoctors(doctors);
 
 
 
+            //Set up event listener for the review submission form
             document.getElementById('reviewForm').addEventListener('submit', addReview);
 
+            //Set up event listener for the search button
             document.getElementById('searchButton').addEventListener('click', searchReviews);
 
             document.getElementById('reviewSearch').addEventListener('keypress', function(e) {
-
                 if (e.key === 'Enter') {
-
                     e.preventDefault(); 
-
                     searchReviews();
 
                 }
@@ -842,67 +851,41 @@
 
         document.addEventListener('DOMContentLoaded', initPage);
 
-        (function(){
+         /* Marquee (moving text banner) */
+  // Select the marquee element where the welcome message will appear
+  var marquee = document.getElementById("welcomeMarquee");
 
-    const marquee = document.getElementById('welcomeMarquee');
-
-    function pad(n){ return n<10?'0'+n:n; }
-
-    function refresh(){
-
-      const now = new Date();
-
-      const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-
-      const day=days[now.getDay()];
-
-      const dateStr=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
-
-      const timeStr=pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
-
-     marquee.textContent = `Welcome to SmileCare Dental! Today is ${day}, ${dateStr}, and the time is ${timeStr}.`;
-
+  // Function to add leading zero if a number is less than 10
+  function pad(n) { 
+    return n < 10 ? "0" + n : n; 
   }
 
-    refresh();
+  // Function to update the marquee with current day, date, and time
+  function updateMarquee() {
+    var now = new Date(); // Get current date and time
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var day = days[now.getDay()]; // Get the current day name
+    var dateStr = now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate()); // Format date
+    var timeStr = pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()); // Format time
+    marquee.textContent = "Welcome to SmileCare Dental! Today is " + day + ", " + dateStr + ", and the time is " + timeStr + ".";
+  }
 
-    setInterval(refresh,1000);
+  updateMarquee(); // Run once immediately
+  setInterval(updateMarquee, 1000); // Update every second
 
-  })();
+    /* Active navbar link highlighting */
+  // Select all navigation links
+  var links = document.querySelectorAll(".navbar-nav .nav-link");
 
-</script>
+  // Get the current page filename from the URL
+  var currentPage = location.pathname.split("/").pop();
 
-<script>
-
-(function(){
-
-    const links = document.querySelectorAll('.navbar-nav .nav-link');
-
-    const current = location.pathname.split("/").pop();
-
-    links.forEach(link => {
-
-        if(link.getAttribute('href') === current) link.classList.add('active');
-
-    });
-
-})();
-
-
-
-(function(){
-
-  const links = document.querySelectorAll('.navbar-nav .nav-link');
-
-  const current = location.pathname.split("/").pop();
-
-  links.forEach(link => {
-
-    if(link.getAttribute('href') === current) link.classList.add('active');
-
-  });
-
-})();
+  // Loop through all links and add "active" class to the one matching the current page
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].getAttribute("href") === currentPage) {
+      links[i].classList.add("active"); // Highlight current page link
+    }
+  }
 
     </script>
 
