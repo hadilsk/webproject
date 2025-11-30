@@ -4,12 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SmileCare – Book Appointment</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {  font-family: 'Georgia', serif;  color: #0d1b2a;  background-color: #f8f9fa; }
+    h1, h2, h3, h4, h5, h6 {  font-family: 'Montserrat', sans-serif; }
+    .navbar-custom { background: linear-gradient(90deg, #f1f4f8, #4a6fa5); }.navbar-nav .nav-link.active {  color: #ff4d88 !important;  font-weight: 600; }
+    .hero-bg-book {background-image: url('team.jpg'); background-size: cover; background-position: center; min-height: 60vh;  display: flex;  align-items: center; justify-content: center; }
+    .hero-overlay { background-color: rgba(10, 30, 60, 0.45);padding: 30px; color: white;  text-align: center; }
+    footer { background-color: #d9e2e8; font-family: 'Georgia', serif;} footer h6 { font-family: 'Montserrat', sans-serif; }.footer-img { width: 100px; height: 100px; object-fit: cover;  }
+    .marquee {background-color: #4a6fa5;color: white;text-align: center; padding: 0.5rem 0; }
+  </style>
 </head>
-<body class="bg-light text-dark">
+<body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index.html">
       <img src="logoo.png" alt="Logo" class="img-fluid" width="80" height="80">
@@ -19,26 +34,26 @@
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="about.html">About Us</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="gallary.html">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="review.html">Patient Reviews</a></li>
-        <li class="nav-item"><a class="nav-link active text-white" href="bookAppointment.html">Book Appointment</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="about.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="gallary.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="review.html">Patient Reviews</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold active" href="bookAppointment.html">Book Appointment</a></li>
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="d-flex align-items-center justify-content-center bg-dark bg-opacity-50 text-white text-center min-vh-50" style="background: url('team.jpg') center/cover no-repeat; height: 60vh;">
-  <div>
-    <h1 class="display-5 fw-bold">Book Your Appointment</h1>
-    <p class="lead">We're here to help you smile brighter</p>
+<!-- HERO SECTION -->
+<header class="hero-bg-book">
+  <div class="hero-overlay">
+    <h1 class="fw-bold display-5">Book Your Appointment</h1>
+    <p class="fs-5 mt-2">We're here to help you smile brighter</p>
   </div>
-</div>
+</header>
 
 <!-- FORM SECTION -->
 <div class="container my-5">
@@ -46,25 +61,21 @@
     <div class="card-body">
       <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
       <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get">
-
         <div class="col-md-6">
           <label class="form-label">Full Name *</label>
           <input type="text" class="form-control" name="patient-name" required>
           <div class="invalid-feedback">Please enter your name.</div>
         </div>
-
         <div class="col-md-6">
           <label class="form-label">Email *</label>
           <input type="email" class="form-control" name="patient-email" required>
           <div class="invalid-feedback">A valid email is required.</div>
         </div>
-
         <div class="col-md-6">
           <label class="form-label">Phone *</label>
           <input type="tel" class="form-control" name="patient-phone" required>
           <div class="invalid-feedback">Please enter your phone number.</div>
         </div>
-
         <div class="col-md-6">
           <label class="form-label">Service *</label>
           <select class="form-select" name="service-select" required>
@@ -86,7 +97,6 @@
           </select>
           <div class="invalid-feedback">Select a service.</div>
         </div>
-
         <div class="col-md-6">
           <label class="form-label">Select Doctor *</label>
           <select class="form-select" name="dentist-select" required>
@@ -100,129 +110,124 @@
           </select>
           <div class="invalid-feedback">Choose a doctor.</div>
         </div>
-
         <div class="col-md-6">
           <label class="form-label">Preferred Date *</label>
           <input type="date" class="form-control" name="date" required>
           <div class="invalid-feedback">Please choose a date.</div>
         </div>
-
         <div class="col-md-6">
           <label class="form-label">Preferred Time *</label>
           <input type="time" class="form-control" name="time" required>
           <div class="invalid-feedback">Please choose a time.</div>
         </div>
-
         <div class="col-12 text-center mt-3">
           <button type="submit" class="btn btn-danger px-4">Confirm Booking</button>
         </div>
-
       </form>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="pt-4 pb-4 bg-secondary bg-opacity-10">
+<footer class="pt-4 pb-4">
   <div class="container">
     <div class="row g-4">
       <div class="col-md-6 d-flex gap-3">
-        <img src="2.jpg" alt="Mission" class="rounded" width="100" height="100">
+        <img src="2.jpg" alt="Mission" class="rounded footer-img">
         <div>
-          <h6 class="fw-bold">Our Mission</h6>
-          <p class="small mb-0">To make every patient feel confident with their smile.</p>
-          <p class="small mb-0">We focus on gentle care and advanced technology.</p>
+          <h6 class="fw-bold mb-1">Our Mission</h6>
+          <p class="mb-0 small">To make every patient feel confident with their smile. We focus on gentle care + advanced technology.</p>
         </div>
       </div>
       <div class="col-md-6 d-flex gap-3">
-        <img src="office.jpg" alt="Visit Us" class="rounded" width="100" height="100">
+        <img src="office.jpg" alt="Visit Us" class="rounded footer-img">
         <div>
-          <h6 class="fw-bold">Visit Us</h6>
-          <p class="small mb-0">Shati Al Qurum - 3024 Way</p>
-          <p class="small mb-0">📞 +92828289 | +24696622 | +93233100</p>
-          <p class="small mb-0"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
+          <h6 class="fw-bold mb-1">Visit Us</h6>
+          <p class="mb-0 small">Shati Al Qurum - 3024 way</p>
+          <p class="mb-0 small">📞 +92828289 | +24696622 | +93233100</p>
+          <p class="mb-0 small"><a href="mailto:smilecare@gmail.com" class="text-danger">smilecare@gmail.com</a></p>
         </div>
       </div>
     </div>
-    <div class="text-center mt-3 small text-muted">
-      © 2025 SmileCare Dental Clinic. All Rights Reserved.
-    </div>
+    <div class="text-center mt-3 small text-muted">© 2025 SmileCare Dental Clinic. All Rights Reserved.</div>
   </div>
 </footer>
 
 <!-- MARQUEE -->
-<div class="bg-primary text-white py-1 text-center">
+<div class="marquee">
   <marquee id="welcomeMarquee" scrollamount="6"></marquee>
 </div>
-
-<!-- SCRIPTS -->
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- ==========================================================
-     FORM VALIDATION 
-========================================================== -->
+<!-- JavaScript -->
 <script>
-  (() => {
-    const forms = document.querySelectorAll('.needs-validation'); // Get all forms with this class
+  // -----------------------------
+  // Form Validation
+  // -----------------------------
 
-    forms.forEach(form => {
-      form.addEventListener('submit', event => {
-        // If the form is invalid
-        if (!form.checkValidity()) {
-          event.preventDefault();  // Stop form from submitting
-          event.stopPropagation(); // Stop the event from bubbling up
-        }
-        // Add Bootstrap class to show validation messages
-        form.classList.add('was-validated');
-      });
-    });
-  })();
-</script>
+  // Select all forms with class "needs-validation"
+  const forms = document.querySelectorAll('.needs-validation');
 
-<!-- ==========================================================
-     MARQUEE 
-========================================================== -->
-<script>
-  (function () {
-    const marquee = document.getElementById("welcomeMarquee");
-
-    // Helper function to format numbers (e.g. 9 → 09)
-    function pad(n) { return n < 10 ? "0" + n : n; }
-
-    // This function sets the updated text in the marquee
-    function update() {
-      const now = new Date();
-      const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-
-      marquee.textContent =
-        "Welcome to SmileCare Dental! Today is " +
-        days[now.getDay()] + ", " +
-        now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate()) +
-        ", and the time is " + pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()) + ".";
-    }
-
-    update();               // Run once immediately
-    setInterval(update, 1000); // Then update every second
-  })();
-</script>
-
-<!-- ==========================================================
-     NAVBAR ACTIVE LINK HIGHLIGHTER
-========================================================== -->
-<script>
-  (function(){
-    const links = document.querySelectorAll('.navbar-nav .nav-link'); // All navbar links
-    const current = location.pathname.split("/").pop(); // Get the current page filename
-
-    links.forEach(link => {
-      if (link.getAttribute('href') === current) {
-        link.classList.add('active'); // Add 'active' class to current page link
+  // Loop through each form to apply Bootstrap validation
+  forms.forEach(form => {
+    form.addEventListener('submit', event => {
+      // If form is invalid, prevent submission
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
       }
+      // Add Bootstrap's validation styling
+      form.classList.add('was-validated');
     });
-  })();
+  });
+
+  // -----------------------------
+  // Marquee Date + Time
+  // -----------------------------
+
+  // Get marquee element to display welcome message
+  const marquee = document.getElementById("welcomeMarquee");
+
+  // Function to add a leading zero to single digits
+  function pad(n) {
+    return n < 10 ? "0" + n : n;
+  }
+
+  // Function to generate and update marquee content
+  function update() {
+    const now = new Date(); // Get current date and time
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    // Construct full message with day, date, and time
+    marquee.textContent =
+      "Welcome to SmileCare Dental! Today is " +
+      days[now.getDay()] + ", " +
+      now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate()) +
+      ", and the time is " + pad(now.getHours()) + ":" + pad(now.getMinutes()) + ":" + pad(now.getSeconds()) + ".";
+  }
+
+  update();               // Run once on load
+  setInterval(update, 1000); // Update every second
+
+  // -----------------------------
+  // Active Link Highlighting
+  // -----------------------------
+
+  // Select all navbar links
+  const links = document.querySelectorAll('.navbar-nav .nav-link');
+
+  // Get the current file name from the URL
+  const current = location.pathname.split("/").pop();
+
+  // Loop through each link and highlight the current page
+  links.forEach(link => {
+    if (link.getAttribute('href') === current) {
+      link.classList.add('active'); // Add "active" class to current link
+    }
+  });
 </script>
+
 
 </body>
 </html>
