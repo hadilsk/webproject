@@ -10,18 +10,17 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    body {font-family: 'Georgia', serif;color: #0d1b2a; background-color: #f8f9fa; }
-    h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif;  }
-    .btn-main { background-color: #4a6fa5; color: white;}
-    .btn-main:hover { background-color: #ff8aa2;  color: white;}
-    .card { border-radius: 1rem;}
+    body {font-family: 'Georgia', serif; color: #0d1b2a; background-color: #f8f9fa;} h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif;}
+    /* Gradient top banner */ .fun-banner { background: linear-gradient(90deg, #f1f4f8, #4a6fa5); }
+    /* Puzzle container */#puzzle { max-width: 350px; width: 100%; }
+    /* Card styling */.card { border-radius: 1rem; }
   </style>
 </head>
 
 <body>
 
 <!-- TOP BANNER -->
-<div class="text-white text-center py-5 mb-4" style="background: linear-gradient(90deg, #f1f4f8, #4a6fa5);">
+<div class="fun-banner text-white text-center py-5 mb-4">
   <h1 class="fw-bold">🧩 Fun Smile Puzzle</h1>
   <p class="lead">Drag the tiles and rebuild the picture!</p>
 
@@ -29,14 +28,13 @@
   <button id="shuffleBtn" class="btn btn-light fw-bold mt-2">Shuffle Puzzle</button>
 </div>
 
-
 <!-- PUZZLE CARD -->
 <div class="container">
   <div class="card shadow-lg p-3 mb-5">
     <div class="card-body">
       <!-- PUZZLE GRID WRAPPER -->
       <div class="d-flex justify-content-center">
-        <div id="puzzle" class="row g-1 border rounded p-2 bg-white" style="max-width:350px; width:100%;">
+        <div id="puzzle" class="row g-1 border rounded p-2 bg-white">
         </div>
       </div>
     </div>
@@ -51,7 +49,7 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- PUZZLE SCRIPT WITH DETAILED LINE-BY-LINE COMMENTS -->
+<!-- PUZZLE SCRIPT -->
 <script>
   // Get puzzle container
   const puzzle = document.getElementById('puzzle');
