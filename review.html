@@ -194,7 +194,7 @@
 
                         <textarea id="reviewComments" name="review_comments" rows="4" class="form-control" required></textarea>
 
-                        <div class="invalid-feedback">Please provide your comments.</div>
+                        <div class="invalid-feedback">Please provide your comments (at least 5 characters).</div>
 
                     </div>
 
@@ -713,6 +713,26 @@
             });
 
         }
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+    // Get the comment field value
+    const reviewComment = document.getElementById('reviewComments').value;
+
+    // Check if the comment has at least 5 characters
+    if (reviewComment.length < 5) {
+        // Prevent form submission
+        event.preventDefault();
+        event.stopPropagation();
+
+        // Add custom invalid feedback
+        document.getElementById('reviewComments').setCustomValidity("Please enter at least 5 characters for your comment.");
+        
+        // Trigger browser's built-in validation feedback
+        document.getElementById('reviewForm').classList.add('was-validated');
+    } else {
+        // Reset custom validity if the comment is long enough
+        document.getElementById('reviewComments').setCustomValidity("");
+    }
+});
 
         document.addEventListener('DOMContentLoaded', initPage);
 
