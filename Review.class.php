@@ -26,6 +26,10 @@ class Review {
     public function getRecommend() { return $this->recommend; }
     public function getCreatedAt() { return $this->createdAt; }
     
+    //Setters 
+    public function setPatientName($name) { 
+        $this->patientName = $name; }
+        
     // Method to get star rating
     public function getStarRating() {
         $stars = '';

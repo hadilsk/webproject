@@ -130,7 +130,7 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
-      <form class="row g-3 needs-validation" novalidate action="process_appointment.php" method="POST">
+      <form class="row g-3 needs-validation" novalidate action="process_appointment.php" method="POST" onsubmit="return validateBookingForm()">
         <div class="col-md-6 form-section">
           <label class="form-label">Full Name *</label>
           <input type="text" class="form-control" name="patient-name" id="patientName" required minlength="2" maxlength="50">
