@@ -250,6 +250,20 @@
   const appointmentTime = document.getElementById('appointmentTime');
 
   // ========================================
+  // WORKING HOURS CONFIGURATION
+  // ========================================
+  // Define clinic working hours based on the table
+  const workingHours = {
+    0: { open: '09:00', close: '18:00' }, // Sunday
+    1: { open: '09:00', close: '18:00' }, // Monday
+    2: { open: '09:00', close: '18:00' }, // Tuesday
+    3: { open: '09:00', close: '18:00' }, // Wednesday
+    4: { open: '09:00', close: '18:00' }, // Thursday
+    5: { open: null, close: null },       // Friday - CLOSED
+    6: { open: '09:00', close: '14:00' }  // Saturday
+  };
+
+  // ========================================
   // 1. REQUIRED FIELD CHECKS
   // ========================================
   // All fields already have "required" attribute in HTML
@@ -314,7 +328,7 @@
   // 4. LOGICAL VALIDATIONS
   // ========================================
 
-  // Date validation - cannot be in the past
+  // Date validation - cannot be in the past or on Friday (closed day)
   appointmentDate.addEventListener('change', function() {
     const selectedDate = new Date(this.value);
     const today = new Date();
@@ -322,22 +336,53 @@
 
     if (selectedDate < today) {
       this.setCustomValidity('Appointment date cannot be in the past.');
-    } else {
-      this.setCustomValidity('');
+      return;
     }
+
+    // Check if the selected day is Friday (closed)
+    const dayOfWeek = selectedDate.getDay();
+    if (dayOfWeek === 5) {
+      this.setCustomValidity('We are closed on Fridays. Please select another day.');
+      return;
+    }
+
+    this.setCustomValidity('');
   });
 
-  // Time validation - check if within business hours (8 AM - 6 PM)
-  appointmentTime.addEventListener('change', function() {
-    const selectedTime = this.value;
-    const hours = parseInt(selectedTime.split(':')[0]);
-    
-    if (hours < 8 || hours >= 18) {
-      this.setCustomValidity('Please select a time between 8:00 AM and 6:00 PM.');
-    } else {
-      this.setCustomValidity('');
+  // Time validation - check if within business hours based on selected date
+  function validateAppointmentTime() {
+    if (!appointmentDate.value || !appointmentTime.value) {
+      return;
     }
-  });
+
+    const selectedDate = new Date(appointmentDate.value);
+    const dayOfWeek = selectedDate.getDay();
+    const selectedTime = appointmentTime.value;
+
+    // Check if clinic is closed on this day
+    if (workingHours[dayOfWeek].open === null) {
+      appointmentTime.setCustomValidity('We are closed on Fridays.');
+      return;
+    }
+
+    const openTime = workingHours[dayOfWeek].open;
+    const closeTime = workingHours[dayOfWeek].close;
+
+    // Compare times as strings (HH:MM format)
+    if (selectedTime < openTime || selectedTime >= closeTime) {
+      const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      appointmentTime.setCustomValidity(
+        `On ${dayNames[dayOfWeek]}, we are open from ${openTime} to ${closeTime}.`
+      );
+      return;
+    }
+
+    appointmentTime.setCustomValidity('');
+  }
+
+  // Add event listeners for time validation
+  appointmentTime.addEventListener('change', validateAppointmentTime);
+  appointmentDate.addEventListener('change', validateAppointmentTime);
 
   // ========================================
   // FORM SUBMISSION HANDLER
@@ -381,21 +426,21 @@
       const selectedDate = new Date(appointmentDate.value);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+      
       if (selectedDate < today) {
         appointmentDate.setCustomValidity('Appointment date cannot be in the past.');
+        isValid = false;
+      } else if (selectedDate.getDay() === 5) {
+        appointmentDate.setCustomValidity('We are closed on Fridays. Please select another day.');
         isValid = false;
       } else {
         appointmentDate.setCustomValidity('');
       }
 
-      // Validate time
-      const selectedTime = appointmentTime.value;
-      const hours = parseInt(selectedTime.split(':')[0]);
-      if (hours < 8 || hours >= 18) {
-        appointmentTime.setCustomValidity('Please select a time between 8:00 AM and 6:00 PM.');
+      // Validate time based on working hours
+      validateAppointmentTime();
+      if (appointmentTime.validationMessage) {
         isValid = false;
-      } else {
-        appointmentTime.setCustomValidity('');
       }
 
       // Check if form passes HTML5 validation
