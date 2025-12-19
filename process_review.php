@@ -1,5 +1,5 @@
 <?php
-// process_review.php - SIMPLE WORKING VERSION
+// process_review.php 
 
 // Database connection
 $conn = new mysqli("localhost", "root", "", "smilecare_db");
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="card-body">
                     <?php
-                    // Use the SAME connection - don't create new one
+                   
                     $sql = "SELECT patient_name, rating, comments, created_at 
                             FROM reviews 
                             ORDER BY created_at DESC 
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </body>
 </html>
 <?php
-// Close connection at the VERY END
+// Close connection 
 if (isset($conn)) {
     $conn->close();
 }
