@@ -60,7 +60,7 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
-      <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get">
+      <form class="row g-3 needs-validation" novalidate action="https://httpbin.org/get" method="get" onsubmit="return validateAppointmentForm(this)" >
         <div class="col-md-6">
           <label class="form-label">Full Name *</label>
           <input type="text" class="form-control" name="patient-name" required>
@@ -226,6 +226,89 @@
       link.classList.add('active'); // Add "active" class to current link
     }
   });
+
+
+  function validateAppointmentForm(form) {
+    let isValid = true;
+    
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(el => el.remove());
+    document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    
+    // Required fields check
+    const requiredFields = [
+        {id: 'patient-name', name: 'Full Name'},
+        {id: 'patient-email', name: 'Email'},
+        {id: 'patient-phone', name: 'Phone'},
+        {id: 'service-select', name: 'Service'},
+        {id: 'dentist-select', name: 'Doctor'},
+        {id: 'date', name: 'Date'},
+        {id: 'time', name: 'Time'}
+    ];
+    
+    requiredFields.forEach(field => {
+        const input = document.querySelector(`[name="${field.id}"]`);
+        if (!input || !input.value.trim()) {
+            showError(input, `${field.name} is required`);
+            isValid = false;
+        }
+    });
+    
+    // Email validation with regex
+    const email = document.querySelector('[name="patient-email"]');
+    if (email && email.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+            showError(email, 'Please enter a valid email address');
+            isValid = false;
+        }
+    }
+    
+    // Phone validation with regex (Omani format: +968 XXXXXXXX)
+    const phone = document.querySelector('[name="patient-phone"]');
+    if (phone && phone.value) {
+        const phoneRegex = /^\+968\s?\d{8}$/;
+        if (!phoneRegex.test(phone.value)) {
+            showError(phone, 'Please enter valid Omani phone (+968 XXXXXXXX)');
+            isValid = false;
+        }
+    }
+    
+    // Date validation - not in past
+    const dateInput = document.querySelector('[name="date"]');
+    if (dateInput && dateInput.value) {
+        const selectedDate = new Date(dateInput.value);
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        
+        if (selectedDate < today) {
+            showError(dateInput, 'Appointment date cannot be in the past');
+            isValid = false;
+        }
+    }
+    
+    // Time validation - within working hours (9 AM to 6 PM)
+    const timeInput = document.querySelector('[name="time"]');
+    if (timeInput && timeInput.value) {
+        const time = timeInput.value;
+        const hour = parseInt(time.split(':')[0]);
+        
+        if (hour < 9 || hour > 18) {
+            showError(timeInput, 'Appointments available 9:00 AM to 6:00 PM');
+            isValid = false;
+        }
+    }
+    
+    return isValid;
+}
+
+function showError(input, message) {
+    input.classList.add('is-invalid');
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message invalid-feedback';
+    errorDiv.textContent = message;
+    input.parentNode.appendChild(errorDiv);
+}
 </script>
 
 

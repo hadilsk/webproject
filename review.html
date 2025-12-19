@@ -133,6 +133,9 @@
                 </div>
 
         </div>
+        <div class="text-center mt-4">
+    <a href="display_reviews.php" class="btn btn-primary">View All Reviews </a>
+</div>
 
     </section>
 
@@ -148,7 +151,7 @@
 
                 
 
-                <form id="reviewForm"  action="https://httpbin.org/get" method="get" class="needs-validation" novalidate>
+                <form id="reviewForm"  action="https://httpbin.org/get" method="get" class="needs-validation" novalidate onsubmit="return validateReviewForm(this)" >
 
                     
 
@@ -331,6 +334,54 @@
     
 
     <script>
+        function validateReviewForm(form) {
+    let isValid = true;
+    
+    // Clear previous errors
+    document.querySelectorAll('.error-message').forEach(el => el.remove());
+    document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    
+    // Rating validation (1-5)
+    const rating = document.getElementById('reviewRating');
+    if (!rating.value) {
+        showError(rating, 'Please select a rating');
+        isValid = false;
+    } else if (rating.value < 1 || rating.value > 5) {
+        showError(rating, 'Rating must be between 1 and 5');
+        isValid = false;
+    }
+    
+    // Comments validation (minimum 10 characters)
+    const comments = document.getElementById('reviewComments');
+    if (!comments.value.trim()) {
+        showError(comments, 'Please provide your comments');
+        isValid = false;
+    } else if (comments.value.trim().length < 10) {
+        showError(comments, 'Comments must be at least 10 characters');
+        isValid = false;
+    }
+    
+    // Consent checkbox validation
+    const consent = document.getElementById('reviewConsent');
+    if (!consent.checked) {
+        showError(consent, 'You must consent to publish your review');
+        isValid = false;
+    }
+    
+    // Recommendation radio button validation
+    const recommend = document.querySelector('input[name="recommend"]:checked');
+    if (!recommend) {
+        const radioGroup = document.querySelector('[name="recommend"]').parentNode.parentNode;
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message invalid-feedback d-block';
+        errorDiv.textContent = 'Please choose if you would recommend SmileCare';
+        radioGroup.appendChild(errorDiv);
+        isValid = false;
+    }
+    
+    return isValid;
+}
+
 
         
 
