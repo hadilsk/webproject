@@ -130,7 +130,7 @@
   <div class="card shadow-sm">
     <div class="card-body">
       <h2 class="text-center text-danger fw-bold mb-4">Schedule Your Visit</h2>
-      <form class="row g-3 needs-validation" novalidate action="process_appointment.php" method="POST" onsubmit="return validateBookingForm()">
+      <form class="row g-3 needs-validation" novalidate action="process_appointment.php" method="POST" id="bookingForm">
         <div class="col-md-6 form-section">
           <label class="form-label">Full Name *</label>
           <input type="text" class="form-control" name="patient-name" id="patientName" required minlength="2" maxlength="50">
@@ -237,10 +237,8 @@
   // COMPREHENSIVE FORM VALIDATION
   // ========================================
 
-  // Select all forms with class "needs-validation"
-  const forms = document.querySelectorAll('.needs-validation');
-
-  // Get all form input elements
+  // Get form and all input elements
+  const bookingForm = document.getElementById('bookingForm');
   const patientName = document.getElementById('patientName');
   const patientEmail = document.getElementById('patientEmail');
   const patientPhone = document.getElementById('patientPhone');
@@ -252,7 +250,6 @@
   // ========================================
   // WORKING HOURS CONFIGURATION
   // ========================================
-  // Define clinic working hours based on the table
   const workingHours = {
     0: { open: '09:00', close: '18:00' }, // Sunday
     1: { open: '09:00', close: '18:00' }, // Monday
@@ -264,38 +261,57 @@
   };
 
   // ========================================
-  // 1. REQUIRED FIELD CHECKS
-  // ========================================
-  // All fields already have "required" attribute in HTML
-  // Bootstrap validation handles this automatically
-
-  // ========================================
-  // 2. REGULAR EXPRESSION VALIDATIONS
+  // VALIDATION FUNCTIONS
   // ========================================
 
-  // Email validation using regex
   function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
-  // Phone validation using regex (8-15 digits)
   function validatePhone(phone) {
     const phoneRegex = /^[0-9]{8,15}$/;
     return phoneRegex.test(phone);
   }
 
-  // Name validation (letters, spaces, hyphens only)
   function validateName(name) {
     const nameRegex = /^[a-zA-Z\s\-]{2,50}$/;
     return nameRegex.test(name);
   }
 
+  function validateAppointmentTime() {
+    if (!appointmentDate.value || !appointmentTime.value) {
+      return true;
+    }
+
+    const selectedDate = new Date(appointmentDate.value);
+    const dayOfWeek = selectedDate.getDay();
+    const selectedTime = appointmentTime.value;
+
+    if (workingHours[dayOfWeek].open === null) {
+      appointmentTime.setCustomValidity('We are closed on Fridays.');
+      return false;
+    }
+
+    const openTime = workingHours[dayOfWeek].open;
+    const closeTime = workingHours[dayOfWeek].close;
+
+    if (selectedTime < openTime || selectedTime >= closeTime) {
+      const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      appointmentTime.setCustomValidity(
+        `On ${dayNames[dayOfWeek]}, we are open from ${openTime} to ${closeTime}.`
+      );
+      return false;
+    }
+
+    appointmentTime.setCustomValidity('');
+    return true;
+  }
+
   // ========================================
-  // 3. LENGTH AND RANGE CONSTRAINTS
+  // REAL-TIME VALIDATION
   // ========================================
 
-  // Name length validation (2-50 characters)
   patientName.addEventListener('input', function() {
     if (this.value.length < 2 || this.value.length > 50 || !validateName(this.value)) {
       this.setCustomValidity('Name must be 2-50 characters and contain only letters, spaces, or hyphens.');
@@ -304,9 +320,7 @@
     }
   });
 
-  // Phone length validation (8-15 digits)
   patientPhone.addEventListener('input', function() {
-    // Remove non-numeric characters for validation
     const numericValue = this.value.replace(/\D/g, '');
     if (!validatePhone(numericValue)) {
       this.setCustomValidity('Phone number must be 8-15 digits.');
@@ -315,7 +329,6 @@
     }
   });
 
-  // Email format validation
   patientEmail.addEventListener('input', function() {
     if (!validateEmail(this.value)) {
       this.setCustomValidity('Please enter a valid email address (e.g., example@domain.com).');
@@ -324,22 +337,16 @@
     }
   });
 
-  // ========================================
-  // 4. LOGICAL VALIDATIONS
-  // ========================================
-
-  // Date validation - cannot be in the past or on Friday (closed day)
   appointmentDate.addEventListener('change', function() {
     const selectedDate = new Date(this.value);
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to start of day
+    today.setHours(0, 0, 0, 0);
 
     if (selectedDate < today) {
       this.setCustomValidity('Appointment date cannot be in the past.');
       return;
     }
 
-    // Check if the selected day is Friday (closed)
     const dayOfWeek = selectedDate.getDay();
     if (dayOfWeek === 5) {
       this.setCustomValidity('We are closed on Fridays. Please select another day.');
@@ -347,123 +354,85 @@
     }
 
     this.setCustomValidity('');
+    validateAppointmentTime();
   });
 
-  // Time validation - check if within business hours based on selected date
-  function validateAppointmentTime() {
-    if (!appointmentDate.value || !appointmentTime.value) {
-      return;
-    }
-
-    const selectedDate = new Date(appointmentDate.value);
-    const dayOfWeek = selectedDate.getDay();
-    const selectedTime = appointmentTime.value;
-
-    // Check if clinic is closed on this day
-    if (workingHours[dayOfWeek].open === null) {
-      appointmentTime.setCustomValidity('We are closed on Fridays.');
-      return;
-    }
-
-    const openTime = workingHours[dayOfWeek].open;
-    const closeTime = workingHours[dayOfWeek].close;
-
-    // Compare times as strings (HH:MM format)
-    if (selectedTime < openTime || selectedTime >= closeTime) {
-      const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      appointmentTime.setCustomValidity(
-        `On ${dayNames[dayOfWeek]}, we are open from ${openTime} to ${closeTime}.`
-      );
-      return;
-    }
-
-    appointmentTime.setCustomValidity('');
-  }
-
-  // Add event listeners for time validation
   appointmentTime.addEventListener('change', validateAppointmentTime);
-  appointmentDate.addEventListener('change', validateAppointmentTime);
 
   // ========================================
-  // FORM SUBMISSION HANDLER
+  // FORM SUBMISSION - CLIENT-SIDE VALIDATION
   // ========================================
 
-  forms.forEach(form => {
-    form.addEventListener('submit', event => {
-      // Prevent default submission to run all validations
-      event.preventDefault();
-      event.stopPropagation();
+  bookingForm.addEventListener('submit', function(event) {
+    // Prevent form submission initially
+    event.preventDefault();
+    event.stopPropagation();
 
-      // Run custom validations
-      let isValid = true;
+    // Run all custom validations
+    let isValid = true;
 
-      // Validate name
-      if (!validateName(patientName.value)) {
-        patientName.setCustomValidity('Please enter a valid name.');
-        isValid = false;
-      } else {
-        patientName.setCustomValidity('');
-      }
+    // Validate name
+    if (!validateName(patientName.value)) {
+      patientName.setCustomValidity('Please enter a valid name.');
+      isValid = false;
+    } else {
+      patientName.setCustomValidity('');
+    }
 
-      // Validate email
-      if (!validateEmail(patientEmail.value)) {
-        patientEmail.setCustomValidity('Please enter a valid email address.');
-        isValid = false;
-      } else {
-        patientEmail.setCustomValidity('');
-      }
+    // Validate email
+    if (!validateEmail(patientEmail.value)) {
+      patientEmail.setCustomValidity('Please enter a valid email address.');
+      isValid = false;
+    } else {
+      patientEmail.setCustomValidity('');
+    }
 
-      // Validate phone
-      const numericPhone = patientPhone.value.replace(/\D/g, '');
-      if (!validatePhone(numericPhone)) {
-        patientPhone.setCustomValidity('Phone number must be 8-15 digits.');
-        isValid = false;
-      } else {
-        patientPhone.setCustomValidity('');
-      }
+    // Validate phone
+    const numericPhone = patientPhone.value.replace(/\D/g, '');
+    if (!validatePhone(numericPhone)) {
+      patientPhone.setCustomValidity('Phone number must be 8-15 digits.');
+      isValid = false;
+    } else {
+      patientPhone.setCustomValidity('');
+    }
 
-      // Validate date
-      const selectedDate = new Date(appointmentDate.value);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      
-      if (selectedDate < today) {
-        appointmentDate.setCustomValidity('Appointment date cannot be in the past.');
-        isValid = false;
-      } else if (selectedDate.getDay() === 5) {
-        appointmentDate.setCustomValidity('We are closed on Fridays. Please select another day.');
-        isValid = false;
-      } else {
-        appointmentDate.setCustomValidity('');
-      }
+    // Validate date
+    const selectedDate = new Date(appointmentDate.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    if (selectedDate < today) {
+      appointmentDate.setCustomValidity('Appointment date cannot be in the past.');
+      isValid = false;
+    } else if (selectedDate.getDay() === 5) {
+      appointmentDate.setCustomValidity('We are closed on Fridays. Please select another day.');
+      isValid = false;
+    } else {
+      appointmentDate.setCustomValidity('');
+    }
 
-      // Validate time based on working hours
-      validateAppointmentTime();
-      if (appointmentTime.validationMessage) {
-        isValid = false;
-      }
+    // Validate time
+    if (!validateAppointmentTime()) {
+      isValid = false;
+    }
 
-      // Check if form passes HTML5 validation
-      if (!form.checkValidity() || !isValid) {
-        // Display error messages
-        form.classList.add('was-validated');
-        return false;
-      }
+    // Add Bootstrap validation classes
+    bookingForm.classList.add('was-validated');
 
-      // If all validations pass, show success message
-      form.classList.add('was-validated');
-      alert('✓ Form submitted successfully! All validations passed.');
-      
-      // In production, the form would submit here
-      // form.submit();
-    });
+    // Check if form passes all validations
+    if (!bookingForm.checkValidity() || !isValid) {
+      // Show validation errors, don't submit
+      return false;
+    }
+
+    // All validations passed - submit form to PHP
+    bookingForm.submit();
   });
 
   // ========================================
-  // REAL-TIME VALIDATION FEEDBACK
+  // REAL-TIME VISUAL FEEDBACK
   // ========================================
 
-  // Add real-time feedback for all inputs
   const allInputs = [patientName, patientEmail, patientPhone, serviceSelect, dentistSelect, appointmentDate, appointmentTime];
   
   allInputs.forEach(input => {
@@ -478,7 +447,7 @@
     });
 
     input.addEventListener('input', function() {
-      if (this.classList.contains('was-validated')) {
+      if (bookingForm.classList.contains('was-validated')) {
         if (this.checkValidity()) {
           this.classList.remove('is-invalid');
           this.classList.add('is-valid');
@@ -496,12 +465,10 @@
 
   const marquee = document.getElementById("welcomeMarquee");
 
-  // Function to add a leading zero to single digits
   function pad(n) {
     return n < 10 ? "0" + n : n;
   }
 
-  // Function to generate and update marquee content
   function updateMarquee() {
     const now = new Date();
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
