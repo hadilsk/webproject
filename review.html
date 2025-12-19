@@ -135,7 +135,18 @@
         </div>
 
     </section>
-
+<div class="row mt-4 mb-4">
+       
+    
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Search Reviews</h5>
+                <p class="card-text">Search for specific reviews using our PHP search page</p>
+                <a href="search_reviews.php" class="btn btn-success">Search Reviews</a>
+            </div>
+        </div>
+    
+</div>
 
 
     <div class="container my-5">
@@ -805,6 +816,106 @@
     }
 
   }
+  function validateReviewForm(event) {
+    event.preventDefault(); // Prevent immediate submission
+    
+    const form = event.target;
+    let isValid = true;
+    
+    // Clear previous error messages
+    document.querySelectorAll('.text-danger').forEach(el => el.remove());
+    document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    
+    // Helper function to show error
+    function showError(input, message) {
+        isValid = false;
+        if (input.classList) {
+            input.classList.add('is-invalid');
+        }
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'text-danger mt-1 small';
+        errorDiv.textContent = message;
+        
+        // Find where to insert error message
+        const parent = input.parentNode;
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            parent.parentNode.appendChild(errorDiv);
+        } else {
+            parent.appendChild(errorDiv);
+        }
+    }
+    
+    // Validate Rating (required, 1-5)
+    const ratingSelect = document.getElementById('reviewRating');
+    if (!ratingSelect.value) {
+        showError(ratingSelect, 'Please select a rating');
+    }
+    
+    // Validate Comments (required, min 10 chars)
+    const commentsTextarea = document.getElementById('reviewComments');
+    if (!commentsTextarea.value.trim()) {
+        showError(commentsTextarea, 'Please provide your comments');
+    } else if (commentsTextarea.value.trim().length < 10) {
+        showError(commentsTextarea, 'Comments must be at least 10 characters long');
+    }
+    
+    // Validate Consent Checkbox
+    const consentCheckbox = document.getElementById('reviewConsent');
+    if (!consentCheckbox.checked) {
+        showError(consentCheckbox, 'You must consent to publish your review');
+    }
+    
+    // Validate Recommendation Radio Buttons
+    const recommendRadios = document.querySelectorAll('input[name="recommend"]');
+    let radioChecked = false;
+    recommendRadios.forEach(radio => {
+        if (radio.checked) radioChecked = true;
+    });
+    if (!radioChecked) {
+        const radioGroup = document.querySelector('.form-check-inline').parentNode;
+        showError(radioGroup, 'Please select if you would recommend SmileCare');
+    }
+    
+    // If valid, show confirmation and submit
+    if (isValid) {
+        const name = document.getElementById('reviewName').value || 'Anonymous';
+        const rating = ratingSelect.options[ratingSelect.selectedIndex].text;
+        
+        if (confirm('Submit your review?\n\nName: ' + name + 
+                    '\nRating: ' + rating + 
+                    '\nComments: ' + commentsTextarea.value.substring(0, 50) + '...')) {
+            form.submit(); // Submit the form
+        }
+    }
+    
+    return false;
+}
+
+// Add event listener to form
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('reviewForm');
+    form.addEventListener('submit', validateReviewForm);
+    
+    // Add real-time validation
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value && this.value.trim()) {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    });
+    
+    // Special handling for consent checkbox
+    const consentCheckbox = document.getElementById('reviewConsent');
+    consentCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            this.classList.remove('is-invalid');
+        }
+    });
+});
+  
 
 
 
